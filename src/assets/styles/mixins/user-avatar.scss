@@ -1,0 +1,9 @@
+@mixin user-avatar($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid #dee0e7;
+  box-sizing: border-box;
+}

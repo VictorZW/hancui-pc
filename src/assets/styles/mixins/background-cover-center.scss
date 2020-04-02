@@ -1,0 +1,8 @@
+// 背景图居中覆盖
+@mixin background-cover-center($width, $height) {
+  width: $width;
+  height: $height;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid $gray-border;
+}

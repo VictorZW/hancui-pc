@@ -1,0 +1,8 @@
+@import './_mixins.scss';
+@import "./reset.scss";
+// ================================
+// 全局样式
+// ================================
+body {
+  background: $body-bg;
+}
