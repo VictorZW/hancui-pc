@@ -3,7 +3,9 @@
     <div class="header-inner">
       <div class="left">
         <span class="menu-btn menu-btn-active">首页</span>
-        <span class="menu-btn">产品展示</span>
+        <router-link to="/Products">
+          <span class="menu-btn">产品展示</span>
+        </router-link>
         <span class="menu-btn">芳疗学院</span>
       </div>
       <div class="logo"></div>

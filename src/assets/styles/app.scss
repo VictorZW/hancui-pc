@@ -6,3 +6,18 @@
 body {
   background: $body-bg;
 }
+
+#app {
+  height: 100%;
+}
+
+.page-content {
+  padding-top: 59px;
+  width: 1200px;
+  height: 100%;
+  margin: auto;
+}
+
+#pureFullPage .nav {
+  z-index: 100;
+}

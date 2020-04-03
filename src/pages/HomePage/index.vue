@@ -1,80 +1,77 @@
 <template>
-  <div id="pureFullPage" class="home-page">
-    <div class="page page-first"></div>
-    <div class="page page-second">
-      <div class="product-banner">
-        <div class="cover-model">
-          <!--产品文字说明-->
-          <div class="pro-msg">
-            <div class="pro-icon-area">
-              <div class="pro-icon pro-icon1"></div>
+  <div class="home-page">
+    <div id="pureFullPage">
+      <div class="page page-first"></div>
+      <div class="page page-second">
+        <div class="product-banner">
+          <div class="cover-model">
+            <!--产品文字说明-->
+            <div class="pro-msg">
+              <div class="pro-icon-area">
+                <div class="pro-icon pro-icon1"></div>
+              </div>
+              <div class="title">护肤品</div>
+              <div class="title">SKIN CARE</div>
+              <div class="detail">
+                汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
+              </div>
+              <div class="read-more">
+                <span>查看更多</span>
+              </div>
             </div>
-            <div class="title">护肤品</div>
-            <div class="title">SKIN CARE</div>
-            <div class="detail">
-              汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
+          </div>
+        </div>
+        <div class="product-banner">
+          <div class="cover-model">
+            <!--产品文字说明-->
+            <div class="pro-msg">
+              <div class="pro-icon-area">
+                <div class="pro-icon pro-icon1"></div>
+              </div>
+              <div class="title">护肤品</div>
+              <div class="title">SKIN CARE</div>
+              <div class="detail">
+                汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
+              </div>
+              <div class="read-more">
+                <span>查看更多</span>
+              </div>
             </div>
-            <div class="read-more">
-              <span>查看更多</span>
+          </div>
+        </div>
+        <div class="product-banner">
+          <div class="cover-model">
+            <!--产品文字说明-->
+            <div class="pro-msg">
+              <div class="pro-icon-area">
+                <div class="pro-icon pro-icon1"></div>
+              </div>
+              <div class="title">护肤品</div>
+              <div class="title">SKIN CARE</div>
+              <div class="detail">
+                汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
+              </div>
+              <div class="read-more">
+                <span>查看更多</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="product-banner">
-        <div class="cover-model">
-          <!--产品文字说明-->
-          <div class="pro-msg">
-            <div class="pro-icon-area">
-              <div class="pro-icon pro-icon1"></div>
-            </div>
-            <div class="title">护肤品</div>
-            <div class="title">SKIN CARE</div>
-            <div class="detail">
-              汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
-            </div>
-            <div class="read-more">
-              <span>查看更多</span>
-            </div>
-          </div>
-        </div>
+      <div class="page">
+        <p>Page 3</p>
       </div>
-      <div class="product-banner">
-        <div class="cover-model">
-          <!--产品文字说明-->
-          <div class="pro-msg">
-            <div class="pro-icon-area">
-              <div class="pro-icon pro-icon1"></div>
-            </div>
-            <div class="title">护肤品</div>
-            <div class="title">SKIN CARE</div>
-            <div class="detail">
-              汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
-            </div>
-            <div class="read-more">
-              <span>查看更多</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="page">
-      <p>Page 3</p>
     </div>
   </div>
 </template>
 
 <script>
-  import HelloWorld from '@/components/HelloWorld'
-
   export default {
     name: 'HomePage',
     data() {
       return {
         Msg: 'this is homepage'
       }
-    },
-    components: {
-      HelloWorld
     },
     mounted() {
       // 创建全屏滚动实例，传入动画回调函数，并初始化
@@ -86,16 +83,13 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "@/assets/styles/_mixins.scss";
 
-  html, body, #app {
-    overflow: hidden;
-    height: 100%;
-  }
   .home-page {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 
     .page {
       display: flex;
