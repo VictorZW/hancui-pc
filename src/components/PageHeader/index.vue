@@ -27,7 +27,7 @@
 <style lang="scss" scoped>
   .page-header {
     width: 100%;
-    height: 59px;
+    height: 0.94rem;
     background-color: #069163;
     opacity: 0.8;
     position: fixed;
@@ -36,7 +36,6 @@
     right: 0;
     z-index: 100;
     .header-inner {
-      width: 1200px;
       min-width: 1200px;
       height: 100%;
       margin: auto;
@@ -44,13 +43,13 @@
       align-items: center;
       justify-content: space-between;
       .logo {
-        width: 44px;
-        height: 44px;
+        width: 0.71rem;
+        height: 0.72rem;
         background-size: cover;
         background-image: url("~@IMG/LOGO.png");
         opacity: 1;
-        margin-left: 90px;
-        margin-right: 90px;
+        margin-left: 0.9rem;
+        margin-right: 0.9rem;
       }
       .left, .right {
         flex: 1;
@@ -63,16 +62,16 @@
       }
       .menu-btn {
         display: inline-block;
-        font-size: 11px;
+        font-size: 0.18rem;
         color: #FFFFFF;
-        padding: 4px 12px;
-        margin: 0 11px;
+        padding: 0.05rem 0.15rem;
+        margin: 0 0.11rem;
         cursor: pointer;
       }
       .menu-btn-active {
         color: #004033;
         background-color: #FFFFFF;
-        border-radius: 3px;
+        border-radius: 0.03rem;
       }
     }
   }

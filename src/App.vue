@@ -2,7 +2,9 @@
   <div id="app">
     <PageHeader/>
     <router-view/>
-    <PageFooter/>
+    <!--<PageFooter-->
+      <!--v-if="!showFooter"-->
+    <!--/>-->
   </div>
 </template>
 
@@ -14,6 +16,11 @@
     components: {
       PageHeader,
       PageFooter
+    },
+    computed: {
+      showFooter() {
+        return this.$route.name === 'HomePage'
+      }
     }
   }
 </script>

@@ -121,8 +121,8 @@
           }
         }
         .pro-msg {
-          width: 276px;
-          height: 276px;
+          width: 4.42rem;
+          height: 4.42rem;
           @include position-ab();
           z-index: 20;
           margin: auto;
@@ -130,38 +130,38 @@
           .pro-icon-area {
             display: flex;
             justify-content: center;
-            margin-top: 27px;
-            margin-bottom: 19px;
+            margin-top: 0.43rem;
+            margin-bottom: 0.3rem;
             .pro-icon {
-              width: 20px;
-              height: 21px;
+              width: 0.32rem;
+              height: 0.34rem;
             }
             .pro-icon1 {
               background-image: url("~@IMG/Skin-care.png");
-              @include background-cover-center(20px, 21px);
+              @include background-cover-center(0.32rem, 0.34rem);
             }
           }
           .title {
-            font-size: 10px;
+            font-size: 0.16rem;
             font-weight: 400;
             color: #FEFEFE;
             text-align: center;
-            padding-bottom: 4px;
+            padding-bottom: 0.07rem;
           }
           .detail {
-            font-size: 9px;
+            font-size: 0.14rem;
             color: #FEFEFE;
-            padding: 0 44px;
-            line-height: 1.2;
+            padding: 0.22rem 0.7rem 0;
+            line-height: 0.2rem;
           }
           .read-more {
             text-align: center;
             span {
               display: inline-block;
-              font-size: 10px;
+              font-size: 0.16rem;
               color: #FEFEFE;
-              padding: 9px 0;
-              border-bottom: 1px solid #FFFFFF;
+              padding: 0.34rem 0 0.15rem;
+              border-bottom: 0.02rem solid #FFFFFF;
               cursor: pointer;
             }
           }

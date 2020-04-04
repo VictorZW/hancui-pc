@@ -12,12 +12,22 @@ body {
 }
 
 .page-content {
-  padding-top: 59px;
-  width: 1200px;
+  padding-top: 0.94rem;
+  min-width: 1200px;
   height: 100%;
+  margin: auto;
+}
+
+.page-inner {
+  width: 12rem;
   margin: auto;
 }
 
 #pureFullPage .nav {
   z-index: 100;
+}
+
+.Breadcrumb {
+  font-size: 0.16rem;
+  color: #004033;
 }

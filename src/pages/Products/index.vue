@@ -1,9 +1,9 @@
 <template>
   <div class="Products page-content">
     <div class="banner"></div>
-    <div class="pro-content">
+    <div class="page-inner">
       <div class="brand-search">
-        <div class="brand">当前位置：首页/产品中心/护肤类</div>
+        <div class="Breadcrumb">当前位置：首页/产品中心/护肤类</div>
         <div class="search">搜索</div>
       </div>
       <div class="pro-list">
@@ -94,25 +94,21 @@
   .Products {
     .banner {
       width: 100%;
-      height: 437px;
+      height: 7rem;
       background-image: url("~@IMG/banner2.png");
+      background-size: cover;
     }
     .brand-search {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 10px;
-      height: 47px;
-      .brand {
-        font-size: inherit;
-        color: #004033;
-      }
+      height: 0.76rem;
       .search {
         font-size: inherit;
       }
     }
-    .pro-content {
-      width: 750px;
+    .page-inner {
+      width: 12rem;
       margin: auto;
       .pro-list {
         width: 100%;
@@ -120,44 +116,44 @@
         justify-content: space-between;
         flex-wrap: wrap;
         .pro-card {
-          width: 363px;
-          height: 206px;
+          width: 5.8rem;
+          height: 3.3rem;
           cursor: pointer;
           display: flex;
           align-items: center;
-          padding-right: 44px;
+          padding-left: 0.1rem;
+          padding-right: 0.7rem;
           background: rgba(255, 255, 255, 1);
           box-shadow: 0px 0px 13px 0px rgba(0, 64, 51, 0.15);
-          margin-bottom: 25px;
+          margin-bottom: 0.4rem;
           &:hover {
             transform: scale(1.06, 1.06);
             transition: transform .2s;
           }
           .pro-img {
-            width: 154px;
-            height: 154px;
-            margin-left: 6px;
-            margin-right: 17px;
+            width: 2.46rem;
+            height: 2.46rem;
+            margin-right: 0.27rem;
             img {
               width: 100%;
               height: 100%;
             }
           }
           .pro-text {
-            height: 154px;
+            height: 2.46rem;
             flex: 1;
             .title {
-              font-size: 11px;
+              font-size: 0.18rem;
               color: #333333;
               font-weight: 400;
-              padding-top: 51px;
+              padding-top: 0.82rem;
             }
             .description {
-              font-size: 10px;
+              font-size: 0.16rem;
               color: #333333;
               font-weight: 300;
-              padding-top: 13px;
-              line-height: 1.2;
+              padding-top: 0.21rem;
+              line-height: 1.4;
             }
           }
         }
