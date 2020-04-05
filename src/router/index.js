@@ -4,6 +4,7 @@ import HomePage from '@/pages/HomePage'
 import Products from '@/pages/Products'
 import ProductsDetail from '@/pages/ProductsDetail'
 import AboutUS from '@/pages/AboutUS'
+import NewsListPage from '@/pages/NewsListPage'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/AboutUS',
       name: 'AboutUS',
       component: AboutUS
+    },
+    {
+      path: '/NewsListPage',
+      name: 'NewsListPage',
+      component: NewsListPage
     }
   ]
 })

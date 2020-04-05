@@ -39,13 +39,13 @@
         <el-dropdown placement="bottom-start">
           <span class="el-dropdown-link menu-btn">企业资讯</span>
           <el-dropdown-menu slot="dropdown">
-            <router-link to="/Products">
+            <router-link to="/NewsListPage">
               <el-dropdown-item>实时资讯</el-dropdown-item>
             </router-link>
-            <router-link to="/Products">
+            <router-link to="/NewsListPage">
               <el-dropdown-item>芳疗资讯</el-dropdown-item>
             </router-link>
-            <router-link to="/Products">
+            <router-link to="/NewsListPage">
               <el-dropdown-item>科技资讯</el-dropdown-item>
             </router-link>
           </el-dropdown-menu>
