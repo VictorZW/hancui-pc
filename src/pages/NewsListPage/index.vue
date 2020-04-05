@@ -18,7 +18,7 @@
               研究院 建立产学研合作关系，在植物萃取应用方向开展课程以及设立国际芳疗师培训基地培育出一批迎合市场需求的芳疗师。
             </div>
             <div class="read-more">
-              <span>查看详情</span>
+              <span @click="toNewsDetailPage">查看详情</span>
             </div>
           </div>
           <div class="img-area"></div>
@@ -30,7 +30,14 @@
 
 <script>
   export default {
-    name: ''
+    name: '',
+    methods: {
+      toNewsDetailPage() {
+        this.$router.push({
+          name: 'NewsDetailPage'
+        })
+      }
+    }
   }
 </script>
 
@@ -85,9 +92,11 @@
         }
         .read-more {
           padding-top: 0.28rem;
-          .span {
+          span {
+            display: inline-block;
             font-size: 0.14rem;
             color: #333333;
+            cursor: pointer;
           }
         }
       }
