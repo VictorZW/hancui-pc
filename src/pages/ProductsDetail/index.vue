@@ -6,7 +6,15 @@
       </div>
       <div class="pro-des">
         <div class="pro-show">
+          <!--侧边三个轮播图-->
+          <div class="Stand-up-swiper">
+            <div class="pro-img-smail"></div>
+            <div class="pro-img-smail"></div>
+            <div class="pro-img-smail"></div>
+          </div>
+          <!--大的产品图-->
           <div class="pro-img"></div>
+          <!--右边的信息-->
           <div class="pro-msg">
             <div class="title">芊栢荟玫瑰纯露500ML/<span class="English">Rose Hydrosol</span></div>
             <div class="desc">护肤/保湿/补水</div>
@@ -94,16 +102,28 @@
     .pro-des {
       padding-top: 0.96rem;
       .pro-show {
+        height: 5.73rem;
         display: flex;
         align-items: center;
+        .Stand-up-swiper {
+          width: 1.5rem;
+          height: 100%;
+          margin-right: 0.16rem;
+          .pro-img-smail {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 0.16rem;
+            background-color: red;
+          }
+        }
         .pro-img {
           width: 5.17rem;
-          height: 5.73rem;
+          height: 100%;
           background: red;
         }
         .pro-msg {
           width: 4.65rem;
-          height: 5.73rem;
+          height: 100%;
           padding-left: 0.51rem;
           color: #333333;
           .title {

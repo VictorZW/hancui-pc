@@ -29,24 +29,24 @@
   .page-footer {
     background: #069163;
     .footer-content {
-      width: 1200px;
+      width: 12rem;
       margin: auto;
       .company-name {
-        font-size: 18px;
+        font-size: 0.18rem;
         color: #FFFFFF;
-        padding-top: 67px;
+        padding-top: 0.67rem;
       }
       .com-disc {
-        font-size: 14px;
+        font-size: 0.14rem;
         color: #FFFFFF;
-        margin-top: 21px;
-        margin-bottom: 71px;
+        margin-top: 0.21rem;
+        margin-bottom: 0.71rem;
       }
       .text-line {
         color: #FFFFFF;
-        padding-bottom: 56px;
+        padding-bottom: 0.56rem;
         span {
-          font-size: 18px;
+          font-size: 0.18rem;
         }
       }
     }

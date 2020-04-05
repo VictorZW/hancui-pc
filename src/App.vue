@@ -2,9 +2,9 @@
   <div id="app">
     <PageHeader/>
     <router-view/>
-    <!--<PageFooter-->
-      <!--v-if="!showFooter"-->
-    <!--/>-->
+    <PageFooter
+      v-if="!showFooter"
+    />
   </div>
 </template>
 

@@ -31,3 +31,16 @@ body {
   font-size: 0.16rem;
   color: #004033;
 }
+
+.el-dropdown-menu {
+  min-width: 1.2rem;
+  .el-dropdown-menu__item {
+    text-align: center;
+    font-size: 0.16rem;
+  }
+  .el-dropdown-menu__item:not(.is-disabled):hover {
+    background-color: #36A27B;
+    color: #FFFFFF;
+    opacity:0.5;
+  }
+}

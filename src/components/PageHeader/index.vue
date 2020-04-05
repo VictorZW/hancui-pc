@@ -2,17 +2,71 @@
   <div class="page-header">
     <div class="header-inner">
       <div class="left">
-        <span class="menu-btn menu-btn-active">首页</span>
-        <router-link to="/Products">
-          <span class="menu-btn">产品展示</span>
+        <router-link to="/">
+          <span class="menu-btn menu-btn-active">首页</span>
         </router-link>
-        <span class="menu-btn">芳疗学院</span>
+        <el-dropdown placement="bottom-start">
+          <span class="el-dropdown-link menu-btn">产品展示</span>
+          <el-dropdown-menu slot="dropdown">
+            <router-link to="/Products">
+              <el-dropdown-item>护肤类</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>精油类</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>原料类</el-dropdown-item>
+            </router-link>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown placement="bottom-start">
+          <span class="el-dropdown-link menu-btn">芳疗学院</span>
+          <el-dropdown-menu slot="dropdown">
+            <router-link to="/Products">
+              <el-dropdown-item>芳疗培训</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>芳疗师主页</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>芳疗图书馆</el-dropdown-item>
+            </router-link>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
       <div class="logo"></div>
       <div class="right">
-        <span class="menu-btn">企业资讯</span>
-        <span class="menu-btn">关于我们</span>
-        <span class="menu-btn">联系我们</span>
+        <el-dropdown placement="bottom-start">
+          <span class="el-dropdown-link menu-btn">企业资讯</span>
+          <el-dropdown-menu slot="dropdown">
+            <router-link to="/Products">
+              <el-dropdown-item>实时资讯</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>芳疗资讯</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>科技资讯</el-dropdown-item>
+            </router-link>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown placement="bottom-start">
+          <span class="el-dropdown-link menu-btn">关于我们</span>
+          <el-dropdown-menu slot="dropdown">
+            <router-link to="/Products">
+              <el-dropdown-item>公司简介</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>企业文化</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>核心技术</el-dropdown-item>
+            </router-link>
+            <router-link to="/Products">
+              <el-dropdown-item>联系我们</el-dropdown-item>
+            </router-link>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
     </div>
   </div>
