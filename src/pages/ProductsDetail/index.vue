@@ -23,13 +23,68 @@
           </div>
         </div>
       </div>
+      <div class="use-text">
+        <div class="block">
+          <div class="title">使用范围</div>
+          <div class="desc">
+            各种肌肤质护理，可与千栢荟活性肽
+            冻干粉配合使用或与护肤乳霜、植物
+            精油配合使用。
+          </div>
+        </div>
+        <div class="block">
+          <div class="title">使用范围</div>
+          <div class="desc">
+            各种肌肤质护理，可与千栢荟活性肽
+            冻干粉配合使用或与护肤乳霜、植物
+            精油配合使用。
+          </div>
+        </div>
+        <div class="block">
+          <div class="title">使用范围</div>
+          <div class="desc">
+            各种肌肤质护理，可与千栢荟活性肽
+            冻干粉配合使用或与护肤乳霜、植物
+            精油配合使用。
+          </div>
+        </div>
+      </div>
+      <!--更多产品-->
+      <div class="more-pro-area">
+        <div class="area-title">更多产品</div>
+        <div class="english">More products</div>
+      </div>
+      <!--分割线条-->
+      <div class="page-line"></div>
+    </div>
+    <div class="pro-swiper-area">
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide class="pro-area">Slide 1</swiper-slide>
+        <swiper-slide class="pro-area">Slide 2</swiper-slide>
+        <swiper-slide class="pro-area">Slide 3</swiper-slide>
+        <swiper-slide class="pro-area">Slide 4</swiper-slide>
+        <swiper-slide class="pro-area">Slide 5</swiper-slide>
+        <swiper-slide class="pro-area">Slide 6</swiper-slide>
+        <swiper-slide class="pro-area">Slide 7</swiper-slide>
+        <swiper-slide class="pro-area">Slide 8</swiper-slide>
+        <swiper-slide class="pro-area">Slide 9</swiper-slide>
+        <swiper-slide class="pro-area">Slide 10</swiper-slide>
+      </swiper>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'ProductsDetail'
+    name: 'ProductsDetail',
+    data() {
+      return {
+        swiperOption: {
+          slidesPerView: 'auto',
+          autoplay: true
+        }
+      }
+    }
   }
 </script>
 
@@ -108,6 +163,71 @@
             line-height: 1.4;
           }
         }
+      }
+    }
+    .use-text {
+      display: flex;
+      padding-top: 1rem;
+      .block {
+        width: 33.33%;
+        .title {
+          font-size: 0.24rem;
+          color: #069163;
+          text-align: center;
+          padding-bottom: 0.32rem;
+        }
+        .desc {
+          font-size: 0.16rem;
+          color: #666666;
+          text-align: center;
+          padding: 0 0.68rem;
+          height: 1.6rem;
+          margin: auto;
+          line-height: 1.4;
+          border-right: 0.01rem dotted #333333;
+        }
+        &:last-child {
+          .desc {
+            border: none;
+          }
+        }
+      }
+    }
+    .more-pro-area {
+      padding-top: 0.32rem;
+      text-align: center;
+      .area-title {
+        font-size: 0.24rem;
+        color: #068F61;
+      }
+      .english {
+        font-size: 0.12rem;
+        color: #069163;
+        padding-top: 0.11rem;
+        padding-bottom: 0.41rem;
+      }
+    }
+  }
+  .page-line {
+    width: 12rem;
+    border-bottom: 0.01rem solid #1BB284;
+    margin: auto;
+  }
+  .pro-swiper-area {
+    padding: 0.42rem 0 0.5rem;
+    /deep/ .swiper-container {
+      overflow: visible;
+    }
+    .pro-area {
+      width: 2.7rem;
+      height: 3.4rem;
+      background: red;
+      cursor: pointer;
+      margin-right: 0.3rem;
+      font-size: 16px;
+      &:hover {
+        transform: scale(1.11, 1.11);
+        transition: transform .2s;
       }
     }
   }

@@ -7,7 +7,7 @@
         <div class="search">搜索</div>
       </div>
       <div class="pro-list">
-        <div class="pro-card">
+        <div class="pro-card" @click="toProDetailPage">
           <div class="pro-img">
             <img src="~@IMG/banner2.png" alt="">
           </div>
@@ -86,7 +86,14 @@
 
 <script>
   export default {
-    name: 'Products'
+    name: 'Products',
+    methods: {
+      toProDetailPage() {
+        this.$router.push({
+          name: 'ProductsDetail'
+        })
+      }
+    }
   }
 </script>
 
