@@ -105,15 +105,6 @@
       background-image: url("~@IMG/banner2.png");
       background-size: cover;
     }
-    .brand-search {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 0.76rem;
-      .search {
-        font-size: inherit;
-      }
-    }
     .page-inner {
       width: 12rem;
       margin: auto;

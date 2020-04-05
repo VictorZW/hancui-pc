@@ -27,11 +27,7 @@ body {
   z-index: 100;
 }
 
-.Breadcrumb {
-  font-size: 0.16rem;
-  color: #004033;
-}
-
+// header下拉菜单
 .el-dropdown-menu {
   min-width: 1.2rem;
   .el-dropdown-menu__item {
@@ -43,4 +39,36 @@ body {
     color: #FFFFFF;
     opacity:0.5;
   }
+}
+
+// 每页都有的banner图
+.page-banner {
+  width: 100%;
+  height: 7rem;
+}
+
+.brand-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 0.76rem;
+  // 面包线
+  .Breadcrumb {
+    font-size: 0.16rem;
+    color: #004033;
+  }
+  .search {
+    font-size: inherit;
+  }
+}
+
+.page-inner {
+  width: 12rem;
+  margin: auto;
+}
+
+.page-line {
+  width: 100%;
+  border-bottom: 0.01rem dotted #1BB284;
+  margin: auto;
 }

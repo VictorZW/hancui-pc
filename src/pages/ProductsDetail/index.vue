@@ -228,11 +228,6 @@
       }
     }
   }
-  .page-line {
-    width: 12rem;
-    border-bottom: 0.01rem solid #1BB284;
-    margin: auto;
-  }
   .pro-swiper-area {
     padding: 0.42rem 0 0.5rem;
     /deep/ .swiper-container {

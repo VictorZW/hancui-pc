@@ -50,23 +50,9 @@
             </router-link>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-dropdown placement="bottom-start">
-          <span class="el-dropdown-link menu-btn">关于我们</span>
-          <el-dropdown-menu slot="dropdown">
-            <router-link to="/Products">
-              <el-dropdown-item>公司简介</el-dropdown-item>
-            </router-link>
-            <router-link to="/Products">
-              <el-dropdown-item>企业文化</el-dropdown-item>
-            </router-link>
-            <router-link to="/Products">
-              <el-dropdown-item>核心技术</el-dropdown-item>
-            </router-link>
-            <router-link to="/Products">
-              <el-dropdown-item>联系我们</el-dropdown-item>
-            </router-link>
-          </el-dropdown-menu>
-        </el-dropdown>
+        <router-link to="/AboutUS">
+          <span class="menu-btn">关于我们</span>
+        </router-link>
       </div>
     </div>
   </div>
@@ -83,7 +69,6 @@
     width: 100%;
     height: 0.94rem;
     background-color: #069163;
-    opacity: 0.8;
     position: fixed;
     top: 0;
     left: 0;
