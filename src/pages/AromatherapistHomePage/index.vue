@@ -19,7 +19,9 @@
         </div>
         <div class="right">
           <swiper class="swiper" :options="swiperOption">
-            <swiper-slide class="slide-card">Slide 1</swiper-slide>
+            <swiper-slide class="slide-card">
+              <span class="toPersonalPage" @click="toPersonalPage">查看更多</span>
+            </swiper-slide>
             <swiper-slide class="slide-card">Slide 2</swiper-slide>
             <swiper-slide class="slide-card">Slide 3</swiper-slide>
             <swiper-slide class="slide-card">Slide 4</swiper-slide>
@@ -51,6 +53,14 @@
             clickable: true
           }
         }
+      }
+    },
+    methods: {
+      toPersonalPage() {
+        console.log('111')
+        this.$router.push({
+          name: 'PersonalPage'
+        })
       }
     }
   }
@@ -105,6 +115,9 @@
               width: 2.92rem !important;
               height: 3.53rem !important;
               background-color: #069163;
+              .toPersonalPage {
+                cursor: pointer;
+              }
             }
           }
           /deep/ .swiper-pagination-bullet {

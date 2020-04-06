@@ -8,6 +8,7 @@ import NewsListPage from '@/pages/NewsListPage'
 import NewsDetailPage from '@/pages/NewsDetailPage'
 import TrainingPage from '@/pages/TrainingPage'
 import AromatherapistHomePage from '@/pages/AromatherapistHomePage'
+import PersonalPage from '@/pages/PersonalPage'
 
 Vue.use(Router)
 
@@ -53,6 +54,11 @@ export default new Router({
       path: '/AromatherapistHomePage',
       name: 'AromatherapistHomePage',
       component: AromatherapistHomePage
+    },
+    {
+      path: '/PersonalPage',
+      name: 'PersonalPage',
+      component: PersonalPage
     }
   ]
 })
