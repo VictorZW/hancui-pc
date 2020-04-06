@@ -22,13 +22,13 @@
         <el-dropdown placement="bottom-start">
           <span class="el-dropdown-link menu-btn">芳疗学院</span>
           <el-dropdown-menu slot="dropdown">
-            <router-link to="/Products">
+            <router-link to="/TrainingPage">
               <el-dropdown-item>芳疗培训</el-dropdown-item>
             </router-link>
-            <router-link to="/Products">
+            <router-link to="/TrainingPage">
               <el-dropdown-item>芳疗师主页</el-dropdown-item>
             </router-link>
-            <router-link to="/Products">
+            <router-link to="/TrainingPage">
               <el-dropdown-item>芳疗图书馆</el-dropdown-item>
             </router-link>
           </el-dropdown-menu>
