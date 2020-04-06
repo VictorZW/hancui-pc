@@ -9,6 +9,7 @@ import NewsDetailPage from '@/pages/NewsDetailPage'
 import TrainingPage from '@/pages/TrainingPage'
 import AromatherapistHomePage from '@/pages/AromatherapistHomePage'
 import PersonalPage from '@/pages/PersonalPage'
+import LibraryPage from '@/pages/LibraryPage'
 
 Vue.use(Router)
 
@@ -59,6 +60,11 @@ export default new Router({
       path: '/PersonalPage',
       name: 'PersonalPage',
       component: PersonalPage
+    },
+    {
+      path: '/LibraryPage',
+      name: 'LibraryPage',
+      component: LibraryPage
     }
   ]
 })
