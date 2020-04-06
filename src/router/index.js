@@ -7,6 +7,7 @@ import AboutUS from '@/pages/AboutUS'
 import NewsListPage from '@/pages/NewsListPage'
 import NewsDetailPage from '@/pages/NewsDetailPage'
 import TrainingPage from '@/pages/TrainingPage'
+import AromatherapistHomePage from '@/pages/AromatherapistHomePage'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/TrainingPage',
       name: 'TrainingPage',
       component: TrainingPage
+    },
+    {
+      path: '/AromatherapistHomePage',
+      name: 'AromatherapistHomePage',
+      component: AromatherapistHomePage
     }
   ]
 })

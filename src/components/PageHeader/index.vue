@@ -25,7 +25,7 @@
             <router-link to="/TrainingPage">
               <el-dropdown-item>芳疗培训</el-dropdown-item>
             </router-link>
-            <router-link to="/TrainingPage">
+            <router-link to="/AromatherapistHomePage">
               <el-dropdown-item>芳疗师主页</el-dropdown-item>
             </router-link>
             <router-link to="/TrainingPage">
