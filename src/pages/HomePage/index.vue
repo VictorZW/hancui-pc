@@ -58,8 +58,29 @@
           </div>
         </div>
       </div>
-      <div class="page">
-        <p>Page 3</p>
+      <div class="page page3">
+        <div class="left-area">
+          <div class="left-inner">
+            <div class="click-area">
+              <div class="click-line">
+                <span class="line"></span>
+                <span class="text">芳疗培训</span>
+              </div>
+              <div class="click-line">
+                <span class="line"></span>
+                <span class="text">芳疗师主页</span>
+              </div>
+              <div class="click-line">
+                <span class="line"></span>
+                <span class="text">芳疗图书馆</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-area">
+          <div class="page3-slide">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -90,6 +111,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+    background-color: rgba(6, 145, 99, 0.9);
 
     .page {
       display: flex;
@@ -169,12 +191,45 @@
       }
     }
 
+    .page3 {
+      background-image: url("~@IMG/page2bg.png");
+      @include background-cover-center();
+      .left-area {
+        width: 4.16rem;
+        height: 100%;
+        .left-inner {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .click-area {
+            .click-line {
+              padding: 0.24rem 0;
+              .line {
+                width: 0.3rem;
+                height: 0.04rem;
+                background-color: #8CD8BE;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 0.3rem;
+              }
+              .text {
+                font-size: 0.18rem;
+                color: #8CD8BE;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+      .right-area {
+        flex: 1;
+        height: 100%;
+      }
+    }
     .page p {
       font-size: 66px;
-    }
-
-    .page:nth-child(3) {
-      background: lightskyblue no-repeat center/cover;
     }
   }
 </style>
