@@ -230,6 +230,7 @@
   }
   .pro-swiper-area {
     padding: 0.42rem 0 0.5rem;
+    overflow: hidden;
     /deep/ .swiper-container {
       overflow: visible;
     }

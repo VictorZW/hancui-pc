@@ -78,7 +78,24 @@
           </div>
         </div>
         <div class="right-area">
-          <div class="page3-slide">
+          <div class="right-box">
+            <div class="page3-slide">
+              <swiper class="swiper" :options="swiperOption">
+                <swiper-slide class="pro-area">Slide 1</swiper-slide>
+                <swiper-slide class="pro-area">Slide 2</swiper-slide>
+                <swiper-slide class="pro-area">Slide 3</swiper-slide>
+                <swiper-slide class="pro-area">Slide 4</swiper-slide>
+                <swiper-slide class="pro-area">Slide 5</swiper-slide>
+                <swiper-slide class="pro-area">Slide 6</swiper-slide>
+                <swiper-slide class="pro-area">Slide 7</swiper-slide>
+                <swiper-slide class="pro-area">Slide 8</swiper-slide>
+                <swiper-slide class="pro-area">Slide 9</swiper-slide>
+                <swiper-slide class="pro-area">Slide 10</swiper-slide>
+                <div class="swiper-pagination" slot="pagination"></div>
+                <div class="swiper-button-prev-new" slot="button-prev"></div>
+                <div class="swiper-button-next-new" slot="button-next"></div>
+              </swiper>
+            </div>
           </div>
         </div>
       </div>
@@ -91,7 +108,19 @@
     name: 'HomePage',
     data() {
       return {
-        Msg: 'this is homepage'
+        Msg: 'this is homepage',
+        swiperOption: {
+          slidesPerView: 'auto',
+          autoplay: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          }
+        }
       }
     },
     mounted() {
@@ -115,8 +144,6 @@
 
     .page {
       display: flex;
-      justify-content: center;
-      align-items: center;
     }
     .page-first {
       background-image: url("~@IMG/1.jpg");
@@ -195,7 +222,7 @@
       background-image: url("~@IMG/page2bg.png");
       @include background-cover-center();
       .left-area {
-        width: 4.16rem;
+        flex: 1;
         height: 100%;
         .left-inner {
           width: 100%;
@@ -224,8 +251,62 @@
         }
       }
       .right-area {
-        flex: 1;
+        width: 15.51rem;
         height: 100%;
+        .right-box {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          .page3-slide {
+            width: 100%;
+            height: 4.73rem;
+            padding-left: 0.47rem;
+            /deep/ .swiper-container {
+              overflow: visible;
+            }
+            .pro-area {
+              width: 3.22rem;
+              height: 4.73rem;
+              background-color: red;
+              margin-right: 0.25rem;
+              cursor: pointer;
+              &:hover {
+                transform: scale(1.1, 1.1);
+                transition: transform .2s;
+              }
+            }
+
+            .swiper-button-prev-new {
+              width: 0.97rem;
+              height: 0.97rem;
+              background-image: url("~@IMG/left.png");
+              background-size: cover;
+              cursor: pointer;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              margin: auto;
+              z-index: 100;
+              left: -0.47rem;
+            }
+            .swiper-button-next-new {
+              width: 0.97rem;
+              height: 0.97rem;
+              background-image: url("~@IMG/right.png");
+              background-size: cover;
+              cursor: pointer;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              margin: auto;
+              z-index: 100;
+              right: 0.15rem;
+            }
+          }
+        }
       }
     }
     .page p {
