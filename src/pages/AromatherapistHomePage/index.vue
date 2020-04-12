@@ -55,6 +55,7 @@
           slidesPerView: 3,
           slidesPerColumn: 2,
           spaceBetween : 46,
+          slidesPerColumnFill : 'row',
           pagination: {
             el: '.swiper-pagination',
             clickable: true

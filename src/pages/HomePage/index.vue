@@ -90,6 +90,25 @@
                 <div class="swiper-button-next-new" slot="button-next"></div>
               </swiper>
             </div>
+            <div class="page3-slide" v-if="page3Index === 3">
+              <swiper class="swiper" :options="swiperOption">
+                <swiper-slide
+                  class="pro-area"
+                  v-for="item in libraryData"
+                  :key="item.id"
+                  :style="{ backgroundImage: 'url(' + item.thumb + ')' }"
+                >
+                  <div class="teacher-msg">
+                    <div class="line1">
+                      <span class="job">{{ item.title }}</span>
+                    </div>
+                  </div>
+                </swiper-slide>
+                <!--<div class="swiper-pagination" slot="pagination"></div>-->
+                <div class="swiper-button-prev-new" slot="button-prev"></div>
+                <div class="swiper-button-next-new" slot="button-next"></div>
+              </swiper>
+            </div>
           </div>
         </div>
       </div>
@@ -101,7 +120,8 @@
   import {
     homapageBannerApi,
     productCateApi,
-    teacherListApi
+    teacherListApi,
+    newsListApi
   } from '@/apis/index'
 
   export default {
@@ -122,8 +142,9 @@
         },
         homePageBanner: [],
         productCate: [],
-        page3Index: 2,
-        teacherList: []
+        page3Index: 1,
+        teacherList: [],
+        libraryData: []
       }
     },
     mounted() {
@@ -135,6 +156,7 @@
       this.getHomepageBanner()
       this.getProductCate()
       this.getTeacherList()
+      this.getLibraryData()
     },
     methods: {
       getHomepageBanner() {
@@ -152,6 +174,17 @@
         teacherListApi().then(res => {
           console.log(res)
           this.teacherList = JSON.parse(JSON.stringify(res.result))
+        })
+      },
+      getLibraryData() {
+        const params = {
+          type_id: 4,
+          page: this.page,
+          size: this.size,
+          keyword: this.keyword
+        }
+        newsListApi(params).then(res => {
+          this.libraryData = JSON.parse(JSON.stringify(res.result))
         })
       },
       choosePage3Index(index) {
