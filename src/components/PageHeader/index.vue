@@ -6,15 +6,21 @@
           <span class="menu-btn menu-btn-active">首页</span>
         </router-link>
         <el-dropdown placement="bottom-start">
-          <span class="el-dropdown-link menu-btn">产品展示</span>
+          <span class="el-dropdown-link menu-btn">产品服务</span>
           <el-dropdown-menu slot="dropdown">
-            <router-link to="/Products">
+            <router-link
+              :to="{ name: 'Products', params: { type: 1 }}"
+            >
               <el-dropdown-item>护肤类</el-dropdown-item>
             </router-link>
-            <router-link to="/Products">
+            <router-link
+              :to="{ name: 'Products', params: { type: 2 }}"
+            >
               <el-dropdown-item>精油类</el-dropdown-item>
             </router-link>
-            <router-link to="/Products">
+            <router-link
+              :to="{ name: 'Products', params: { type: 3 }}"
+            >
               <el-dropdown-item>原料类</el-dropdown-item>
             </router-link>
           </el-dropdown-menu>

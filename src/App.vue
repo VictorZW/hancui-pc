@@ -2,9 +2,9 @@
   <div id="app">
     <PageHeader/>
     <router-view/>
-    <!--<PageFooter-->
-      <!--v-if="!showFooter"-->
-    <!--/>-->
+    <PageFooter
+      v-if="hideFooter"
+    />
   </div>
 </template>
 
@@ -18,9 +18,12 @@
       PageFooter
     },
     computed: {
-      showFooter() {
-        return this.$route.name === 'HomePage'
-      }
+      hideHeader() {
+        return !this.$route.meta.hideHeader
+      },
+      hideFooter() {
+        return !this.$route.meta.hideFooter
+      },
     }
   }
 </script>

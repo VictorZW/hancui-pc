@@ -3,80 +3,46 @@
     <div class="banner"></div>
     <div class="page-inner">
       <div class="brand-search">
-        <div class="Breadcrumb">当前位置：首页/产品中心/护肤类</div>
-        <div class="search">搜索</div>
+        <div class="Breadcrumb">当前位置：首页/产品服务/{{ brandName }}</div>
+        <div class="search">
+          <el-input
+            placeholder="输入要搜索的内容"
+            prefix-icon="el-icon-search"
+            v-model="keyword"
+            clearable
+            @change="searchData"
+          >
+          </el-input>
+        </div>
+      </div>
+      <div class="cate-area">
+        <div class="tab-area">
+          <div class="tab first"
+               @click="changeProType(1)"
+               :class="[(proType === 1) ? 'tab-active' : '']"
+          >护肤类</div>
+          <div class="tab"
+               @click="changeProType(2)"
+               :class="[(proType === 2) ? 'tab-active' : '']"
+          >精油类</div>
+          <div class="tab second"
+               @click="changeProType(3)"
+               :class="[(proType === 3) ? 'tab-active' : '']"
+          >原料类</div>
+        </div>
       </div>
       <div class="pro-list">
-        <div class="pro-card" @click="toProDetailPage">
+        <div class="pro-card"
+             @click="toProDetailPage(item.id)"
+             v-for="item in ProductList"
+             :key="item.id"
+        >
           <div class="pro-img">
-            <img src="~@IMG/banner2.png" alt="">
+            <img :src="item.logo" alt="">
           </div>
           <div class="pro-text">
-            <div class="title">玫瑰纯露500ml</div>
-            <div class="description">纯天然 正品 补水保湿 提亮肤色  温和嫩肤 女神必备 清爽 吸收快 </div>
-          </div>
-        </div>
-        <div class="pro-card">
-          <div class="pro-img">
-            <img src="~@IMG/banner2.png" alt="">
-          </div>
-          <div class="pro-text">
-            <div class="title">玫瑰纯露500ml</div>
-            <div class="description">纯天然 正品 补水保湿 提亮肤色  温和嫩肤 女神必备 清爽 吸收快 </div>
-          </div>
-        </div>
-        <div class="pro-card">
-          <div class="pro-img">
-            <img src="~@IMG/banner2.png" alt="">
-          </div>
-          <div class="pro-text">
-            <div class="title">玫瑰纯露500ml</div>
-            <div class="description">纯天然 正品 补水保湿 提亮肤色  温和嫩肤 女神必备 清爽 吸收快 </div>
-          </div>
-        </div>
-        <div class="pro-card">
-          <div class="pro-img">
-            <img src="~@IMG/banner2.png" alt="">
-          </div>
-          <div class="pro-text">
-            <div class="title">玫瑰纯露500ml</div>
-            <div class="description">纯天然 正品 补水保湿 提亮肤色  温和嫩肤 女神必备 清爽 吸收快 </div>
-          </div>
-        </div>
-        <div class="pro-card">
-          <div class="pro-img">
-            <img src="~@IMG/banner2.png" alt="">
-          </div>
-          <div class="pro-text">
-            <div class="title">玫瑰纯露500ml</div>
-            <div class="description">纯天然 正品 补水保湿 提亮肤色  温和嫩肤 女神必备 清爽 吸收快 </div>
-          </div>
-        </div>
-        <div class="pro-card">
-          <div class="pro-img">
-            <img src="~@IMG/banner2.png" alt="">
-          </div>
-          <div class="pro-text">
-            <div class="title">玫瑰纯露500ml</div>
-            <div class="description">纯天然 正品 补水保湿 提亮肤色  温和嫩肤 女神必备 清爽 吸收快 </div>
-          </div>
-        </div>
-        <div class="pro-card">
-          <div class="pro-img">
-            <img src="~@IMG/banner2.png" alt="">
-          </div>
-          <div class="pro-text">
-            <div class="title">玫瑰纯露500ml</div>
-            <div class="description">纯天然 正品 补水保湿 提亮肤色  温和嫩肤 女神必备 清爽 吸收快 </div>
-          </div>
-        </div>
-        <div class="pro-card">
-          <div class="pro-img">
-            <img src="~@IMG/banner2.png" alt="">
-          </div>
-          <div class="pro-text">
-            <div class="title">玫瑰纯露500ml</div>
-            <div class="description">纯天然 正品 补水保湿 提亮肤色  温和嫩肤 女神必备 清爽 吸收快 </div>
+            <div class="title">{{ item.title }}</div>
+            <div class="description">{{ item.sub_title }}</div>
           </div>
         </div>
       </div>
@@ -85,13 +51,75 @@
 </template>
 
 <script>
+  import {
+    productListApi
+  } from '@/apis/index'
+
   export default {
     name: 'Products',
+    data() {
+      return {
+        proType: 1, // 产品类型1：护肤，2：精油，3：原料
+        page: 1,
+        size: 100,
+        keyword: '',
+        ProductList: []
+      }
+    },
+    mounted() {
+      this.proType = Number(this.$route.params.type)
+      this.getProductList()
+    },
+    watch: {
+      $route: {
+        handler: function(){
+          this.proType = Number(this.$route.params.type)
+          this.getProductList()
+        },
+        deep: true
+      }
+    },
+    computed: {
+      brandName() {
+        if (this.proType === 1) {
+          return '护肤类'
+        } else if (this.proType === 2) {
+          return '精油类'
+        } else {
+          return '原料类'
+        }
+      }
+    },
     methods: {
-      toProDetailPage() {
+      toProDetailPage(id) {
         this.$router.push({
-          name: 'ProductsDetail'
+          name: 'ProductsDetail',
+          params: {
+            id: id
+          }
         })
+      },
+      changeProType(type) {
+        this.$router.push({
+          name: 'Products',
+          params: { type: type }
+        })
+        this.getProductList()
+      },
+      getProductList() {
+        const params = {
+          type_id: this.proType,
+          page: this.page,
+          size: this.size,
+          keyword: this.keyword
+        }
+        productListApi(params).then(res => {
+          this.ProductList = JSON.parse(JSON.stringify(res.result))
+        })
+      },
+      searchData(keyword) {
+        this.keyword = keyword
+        this.getProductList()
       }
     }
   }
@@ -104,6 +132,9 @@
       height: 7rem;
       background-image: url("~@IMG/banner2.png");
       background-size: cover;
+    }
+    .cate-area {
+      padding-bottom: 0.46rem;
     }
     .page-inner {
       width: 12rem;

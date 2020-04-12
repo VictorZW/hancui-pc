@@ -19,52 +19,93 @@ export default new Router({
     {
       path: '/',
       name: 'HomePage',
-      component: HomePage
+      component: HomePage,
+      meta: {
+        hideHeader: false,
+        hideFooter: true,
+        keepAlive: false
+      }
     },
     {
-      path: '/Products',
+      path: '/Products/:type',
       name: 'Products',
-      component: Products
+      component: Products,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     },
     {
-      path: '/ProductsDetail',
+      path: '/ProductsDetail/:id',
       name: 'ProductsDetail',
-      component: ProductsDetail
+      component: ProductsDetail,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     },
     {
       path: '/AboutUS',
       name: 'AboutUS',
-      component: AboutUS
+      component: AboutUS,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     },
     {
       path: '/NewsListPage',
       name: 'NewsListPage',
-      component: NewsListPage
+      component: NewsListPage,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     },
     {
       path: '/NewsDetailPage',
       name: 'NewsDetailPage',
-      component: NewsDetailPage
+      component: NewsDetailPage,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     },
     {
       path: '/TrainingPage',
       name: 'TrainingPage',
-      component: TrainingPage
+      component: TrainingPage,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     },
     {
       path: '/AromatherapistHomePage',
       name: 'AromatherapistHomePage',
-      component: AromatherapistHomePage
+      component: AromatherapistHomePage,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     },
     {
       path: '/PersonalPage',
       name: 'PersonalPage',
-      component: PersonalPage
+      component: PersonalPage,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     },
     {
       path: '/LibraryPage',
       name: 'LibraryPage',
-      component: LibraryPage
+      component: LibraryPage,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
+      }
     }
   ]
 })

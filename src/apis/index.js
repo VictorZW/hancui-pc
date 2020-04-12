@@ -18,3 +18,11 @@ export const productCateApi = params =>
 // 芳疗师列表
 export const teacherListApi = params =>
   axios.get(`${BaseUrl}/api/teacher/list`, { params })
+
+// 产品列表
+export const productListApi = params =>
+  axios.get(`${BaseUrl}/api/product/list`, { params })
+
+// 产品详情
+export const productDetailApi = params =>
+  axios.get(`${BaseUrl}/api/product/detail`, { params })

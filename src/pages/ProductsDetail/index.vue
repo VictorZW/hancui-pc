@@ -8,53 +8,43 @@
         <div class="pro-show">
           <!--侧边三个轮播图-->
           <div class="Stand-up-swiper">
-            <div class="pro-img-smail"></div>
-            <div class="pro-img-smail"></div>
-            <div class="pro-img-smail"></div>
+            <div class="pro-img-smail"
+                 v-for="item in ProductDetail.imgs"
+                 :key="item"
+                 :style="{ backgroundImage: 'url(' + item + ')' }"
+            ></div>
           </div>
           <!--大的产品图-->
-          <div class="pro-img"></div>
+          <div class="pro-img"
+               :style="{ backgroundImage: 'url(' + ProductDetail.logo + ')' }"
+          ></div>
           <!--右边的信息-->
           <div class="pro-msg">
-            <div class="title">芊栢荟玫瑰纯露500ML/<span class="English">Rose Hydrosol</span></div>
-            <div class="desc">护肤/保湿/补水</div>
+            <div class="title">{{ ProductDetail.title }}/<span class="English">Rose Hydrosol</span></div>
+            <div class="desc">{{ ProductDetail.sub_title }}</div>
             <div class="price">
               <span class="size">500mL</span>
-              <span class="num">￥298.00</span>
+              <span class="num">￥{{ ProductDetail.origin_price }}</span>
             </div>
             <div class="to-buy-btn">购买产品</div>
             <div class="line"></div>
             <div class="work-title">功效</div>
-            <div class="work-des">
-              纯天然 正品 补水保湿 提亮肤色 温和嫩肤 女神必备 清爽 吸收快
-            </div>
+            <div class="work-des">{{ ProductDetail.effect }}</div>
           </div>
         </div>
       </div>
       <div class="use-text">
         <div class="block">
           <div class="title">使用范围</div>
-          <div class="desc">
-            各种肌肤质护理，可与千栢荟活性肽
-            冻干粉配合使用或与护肤乳霜、植物
-            精油配合使用。
-          </div>
+          <div class="desc">{{ ProductDetail.apply_scope }}</div>
         </div>
         <div class="block">
-          <div class="title">使用范围</div>
-          <div class="desc">
-            各种肌肤质护理，可与千栢荟活性肽
-            冻干粉配合使用或与护肤乳霜、植物
-            精油配合使用。
-          </div>
+          <div class="title">核心成分</div>
+          <div class="desc">{{ ProductDetail.nuclear }}</div>
         </div>
         <div class="block">
-          <div class="title">使用范围</div>
-          <div class="desc">
-            各种肌肤质护理，可与千栢荟活性肽
-            冻干粉配合使用或与护肤乳霜、植物
-            精油配合使用。
-          </div>
+          <div class="title">使用方法</div>
+          <div class="desc">{{ ProductDetail.usage_method }}</div>
         </div>
       </div>
       <!--更多产品-->
@@ -83,6 +73,10 @@
 </template>
 
 <script>
+  import {
+    productDetailApi
+  } from '@/apis/index'
+
   export default {
     name: 'ProductsDetail',
     data() {
@@ -90,7 +84,22 @@
         swiperOption: {
           slidesPerView: 'auto',
           autoplay: true
+        },
+        ProductDetail: {}
+      }
+    },
+    mounted() {
+      this.getProductDetail()
+    },
+    methods: {
+      getProductDetail() {
+        const params = {
+          id: Number(this.$route.params.id)
         }
+        productDetailApi(params).then(res => {
+          console.log(res)
+          this.ProductDetail = JSON.parse(JSON.stringify(res.result))
+        })
       }
     }
   }
@@ -113,13 +122,13 @@
             width: 1.5rem;
             height: 1.5rem;
             margin-bottom: 0.16rem;
-            background-color: red;
+            background-size: 100% 100%;
           }
         }
         .pro-img {
           width: 5.17rem;
           height: 100%;
-          background: red;
+          background-size: 100% 100%;
         }
         .pro-msg {
           width: 4.65rem;
@@ -136,6 +145,7 @@
           .desc {
             font-size: 0.18rem;
             padding: 0.18rem 0 0.5rem;
+            line-height: 1.4;
           }
           .price {
             width: 100%;
