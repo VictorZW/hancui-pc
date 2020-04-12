@@ -34,3 +34,7 @@ export const newsListApi = params =>
 // 资讯详情
 export const newsDetailApi = params =>
   axios.get(`${BaseUrl}/api/news/detail`, { params })
+
+// 关于我们
+export const companyAboutApi = params =>
+  axios.get(`${BaseUrl}/api/company/about`, { params })
