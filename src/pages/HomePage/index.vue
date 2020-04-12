@@ -104,6 +104,10 @@
 </template>
 
 <script>
+  import {
+    homapageBannerApi
+  } from '@/apis/index'
+
   export default {
     name: 'HomePage',
     data() {
@@ -128,6 +132,9 @@
       new PureFullPage({
         delay: 1000,
         isShowNav: true
+      })
+      homapageBannerApi({ type: 1 }).then(res => {
+        console.log(res.result)
       })
     }
   }

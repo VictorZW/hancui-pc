@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 
+console.log(process.env.NODE_ENV)
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
