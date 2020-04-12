@@ -42,3 +42,7 @@ export const newsDetailApi = params =>
 // 关于我们
 export const companyAboutApi = params =>
   axios.get(`${BaseUrl}/api/company/about`, { params })
+
+// 提交留言
+export const messageApi = params =>
+  axios.post(`${BaseUrl}/api/message`, params)
