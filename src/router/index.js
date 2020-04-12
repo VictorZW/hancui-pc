@@ -54,7 +54,7 @@ export default new Router({
       }
     },
     {
-      path: '/NewsListPage',
+      path: '/NewsListPage/:type',
       name: 'NewsListPage',
       component: NewsListPage,
       meta: {
@@ -63,7 +63,7 @@ export default new Router({
       }
     },
     {
-      path: '/NewsDetailPage',
+      path: '/NewsDetailPage/:id',
       name: 'NewsDetailPage',
       component: NewsDetailPage,
       meta: {

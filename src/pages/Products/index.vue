@@ -133,9 +133,6 @@
       background-image: url("~@IMG/banner2.png");
       background-size: cover;
     }
-    .cate-area {
-      padding-bottom: 0.46rem;
-    }
     .page-inner {
       width: 12rem;
       margin: auto;

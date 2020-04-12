@@ -26,3 +26,11 @@ export const productListApi = params =>
 // 产品详情
 export const productDetailApi = params =>
   axios.get(`${BaseUrl}/api/product/detail`, { params })
+
+// 资讯列表
+export const newsListApi = params =>
+  axios.get(`${BaseUrl}/api/news/list`, { params })
+
+// 资讯详情
+export const newsDetailApi = params =>
+  axios.get(`${BaseUrl}/api/news/detail`, { params })

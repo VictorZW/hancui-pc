@@ -3,25 +3,53 @@
     <div class="page-banner"></div>
     <div class="page-inner">
       <div class="brand-search">
-        <div class="Breadcrumb">当前位置：首页/企业资讯</div>
+        <div class="Breadcrumb">当前位置：首页/企业资讯/{{ brandName }}</div>
+        <div class="search">
+          <el-input
+            placeholder="输入要搜索的内容"
+            prefix-icon="el-icon-search"
+            v-model="keyword"
+            clearable
+            @change="searchData"
+          >
+          </el-input>
+        </div>
+      </div>
+      <div class="cate-area">
+        <div class="tab-area">
+          <div class="tab first"
+               @click="changeType(1)"
+               :class="[(typeId === 1) ? 'tab-active' : '']"
+          >实时资讯</div>
+          <div class="tab"
+               @click="changeType(2)"
+               :class="[(typeId === 2) ? 'tab-active' : '']"
+          >芳疗资讯</div>
+          <div class="tab second"
+               @click="changeType(3)"
+               :class="[(typeId === 3) ? 'tab-active' : '']"
+          >科技资讯</div>
+        </div>
       </div>
       <!--list-->
       <div class="list-ul">
-        <div class="news-card">
+        <div class="news-card"
+             v-for="item in newsList"
+             :key="id"
+        >
           <div class="text-area">
             <div class="time">
               <span class="month">03-16</span><span class="year">/2020</span>
             </div>
-            <div class="title">千栢蕙市场如何走向成熟 品牌化是关键</div>
-            <div class="body">
-              我公司目前开展的业务已经涉及农业、种植、加工、研发、运用、教育与人才培养等领域，并与上海交通大学、山东大学淄博生物医药
-              研究院 建立产学研合作关系，在植物萃取应用方向开展课程以及设立国际芳疗师培训基地培育出一批迎合市场需求的芳疗师。
-            </div>
+            <div class="title">{{ item.title }}</div>
+            <div class="body">{{ item.instruction }}</div>
             <div class="read-more">
-              <span @click="toNewsDetailPage">查看详情</span>
+              <span @click="toNewsDetailPage(item.id)">查看详情</span>
             </div>
           </div>
-          <div class="img-area"></div>
+          <div class="img-area"
+               :style="{ backgroundImage: 'url(' + item.thumb + ')' }"
+          ></div>
         </div>
       </div>
     </div>
@@ -29,13 +57,74 @@
 </template>
 
 <script>
+  import { newsListApi } from '@/apis/index'
+
   export default {
-    name: '',
+    name: 'NewsListPage',
+    data() {
+      return {
+        typeId: 1,
+        page: 1,
+        size: 100,
+        keyword: '',
+        newsList: []
+      }
+    },
+    computed: {
+      brandName() {
+        if (this.typeId === 1) {
+          return '实时资讯'
+        } else if (this.typeId === 2) {
+          return '芳疗资讯'
+        } else {
+          return '科技资讯'
+        }
+      }
+    },
+    watch: {
+      $route: {
+        handler: function(){
+          this.typeId = Number(this.$route.params.type)
+          this.getNewsList()
+        },
+        deep: true
+      }
+    },
+    mounted() {
+      this.typeId = Number(this.$route.params.type)
+      this.getNewsList()
+    },
     methods: {
-      toNewsDetailPage() {
+      changeType(type) {
         this.$router.push({
-          name: 'NewsDetailPage'
+          name: 'NewsListPage',
+          params: { type: type }
         })
+        this.getNewsList()
+      },
+      toNewsDetailPage(id) {
+        this.$router.push({
+          name: 'NewsDetailPage',
+          params: {
+            id: id
+          }
+        })
+      },
+      getNewsList() {
+        const params = {
+          type_id: this.typeId,
+          page: this.page,
+          size: this.size,
+          keyword: this.keyword
+        }
+        newsListApi(params).then(res => {
+          console.log(res)
+          this.newsList = JSON.parse(JSON.stringify(res.result))
+        })
+      },
+      searchData(keyword) {
+        this.keyword = keyword
+        this.getNewsList()
       }
     }
   }
@@ -103,7 +192,7 @@
       .img-area {
         width: 2.9rem;
         height: 1.8rem;
-        background-color: #1B604E;
+        background-size: 100% 100%;
       }
     }
   }
