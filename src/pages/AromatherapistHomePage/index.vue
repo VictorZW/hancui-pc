@@ -19,18 +19,23 @@
         </div>
         <div class="right">
           <swiper class="swiper" :options="swiperOption">
-            <swiper-slide class="slide-card">
-              <span class="toPersonalPage" @click="toPersonalPage">查看更多</span>
+            <swiper-slide
+              class="slide-card"
+              v-for="item in teacherList"
+              :key="item.id"
+              :style="{ backgroundImage: 'url(' + item.avatar + ')' }"
+            >
+              <div class="user-msg">
+                <div class="line1">
+                  <span class="name">{{ item.name }}</span>
+                  <span class="job">/{{ item.title }}</span>
+                </div>
+                <div class="line2">{{ item.skill }}</div>
+                <div class="line3">
+                  <span class="toPersonalPage" @click="toPersonalPage(item.id)">查看更多 ></span>
+                </div>
+              </div>
             </swiper-slide>
-            <swiper-slide class="slide-card">Slide 2</swiper-slide>
-            <swiper-slide class="slide-card">Slide 3</swiper-slide>
-            <swiper-slide class="slide-card">Slide 4</swiper-slide>
-            <swiper-slide class="slide-card">Slide 5</swiper-slide>
-            <swiper-slide class="slide-card">Slide 6</swiper-slide>
-            <swiper-slide class="slide-card">Slide 7</swiper-slide>
-            <swiper-slide class="slide-card">Slide 8</swiper-slide>
-            <swiper-slide class="slide-card">Slide 9</swiper-slide>
-            <swiper-slide class="slide-card">Slide 10</swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
           </swiper>
         </div>
@@ -40,6 +45,8 @@
 </template>
 
 <script>
+  import { teacherListApi } from '@/apis/index'
+
   export default {
     name: 'AromatherapistHomePage',
     data() {
@@ -52,14 +59,26 @@
             el: '.swiper-pagination',
             clickable: true
           }
-        }
+        },
+        teacherList: []
       }
     },
+    mounted() {
+      this.getTeacherList()
+    },
     methods: {
-      toPersonalPage() {
-        console.log('111')
+      toPersonalPage(id) {
         this.$router.push({
-          name: 'PersonalPage'
+          name: 'PersonalPage',
+          params: {
+            id: id
+          }
+        })
+      },
+      getTeacherList() {
+        teacherListApi().then(res => {
+          console.log(res)
+          this.teacherList = JSON.parse(JSON.stringify(res.result))
         })
       }
     }
@@ -114,9 +133,46 @@
             .slide-card {
               width: 2.92rem !important;
               height: 3.53rem !important;
-              background-color: #069163;
-              .toPersonalPage {
-                cursor: pointer;
+              background-size: 100% 100%;
+              position: relative;
+              &:hover > .user-msg {
+                display: block;
+              }
+              .user-msg {
+                width: 100%;
+                height: 1rem;
+                background-color: #069163;
+                opacity: 0.9;
+                position: absolute;
+                bottom: 0;
+                padding: 0.13rem 0.23rem;
+                line-height: 1.4;
+                display: none;
+                .line1 {
+                  .name {
+                    font-size: 0.18rem;
+                    color: #FFFDFD;
+                  }
+                  .job {
+                    font-size: 0.12rem;
+                    color: #FFFDFD;
+                  }
+                }
+                .line2 {
+                  font-size: 0.12rem;
+                  color: #FFFFFF;
+                  overflow:hidden;
+                  text-overflow:ellipsis;
+                  white-space:nowrap;
+                }
+                .line3 {
+                  text-align: right;
+                  .toPersonalPage {
+                    cursor: pointer;
+                    font-size: 0.12rem;
+                    color: #FFFFFF;
+                  }
+                }
               }
             }
           }

@@ -90,7 +90,7 @@ export default new Router({
       }
     },
     {
-      path: '/PersonalPage',
+      path: '/PersonalPage/:id',
       name: 'PersonalPage',
       component: PersonalPage,
       meta: {
