@@ -112,6 +112,129 @@
           </div>
         </div>
       </div>
+      <!--page4-->
+      <div class="page page4">
+        <div class="content-inner">
+          <div class="left-area">
+            <div class="left-inner">
+              <div class="click-area">
+                <div class="click-line"
+                     :class="[(page4Index === 1) ? 'click-line-active' : '']"
+                     @click="choosePage4Index(1)"
+                >
+                  <span class="line"></span>
+                  <span class="text">实时资讯</span>
+                </div>
+                <div class="click-line"
+                     :class="[(page4Index === 2) ? 'click-line-active' : '']"
+                     @click="choosePage4Index(2)"
+                >
+                  <span class="line"></span>
+                  <span class="text">芳疗资讯</span>
+                </div>
+                <div class="click-line"
+                     :class="[(page4Index === 3) ? 'click-line-active' : '']"
+                     @click="choosePage4Index(3)"
+                >
+                  <span class="line"></span>
+                  <span class="text">科技资讯</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right-area">
+            <div class="block">
+              <el-timeline>
+                <el-timeline-item
+                  placement="top"
+                  v-for="item in newsListData"
+                  :timestamp="item.publish_at"
+                >
+                  <el-card>
+                    <div class="title">{{ item.title }}</div>
+                    <div class="read-more">
+                      <span>查看详情 ></span>
+                    </div>
+                  </el-card>
+                </el-timeline-item>
+                <el-timeline-item>
+                  <span class="to-read-more">更多</span>
+                </el-timeline-item>
+              </el-timeline>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--page5-->
+      <div class="page page5">
+        <div class="left">
+          <div class="text-content">
+            <div class="title1">About us</div>
+            <div class="title2">关于我们</div>
+            <div class="desc">
+              汉萃（天津）生物技术股份有限公司于2016年8月在天津滨海新区中英医疗健康产业基地成立， 2016年 9 月我公司还成立了营销子公司--汉萃（上海）生物科技有限公司；2019年8月完成股改，9月在天津OTC挂牌(股票代码000313）。
+            </div>
+            <div class="line">
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="right"></div>
+        <div class="po-text-area">
+          <div class="content">
+            <div class="content-1">
+              <div class="icon-area">
+                <div class="icon hxjs"></div>
+              </div>
+              <div class="title">企业介绍</div>
+              <div class="line">
+                <span></span>
+              </div>
+              <div class="desc">
+                2018年汉萃与芳香芳疗产业协会合作成立检测研发中心，为芳香行业企业提供技术支持与服务；并与美国著名生物研究机构紧密合作，主营业务是天然植物健康产品、芳香疗法和护肤肽类终端产品的技术研发与销售、健康咨询服务。关联公司山东汉肽生物医药有限公司，目前拥有3000平方米的研发基地和10000余平方米的生产基地，并与山东大学合作，成立“山东大学汉肽生物技术研究院”，致力于研发针对糖尿病、肿瘤、心血管疾病、耐药菌感染等重大疾病的药物，并研发了30种美容肽原料、发酵生产胶原蛋白等工艺，推出了多款活性肽产品。
+              </div>
+            </div>
+            <div class="content-1">
+              <div class="icon-area">
+                <div class="icon hxjs"></div>
+              </div>
+              <div class="title">核心技术</div>
+              <div class="line">
+                <span></span>
+              </div>
+              <div class="desc">
+                汉肽生物和山东大学淄博生物医药研究院合作，成立“山东大学汉肽生物技术研究院”，培养了一支高素质研发管理团队，并开展新药筛查和抗衰药物研发。已拥有20多个一线肽药物的成熟生产工艺，齐考诺肽和利那洛肽即将申报临床申请，并开发了30种美容肽原料、发酵生产胶原蛋白等生产工艺。从全球筛选采购进口200余种单方精油原料，为国内食品、药品、日化用品企业提供优质的芳香原料，并研发6大系列40余种无添加任何化学成分的复方功效精油，为芳疗产业提供产品及技术支持。已申请精油相关发明专利9项、肽相关发明专利7项，并拥有3套关于精油和肽原料研发的软件系统。
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="content-1">
+              <div class="icon-area">
+                <div class="icon hxjs"></div>
+              </div>
+              <div class="title">企业介绍</div>
+              <div class="line">
+                <span></span>
+              </div>
+              <div class="desc">
+                2018年汉萃与芳香芳疗产业协会合作成立检测研发中心，为芳香行业企业提供技术支持与服务；并与美国著名生物研究机构紧密合作，主营业务是天然植物健康产品、芳香疗法和护肤肽类终端产品的技术研发与销售、健康咨询服务。关联公司山东汉肽生物医药有限公司，目前拥有3000平方米的研发基地和10000余平方米的生产基地，并与山东大学合作，成立“山东大学汉肽生物技术研究院”，致力于研发针对糖尿病、肿瘤、心血管疾病、耐药菌感染等重大疾病的药物，并研发了30种美容肽原料、发酵生产胶原蛋白等工艺，推出了多款活性肽产品。
+              </div>
+            </div>
+            <div class="content-1">
+              <div class="icon-area">
+                <div class="icon hxjs"></div>
+              </div>
+              <div class="title">核心技术</div>
+              <div class="line">
+                <span></span>
+              </div>
+              <div class="desc">
+                汉肽生物和山东大学淄博生物医药研究院合作，成立“山东大学汉肽生物技术研究院”，培养了一支高素质研发管理团队，并开展新药筛查和抗衰药物研发。已拥有20多个一线肽药物的成熟生产工艺，齐考诺肽和利那洛肽即将申报临床申请，并开发了30种美容肽原料、发酵生产胶原蛋白等生产工艺。从全球筛选采购进口200余种单方精油原料，为国内食品、药品、日化用品企业提供优质的芳香原料，并研发6大系列40余种无添加任何化学成分的复方功效精油，为芳疗产业提供产品及技术支持。已申请精油相关发明专利9项、肽相关发明专利7项，并拥有3套关于精油和肽原料研发的软件系统。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -143,8 +266,10 @@
         homePageBanner: [],
         productCate: [],
         page3Index: 1,
+        page4Index: 1,
         teacherList: [],
-        libraryData: []
+        libraryData: [],
+        newsListData: []
       }
     },
     mounted() {
@@ -155,8 +280,7 @@
       })
       this.getHomepageBanner()
       this.getProductCate()
-      this.getTeacherList()
-      this.getLibraryData()
+      this.getNewsList()
     },
     methods: {
       getHomepageBanner() {
@@ -187,8 +311,29 @@
           this.libraryData = JSON.parse(JSON.stringify(res.result))
         })
       },
+      getNewsList() {
+        const params = {
+          type_id: this.page4Index,
+          page: 1,
+          size: 4,
+          keyword: ''
+        }
+        newsListApi(params).then(res => {
+          console.log(res)
+          this.newsListData = JSON.parse(JSON.stringify(res.result))
+        })
+      },
       choosePage3Index(index) {
         this.page3Index = index
+        if (index === 3) {
+          this.getLibraryData()
+        } else if (index === 2) {
+          this.getTeacherList()
+        }
+      },
+      choosePage4Index(index) {
+        this.page4Index = index
+        this.getNewsList()
       }
     }
   }
@@ -430,6 +575,179 @@
               margin: auto;
               z-index: 100;
               right: 0.15rem;
+            }
+          }
+        }
+      }
+    }
+
+    .page4 {
+      background-image: url("~@IMG/newsBg.png");
+      @include background-cover-center();
+      .content-inner {
+        width: 100%;
+        height: 100%;
+        padding: 1.43rem 1.09rem 1.49rem;
+        display: flex;
+        .left-area {
+          width: 2.97rem;
+          height: 100%;
+          .left-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .click-area {
+              .click-line {
+                padding: 0.24rem 0;
+                .line {
+                  width: 0.3rem;
+                  height: 0.04rem;
+                  background-color: #8CD8BE;
+                  display: inline-block;
+                  vertical-align: middle;
+                  margin-right: 0.3rem;
+                }
+                .text {
+                  font-size: 0.18rem;
+                  color: #8CD8BE;
+                  cursor: pointer;
+                }
+              }
+              .click-line-active {
+                .line {
+                  background-color: #FFFFFF;
+                }
+                .text {
+                  color: #FFFFFF;
+                }
+              }
+            }
+          }
+        }
+        .right-area {
+          flex: 1;
+          /deep/ .block {
+            .el-timeline-item__timestamp {
+              font-size: 0.15rem;
+              color: #FFFFFF;
+            }
+            .el-timeline-item__content {
+              width: 10.09rem;
+              margin-bottom: 0.78rem;
+              .to-read-more {
+                font-size: 0.15rem;
+                color: #FFFFFF;
+                cursor: pointer;
+              }
+              .el-card {
+                background: none;
+                border-radius: 0.15rem;
+                .el-card__body {
+                  padding: 0.21rem 0.28rem;
+                  .title, .read-more{
+                    font-size: 0.15rem;
+                    color: #FFFFFF;
+                    line-height: 1.6;
+                  }
+                  .read-more {
+                    text-align: right;
+                    span {
+                      cursor: pointer;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .page5 {
+      background-image: url("~@IMG/page5-bg.png");
+      @include background-cover-center();
+      position: relative;
+      .left {
+        width: 9rem;
+        height: 100%;
+        background-color: #069163;
+        opacity: 0.8;
+        padding-top: 2.66rem;
+        padding-left: 3.66rem;
+        padding-right: 1.62rem;
+        .text-content {
+          .title1 {
+            font-size: 0.72rem;
+            color: #FFFFFF;
+            font-weight: bold;
+            padding-bottom: 0.36rem;
+          }
+          .title2 {
+            font-size: 0.36rem;
+            color: #FFFFFF;
+            padding-bottom: 0.91rem;
+          }
+          .desc {
+            font-size: 0.16rem;
+            line-height: 0.25rem;
+            color: #FFFFFF;
+            padding-bottom: 1.69rem;
+          }
+          .line {
+            span {
+              display: inline-block;
+              width: 0.9rem;
+              border-bottom: 0.02rem solid #FFFFFF;
+            }
+          }
+        }
+      }
+      .right {
+        flex: 1;
+        height: 100%;
+      }
+      .po-text-area {
+        width: 10.19rem;
+        height: 8rem;
+        position: absolute;
+        right: 1.01rem;
+        top: 1.75rem;
+        background-image: url("~@IMG/flo.png");
+        background-size: 100% 100%;
+        padding: 1.03rem 0 0 0.58rem;
+        box-sizing: border-box;
+        .content {
+          display: flex;
+          padding-bottom: 0.4rem;
+          .content-1 {
+            width: 50%;
+            padding-right: 0.55rem;
+            .icon-area {
+              padding-bottom: 0.16rem;
+              .hxjs {
+                width: 0.44rem;
+                height: 0.46rem;
+                background-image: url("~@IMG/hxjs.png");
+                background-size: 100% 100%;
+              }
+            }
+            .title {
+              font-size: 0.16rem;
+              color: #004033;
+            }
+            .line {
+              span {
+                display: inline-block;
+                width: 0.3rem;
+                border-bottom: 0.03rem solid #004033;
+              }
+            }
+            .desc {
+              font-size: 0.14rem;
+              color: #004033;
+              line-height: 1.6;
             }
           }
         }
