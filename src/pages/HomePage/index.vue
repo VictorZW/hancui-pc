@@ -40,15 +40,24 @@
         <div class="left-area">
           <div class="left-inner">
             <div class="click-area">
-              <div class="click-line">
+              <div class="click-line"
+                   :class="[(page3Index === 1) ? 'click-line-active' : '']"
+                   @click="choosePage3Index(1)"
+              >
                 <span class="line"></span>
                 <span class="text">芳疗培训</span>
               </div>
-              <div class="click-line">
+              <div class="click-line"
+                   :class="[(page3Index === 2) ? 'click-line-active' : '']"
+                   @click="choosePage3Index(2)"
+              >
                 <span class="line"></span>
                 <span class="text">芳疗师主页</span>
               </div>
-              <div class="click-line">
+              <div class="click-line"
+                   :class="[(page3Index === 3) ? 'click-line-active' : '']"
+                   @click="choosePage3Index(3)"
+              >
                 <span class="line"></span>
                 <span class="text">芳疗图书馆</span>
               </div>
@@ -57,19 +66,26 @@
         </div>
         <div class="right-area">
           <div class="right-box">
-            <div class="page3-slide">
+            <div class="flpx" v-if="page3Index === 1">
+              <div class="click-btn"></div>
+            </div>
+            <div class="page3-slide" v-if="page3Index === 2">
               <swiper class="swiper" :options="swiperOption">
-                <swiper-slide class="pro-area">Slide 1</swiper-slide>
-                <swiper-slide class="pro-area">Slide 2</swiper-slide>
-                <swiper-slide class="pro-area">Slide 3</swiper-slide>
-                <swiper-slide class="pro-area">Slide 4</swiper-slide>
-                <swiper-slide class="pro-area">Slide 5</swiper-slide>
-                <swiper-slide class="pro-area">Slide 6</swiper-slide>
-                <swiper-slide class="pro-area">Slide 7</swiper-slide>
-                <swiper-slide class="pro-area">Slide 8</swiper-slide>
-                <swiper-slide class="pro-area">Slide 9</swiper-slide>
-                <swiper-slide class="pro-area">Slide 10</swiper-slide>
-                <div class="swiper-pagination" slot="pagination"></div>
+                <swiper-slide
+                  class="pro-area"
+                  v-for="item in teacherList"
+                  :key="item.id"
+                  :style="{ backgroundImage: 'url(' + item.avatar + ')' }"
+                >
+                  <div class="teacher-msg">
+                    <div class="line1">
+                      <span class="name">{{ item.name }}</span>
+                      <span class="job">{{ item.title }}</span>
+                    </div>
+                    <div class="line2">{{ item.skill }}</div>
+                  </div>
+                </swiper-slide>
+                <!--<div class="swiper-pagination" slot="pagination"></div>-->
                 <div class="swiper-button-prev-new" slot="button-prev"></div>
                 <div class="swiper-button-next-new" slot="button-next"></div>
               </swiper>
@@ -84,7 +100,8 @@
 <script>
   import {
     homapageBannerApi,
-    productCateApi
+    productCateApi,
+    teacherListApi
   } from '@/apis/index'
 
   export default {
@@ -104,7 +121,9 @@
           }
         },
         homePageBanner: [],
-        productCate: []
+        productCate: [],
+        page3Index: 2,
+        teacherList: []
       }
     },
     mounted() {
@@ -115,6 +134,7 @@
       })
       this.getHomepageBanner()
       this.getProductCate()
+      this.getTeacherList()
     },
     methods: {
       getHomepageBanner() {
@@ -127,6 +147,15 @@
         productCateApi().then(res => {
           this.productCate = JSON.parse(JSON.stringify(res.result))
         })
+      },
+      getTeacherList() {
+        teacherListApi().then(res => {
+          console.log(res)
+          this.teacherList = JSON.parse(JSON.stringify(res.result))
+        })
+      },
+      choosePage3Index(index) {
+        this.page3Index = index
       }
     }
   }
@@ -195,7 +224,7 @@
             .pro-icon {
               width: 0.34rem;
               height: 0.34rem;
-              background-size: cover;
+              background-size: 100% 100%;
             }
           }
           .title {
@@ -255,6 +284,14 @@
                 cursor: pointer;
               }
             }
+            .click-line-active {
+              .line {
+                background-color: #FFFFFF;
+              }
+              .text {
+                color: #FFFFFF;
+              }
+            }
           }
         }
       }
@@ -268,6 +305,25 @@
           align-items: center;
           justify-content: center;
           overflow: hidden;
+          .flpx {
+            width: 13.50rem;
+            height: 8.27rem;
+            background-image: url("~@IMG/flpx.png");
+            background-size: cover;
+            position: relative;
+            .click-btn {
+              width: 3rem;
+              height: 0.7rem;
+              background-image: url("~@IMG/iconbg.png");
+              background-size: 100% 100%;
+              position: absolute;
+              bottom: 0.64rem;
+              left: 0;
+              right: 0;
+              margin: auto;
+              cursor: pointer;
+            }
+          }
           .page3-slide {
             width: 100%;
             height: 4.73rem;
@@ -278,12 +334,41 @@
             .pro-area {
               width: 3.22rem;
               height: 4.73rem;
-              background-color: red;
               margin-right: 0.25rem;
               cursor: pointer;
+              background-size: 100% 100%;
+              position: relative;
               &:hover {
                 transform: scale(1.1, 1.1);
                 transition: transform .2s;
+              }
+              .teacher-msg {
+                padding: 0.13rem 0.21rem;
+                background-color: #069163;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                line-height: 1.4;
+                opacity:0.9;
+                display: none;
+                .line1 {
+                  .name {
+                    font-size: 0.24rem;
+                    color: #FFFDFD;
+                  }
+                  .job {
+                    font-size: 0.16rem;
+                    color: #FFFDFD;
+                  }
+                }
+                .line2 {
+                  font-size: 0.16rem;
+                  color: #FFFFFF;
+                }
+              }
+              &:hover > .teacher-msg {
+                display: block;
               }
             }
 

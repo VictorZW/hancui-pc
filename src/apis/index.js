@@ -14,3 +14,7 @@ export const homapageBannerApi = params =>
 // 产品分类
 export const productCateApi = params =>
   axios.get(`${BaseUrl}/api/product/cate`, { params })
+
+// 芳疗师列表
+export const teacherListApi = params =>
+  axios.get(`${BaseUrl}/api/teacher/list`, { params })
