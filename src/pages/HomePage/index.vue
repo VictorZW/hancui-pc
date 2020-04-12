@@ -1,56 +1,34 @@
 <template>
   <div class="home-page">
     <div id="pureFullPage">
-      <div class="page page-first"></div>
+      <div class="page">
+        <swiper class="swiper page1-swiper">
+          <swiper-slide
+            class="homepage-banner"
+            v-for="item in homePageBanner"
+            :key="item.id"
+          >
+            <img :src="item.img_url"
+                 :alt="item.title"
+            >
+          </swiper-slide>
+        </swiper>
+      </div>
       <div class="page page-second">
-        <div class="product-banner">
+        <div class="product-banner"
+             v-for="item in productCate"
+             :key="item.id"
+        >
           <div class="cover-model">
             <!--产品文字说明-->
             <div class="pro-msg">
               <div class="pro-icon-area">
-                <div class="pro-icon pro-icon1"></div>
+                <div class="pro-icon"
+                     :style="{ backgroundImage: 'url(' + item.icon_url + ')' }"></div>
               </div>
-              <div class="title">护肤品</div>
-              <div class="title">SKIN CARE</div>
-              <div class="detail">
-                汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
-              </div>
-              <div class="read-more">
-                <span>查看更多</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-banner">
-          <div class="cover-model">
-            <!--产品文字说明-->
-            <div class="pro-msg">
-              <div class="pro-icon-area">
-                <div class="pro-icon pro-icon1"></div>
-              </div>
-              <div class="title">护肤品</div>
-              <div class="title">SKIN CARE</div>
-              <div class="detail">
-                汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
-              </div>
-              <div class="read-more">
-                <span>查看更多</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-banner">
-          <div class="cover-model">
-            <!--产品文字说明-->
-            <div class="pro-msg">
-              <div class="pro-icon-area">
-                <div class="pro-icon pro-icon1"></div>
-              </div>
-              <div class="title">护肤品</div>
-              <div class="title">SKIN CARE</div>
-              <div class="detail">
-                汉萃主营产品是天然植物健康产品、芳香疗法和护肤肽类产品；研发6大系列40余种无添加任何化学成分的复方功效精油，已申请精油相关发明专利9项、肽相关发明专利7。每款产品针对不同肌肤问题提供专业解决方案。产品专注于安全健康，源自天然。
-              </div>
+              <div class="title">{{ item.title }}</div>
+              <div class="title">{{ item.en_title }}</div>
+              <div class="detail">{{ item.instruction }}</div>
               <div class="read-more">
                 <span>查看更多</span>
               </div>
@@ -105,14 +83,14 @@
 
 <script>
   import {
-    homapageBannerApi
+    homapageBannerApi,
+    productCateApi
   } from '@/apis/index'
 
   export default {
     name: 'HomePage',
     data() {
       return {
-        Msg: 'this is homepage',
         swiperOption: {
           slidesPerView: 'auto',
           autoplay: true,
@@ -124,7 +102,9 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
           }
-        }
+        },
+        homePageBanner: [],
+        productCate: []
       }
     },
     mounted() {
@@ -133,9 +113,21 @@
         delay: 1000,
         isShowNav: true
       })
-      homapageBannerApi({ type: 1 }).then(res => {
-        console.log(res.result)
-      })
+      this.getHomepageBanner()
+      this.getProductCate()
+    },
+    methods: {
+      getHomepageBanner() {
+        // homePageBanner
+        homapageBannerApi({ type: 1 }).then(res => {
+          this.homePageBanner = JSON.parse(JSON.stringify(res.result))
+        })
+      },
+      getProductCate() {
+        productCateApi().then(res => {
+          this.productCate = JSON.parse(JSON.stringify(res.result))
+        })
+      }
     }
   }
 </script>
@@ -155,6 +147,18 @@
     .page-first {
       background-image: url("~@IMG/1.jpg");
       @include background-cover-center();
+    }
+    .page1-swiper {
+      width: 100%;
+      height: 100%;
+    }
+    .homepage-banner {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
     .page-second {
       background: #069163 no-repeat center/cover;
@@ -189,12 +193,9 @@
             margin-top: 0.43rem;
             margin-bottom: 0.3rem;
             .pro-icon {
-              width: 0.32rem;
+              width: 0.34rem;
               height: 0.34rem;
-            }
-            .pro-icon1 {
-              background-image: url("~@IMG/Skin-care.png");
-              @include background-cover-center(0.32rem, 0.34rem);
+              background-size: cover;
             }
           }
           .title {

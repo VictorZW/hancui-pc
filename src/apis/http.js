@@ -8,7 +8,6 @@ import { Message } from 'element-ui'
 
 axios.interceptors.request.use(config => config, error => Promise.reject(error))
 axios.interceptors.response.use(res => {
-    console.log(res.data)
     if (res.data.success) {
       return res.data
     } else {
