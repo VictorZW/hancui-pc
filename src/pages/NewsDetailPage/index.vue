@@ -31,9 +31,20 @@
           <div class="title">相关新闻</div>
         </div>
         <div class="news-list">
-          <div class="news-card"></div>
-          <div class="news-card"></div>
-          <div class="news-card"></div>
+          <div class="news-card"
+               v-for="item in newsList"
+               :key="item.id"
+          >
+            <div class="time">
+              <span class="date">{{ getDate(item.publish_at) }}</span><span class="year">/{{ getYear(item.publish_at) }}</span>
+            </div>
+            <div class="title">{{ item.title }}</div>
+            <div class="instruction">{{ item.instruction }}</div>
+            <div class="read-more" @click="toTheDetail(item.id)">
+              <span>查看详情</span>
+              <span> > </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -41,7 +52,8 @@
 </template>
 
 <script>
-  import { newsDetailApi } from '@/apis/index'
+  import { getYear, getDate } from '@/utils'
+  import { newsDetailApi, newsListApi } from '@/apis/index'
 
   export default {
     name: 'NewsDetailPage',
@@ -49,11 +61,14 @@
       return {
         newsDetail: {},
         pre_news: {},
-        next_news: {}
+        next_news: {},
+        typeId: '',
+        newsList: []
       }
     },
     mounted() {
       this.getNewsDetail()
+      this.getNewsList()
     },
     watch: {
       $route: {
@@ -64,6 +79,8 @@
       }
     },
     methods: {
+      getDate,
+      getYear,
       getNewsDetail() {
         const params = {
           id: Number(this.$route.params.id)
@@ -73,6 +90,7 @@
           this.newsDetail = JSON.parse(JSON.stringify(res.result.news))
           this.pre_news = JSON.parse(JSON.stringify(res.result.pre_news))
           this.next_news = JSON.parse(JSON.stringify(res.result.next_news))
+          this.typeId = this.newsDetail.type
         })
       },
       // 上一页下一页跳转
@@ -82,6 +100,18 @@
           params: {
             id: id
           }
+        })
+      },
+      getNewsList() {
+        const params = {
+          type_id: this.typeId,
+          page: 1,
+          size: 3,
+          keyword: ''
+        }
+        newsListApi(params).then(res => {
+          console.log(res)
+          this.newsList = JSON.parse(JSON.stringify(res.result))
         })
       }
     }
@@ -149,9 +179,43 @@
       justify-content: space-between;
       .news-card {
         width: 3.8rem;
-        height: 2.6rem;
         background-color: #F8F8F8;
         box-shadow: 0 0 0.21rem 0 rgba(0, 64, 51, 0.15);
+        padding: 0.31rem 0.33rem 0;
+        .time {
+          .date {
+            font-size: 0.28rem;
+            color: #999999;
+          }
+          .year {
+            font-size: 0.14rem;
+            color: #999999;
+          }
+        }
+        .title {
+          font-size: 0.18rem;
+          color: #333333;
+          padding-top: 0.23rem;
+          line-height: 1.4;
+        }
+        .instruction {
+          font-size: 0.14rem;
+          color: #666666;
+          padding-top: 0.31rem;
+          padding-bottom: 0.21rem;
+          border-bottom: 0.01rem dotted #666666;
+          line-height: 1.4;
+        }
+        .read-more {
+          padding-top: 0.31rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-bottom: 0.27rem;
+          font-size: 0.14rem;
+          color: #666666;
+          cursor: pointer;
+        }
       }
     }
   }
