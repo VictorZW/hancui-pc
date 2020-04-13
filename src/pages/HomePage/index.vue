@@ -148,6 +148,7 @@
                 <el-timeline-item
                   placement="top"
                   v-for="item in newsListData"
+                  :key="item.id"
                   :timestamp="item.publish_at"
                 >
                   <el-card>

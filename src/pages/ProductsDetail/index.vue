@@ -2,7 +2,7 @@
   <div class="page-content Products-Detail">
     <div class="page-inner">
       <div class="Breadcrumb">
-        当前位置：<span>首页</span>/<span>产品中心</span>/<span>护肤类</span>
+        当前位置：<span>首页</span>/<span>产品中心</span>/<span>{{ brandName }}</span>
       </div>
       <div class="pro-des">
         <div class="pro-show">
@@ -57,16 +57,17 @@
     </div>
     <div class="pro-swiper-area">
       <swiper class="swiper" :options="swiperOption">
-        <swiper-slide class="pro-area">Slide 1</swiper-slide>
-        <swiper-slide class="pro-area">Slide 2</swiper-slide>
-        <swiper-slide class="pro-area">Slide 3</swiper-slide>
-        <swiper-slide class="pro-area">Slide 4</swiper-slide>
-        <swiper-slide class="pro-area">Slide 5</swiper-slide>
-        <swiper-slide class="pro-area">Slide 6</swiper-slide>
-        <swiper-slide class="pro-area">Slide 7</swiper-slide>
-        <swiper-slide class="pro-area">Slide 8</swiper-slide>
-        <swiper-slide class="pro-area">Slide 9</swiper-slide>
-        <swiper-slide class="pro-area">Slide 10</swiper-slide>
+        <swiper-slide
+          class="pro-area"
+          v-for="item in ProductList"
+          :key="item.id"
+        >
+          <div class="pro-image"
+               :style="{ backgroundImage: 'url(' + item.logo + ')' }"
+          ></div>
+          <div class="title">{{ item.title }}</div>
+          <div class="sub_title">{{ item.sub_title }}</div>
+        </swiper-slide>
       </swiper>
     </div>
   </div>
@@ -74,7 +75,8 @@
 
 <script>
   import {
-    productDetailApi
+    productDetailApi,
+    productListApi
   } from '@/apis/index'
 
   export default {
@@ -85,11 +87,25 @@
           slidesPerView: 'auto',
           autoplay: true
         },
-        ProductDetail: {}
+        ProductDetail: {},
+        ProductList: [],
+        proType: 1
       }
     },
     mounted() {
       this.getProductDetail()
+      this.getProductList()
+    },
+    computed: {
+      brandName() {
+        if (this.proType === 1) {
+          return '护肤类'
+        } else if (this.proType === 2) {
+          return '精油类'
+        } else {
+          return '原料类'
+        }
+      }
     },
     methods: {
       getProductDetail() {
@@ -99,6 +115,18 @@
         productDetailApi(params).then(res => {
           console.log(res)
           this.ProductDetail = JSON.parse(JSON.stringify(res.result))
+          this.proType = Number(this.ProductDetail.type)
+        })
+      },
+      getProductList() {
+        const params = {
+          type_id: this.proType,
+          page: 1,
+          size: 100,
+          keyword: ''
+        }
+        productListApi(params).then(res => {
+          this.ProductList = JSON.parse(JSON.stringify(res.result))
         })
       }
     }
@@ -247,13 +275,37 @@
     .pro-area {
       width: 2.7rem;
       height: 3.4rem;
-      background: red;
+      background-color: #FFFFFF;
       cursor: pointer;
       margin-right: 0.3rem;
       font-size: 16px;
+      box-shadow: 0 0 0.21rem 0 rgba(0, 64, 51, 0.15);
+      padding-top: 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       &:hover {
         transform: scale(1.11, 1.11);
         transition: transform .2s;
+      }
+      .pro-image {
+        width: 2.2rem;
+        height: 2.2rem;
+        background-size: 100% 100%;
+      }
+      .title {
+        text-align: center;
+        font-size: 0.16rem;
+        color: #333333;
+        padding: 0.16rem 0.1rem 0;
+      }
+      .sub_title {
+        color: #333333;
+        font-size: 0.12rem;
+        text-align: center;
+        padding: 0.09rem 0.1rem 0;
+        line-height: 1.4;
       }
     }
   }
