@@ -3,10 +3,16 @@
     <div class="header-inner">
       <div class="left">
         <router-link to="/">
-          <span class="menu-btn menu-btn-active">首页</span>
+          <span
+            class="menu-btn"
+            :class="[pageName === 'HomePage' ? 'menu-btn-active' : '']"
+          >首页</span>
         </router-link>
         <el-dropdown placement="bottom-start">
-          <span class="el-dropdown-link menu-btn">产品服务</span>
+          <span
+            class="el-dropdown-link menu-btn"
+            :class="[pageName === 'Products' ? 'menu-btn-active' : '']"
+          >产品服务</span>
           <el-dropdown-menu slot="dropdown">
             <router-link
               :to="{ name: 'Products', params: { type: 1 }}"
@@ -26,7 +32,10 @@
           </el-dropdown-menu>
         </el-dropdown>
         <el-dropdown placement="bottom-start">
-          <span class="el-dropdown-link menu-btn">芳疗学院</span>
+          <span
+            class="el-dropdown-link menu-btn"
+            :class="[pageName === 'flSchool' ? 'menu-btn-active' : '']"
+          >芳疗学院</span>
           <el-dropdown-menu slot="dropdown">
             <router-link to="/TrainingPage">
               <el-dropdown-item>芳疗培训</el-dropdown-item>
@@ -43,7 +52,10 @@
       <div class="logo"></div>
       <div class="right">
         <el-dropdown placement="bottom-start">
-          <span class="el-dropdown-link menu-btn">企业资讯</span>
+          <span
+            class="el-dropdown-link menu-btn"
+            :class="[pageName === 'NewsListPage' ? 'menu-btn-active' : '']"
+          >企业资讯</span>
           <el-dropdown-menu slot="dropdown">
             <router-link
               :to="{ name: 'NewsListPage', params: { type: 1 }}"
@@ -63,7 +75,9 @@
           </el-dropdown-menu>
         </el-dropdown>
         <router-link to="/AboutUS">
-          <span class="menu-btn">关于我们</span>
+          <span class="menu-btn"
+                :class="[pageName === 'AboutUS' ? 'menu-btn-active' : '']"
+          >关于我们</span>
         </router-link>
       </div>
     </div>
@@ -72,7 +86,34 @@
 
 <script>
   export default {
-    name: 'PageHeader'
+    name: 'PageHeader',
+    data() {
+      return {
+        pageName: 'HomePage'
+      }
+    },
+    watch: {
+      $route: {
+        handler: function(){
+          this.getPageName()
+        },
+        deep: true
+      }
+    },
+    mounted() {
+      this.getPageName()
+    },
+    methods: {
+      getPageName() {
+        if (this.$route.name === 'AromatherapistHomePage' ||
+          this.$route.name === 'TrainingPage' ||
+          this.$route.name === 'LibraryPage') {
+          this.pageName = 'flSchool'
+        } else {
+          this.pageName = this.$route.name
+        }
+      }
+    }
   }
 </script>
 
