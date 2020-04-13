@@ -11,8 +11,23 @@
   <body>
     <div id="app"></div>
     <script src="./static/pureFullPage.min.js"></script>
-    <!-- built files will be auto injected -->
   </body>
+  <script>
+    (function (w, d, e, x) {  w[e] = function () {
+      w.cbk = w.cbk || []
+      w.cbk.push(arguments);
+    }
+      x = d.createElement('script');
+      x.async = true;
+      x.id = 'zhichiScript';
+      x.className = 'Customer_service';
+      x.src = 'https://hancui.sobot.com/chat/frame/v2/entrance.js?sysnum=4facc019323444a58732af25a1511448';
+      d.body.appendChild(x);
+    })(window, document, 'zc');
+    zc("config",{
+      custom: true, //设置自定义生效 第二步
+    })
+  </script>
   <script>
     window.onload = function () {
       setFont();

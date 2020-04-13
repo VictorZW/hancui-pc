@@ -18,6 +18,7 @@
         <div class="product-banner"
              v-for="item in productCate"
              :key="item.id"
+             :style="{ backgroundImage: 'url(' + item.bk_url + ')' }"
         >
           <div class="cover-model">
             <!--产品文字说明-->
@@ -286,7 +287,7 @@
 
 <script>
   import {
-    homapageBannerApi,
+    BannerApi,
     productCateApi,
     teacherListApi,
     newsListApi,
@@ -334,7 +335,7 @@
     methods: {
       getHomepageBanner() {
         // homePageBanner
-        homapageBannerApi({ type: 1 }).then(res => {
+        BannerApi({ type: 1 }).then(res => {
           this.homePageBanner = JSON.parse(JSON.stringify(res.result))
         })
       },
@@ -444,7 +445,6 @@
       .product-banner {
         width: 33.33%;
         height: 100%;
-        background-image: url("~@IMG/pro-banner.png");
         @include background-cover-center();
         position: relative;
         .cover-model {

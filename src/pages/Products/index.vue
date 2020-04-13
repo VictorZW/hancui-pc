@@ -1,6 +1,18 @@
 <template>
   <div class="Products page-content">
-    <div class="banner"></div>
+    <div class="banner">
+      <swiper class="swiper swiper-banner">
+        <swiper-slide
+          class="homepage-banner"
+          v-for="item in BannerList"
+          :key="item.id"
+        >
+          <img :src="item.img_url"
+               :alt="item.title"
+          >
+        </swiper-slide>
+      </swiper>
+    </div>
     <div class="page-inner">
       <div class="brand-search">
         <div class="Breadcrumb">当前位置：首页/产品服务/{{ brandName }}</div>
@@ -52,7 +64,8 @@
 
 <script>
   import {
-    productListApi
+    productListApi,
+    BannerApi
   } from '@/apis/index'
 
   export default {
@@ -63,11 +76,13 @@
         page: 1,
         size: 100,
         keyword: '',
-        ProductList: []
+        ProductList: [],
+        BannerList: []
       }
     },
     mounted() {
       this.proType = Number(this.$route.params.type)
+      this.getBanner()
       this.getProductList()
     },
     watch: {
@@ -120,6 +135,12 @@
       searchData(keyword) {
         this.keyword = keyword
         this.getProductList()
+      },
+      getBanner() {
+        // homePageBanner
+        BannerApi({ type: 2 }).then(res => {
+          this.BannerList = JSON.parse(JSON.stringify(res.result))
+        })
       }
     }
   }
@@ -130,8 +151,14 @@
     .banner {
       width: 100%;
       height: 7rem;
-      background-image: url("~@IMG/banner2.png");
-      background-size: cover;
+      .swiper-banner {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
     .page-inner {
       width: 12rem;

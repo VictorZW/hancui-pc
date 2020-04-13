@@ -8,7 +8,7 @@ import axios from './http'
 import { BaseUrl } from './base'
 
 // 首页第一屏banner接口
-export const homapageBannerApi = params =>
+export const BannerApi = params =>
   axios.get(`${BaseUrl}/api/banner/list`, { params })
 
 // 产品分类

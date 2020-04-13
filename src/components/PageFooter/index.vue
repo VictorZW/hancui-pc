@@ -15,6 +15,13 @@
       <div class="text-line">
         <span>网址：www.hancfl.com</span>
       </div>
+      <div class="code-area">
+        <div class="code-cont">
+          <div class="code code1"></div>
+          <div class="code code2"></div>
+        </div>
+        <div class="text">扫一扫关注公司公众号</div>
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +38,7 @@
     .footer-content {
       width: 12rem;
       margin: auto;
+      position: relative;
       .company-name {
         font-size: 0.18rem;
         color: #FFFFFF;
@@ -47,6 +55,32 @@
         padding-bottom: 0.56rem;
         span {
           font-size: 0.18rem;
+        }
+      }
+      .code-area {
+        position: absolute;
+        top: 1.93rem;
+        right: 0;
+        .code-cont {
+          display: flex;
+          .code {
+            width: 1.44rem;
+            height: 1.38rem;
+            background-size: 100% 100%;
+            margin-left: 0.43rem;
+          }
+          .code1 {
+            background-image: url("~@IMG/qcode1.png");
+          }
+          .code2 {
+            background-image: url("~@IMG/qcode2.png");
+          }
+        }
+        .text {
+          font-size: 0.18rem;
+          color: #FFFFFF;
+          margin-top: 0.28rem;
+          text-align: center;
         }
       }
     }

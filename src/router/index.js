@@ -86,7 +86,7 @@ export default new Router({
       component: AromatherapistHomePage,
       meta: {
         hideHeader: false,
-        hideFooter: false
+        hideFooter: true
       }
     },
     {
@@ -95,7 +95,7 @@ export default new Router({
       component: PersonalPage,
       meta: {
         hideHeader: false,
-        hideFooter: false
+        hideFooter: true
       }
     },
     {
@@ -104,7 +104,7 @@ export default new Router({
       component: LibraryPage,
       meta: {
         hideHeader: false,
-        hideFooter: false
+        hideFooter: true
       }
     }
   ]
