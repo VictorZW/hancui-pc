@@ -15,6 +15,7 @@
                  v-for="(item, index) in swipeImg"
                  :key="index"
                  :style="{ backgroundImage: 'url(' + item + ')' }"
+                 @click="setBigImg(item)"
             ></div>
             <div class="img-click" @click="clickNext">
               <img src="~@IMG/down.png" alt="">
@@ -22,8 +23,10 @@
           </div>
           <!--大的产品图-->
           <div class="pro-img"
-               :style="{ backgroundImage: 'url(' + ProductDetail.logo + ')' }"
-          ></div>
+               :style="{ backgroundImage: 'url(' + bigImg + ')' }"
+          >
+            <div class="amplification" @click="clickAmplification"></div>
+          </div>
           <!--右边的信息-->
           <div class="pro-msg">
             <div class="title">{{ ProductDetail.title }}/<span class="English">Rose Hydrosol</span></div>
@@ -32,7 +35,7 @@
               <span class="size">500mL</span>
               <span class="num">￥{{ ProductDetail.origin_price }}</span>
             </div>
-            <div class="to-buy-btn">购买产品</div>
+            <div class="to-buy-btn" @click="centerDialogVisible = true">购买产品</div>
             <div class="line"></div>
             <div class="work-title">功效</div>
             <div class="work-des">{{ ProductDetail.effect }}</div>
@@ -76,10 +79,28 @@
         </swiper-slide>
       </swiper>
     </div>
+    <!--图片放大-->
+    <el-image-viewer
+      v-if="showViewer"
+      :on-close="closeViewer"
+      :url-list="[bigImg]" />
+    <!--dialog-->
+    <el-dialog
+      :visible.sync="centerDialogVisible"
+      center
+      :showClose="false"
+      class="wx-code-dialog"
+    >
+      <div class="wx-code">
+        <img src="~@IMG/wx-code.png" alt="">
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
+  import ElImageViewer from 'element-ui/packages/image/src/image-viewer'
+
   import {
     productDetailApi,
     productListApi
@@ -99,9 +120,13 @@
         // 缩略图数组
         swipeImg: ['', '', ''], // 侧边的三个图片区域
         allImages: [], // 所有的图片
-        clickCount: 0
+        clickCount: 0,
+        bigImg: '',
+        showViewer: false,
+        centerDialogVisible: false
       }
     },
+    components: { ElImageViewer },
     mounted() {
       this.clickCount = 0
       this.getProductDetail()
@@ -164,8 +189,18 @@
           this.ProductDetail = JSON.parse(JSON.stringify(res.result))
           this.proType = Number(this.ProductDetail.type)
           this.allImages = this.ProductDetail.imgs
+          this.bigImg = this.ProductDetail.logo
           this.resetImg()
         })
+      },
+      setBigImg(img) {
+        this.bigImg = img
+      },
+      clickAmplification() {
+        this.showViewer = true
+      },
+      closeViewer() {
+        this.showViewer = false
       },
       getProductList() {
         const params = {
@@ -227,6 +262,17 @@
           background-size: 100% 100%;
           border: 0.01rem solid #069163;
           border-radius: 0.05rem;
+          position: relative;
+          .amplification {
+            width: 0.65rem;
+            height: 0.64rem;
+            background-size: 100% 100%;
+            background-image: url("~@IMG/amplification.png");
+            position: absolute;
+            right: 0.11rem;
+            bottom: 0.11rem;
+            cursor: pointer;
+          }
         }
         .pro-msg {
           width: 4.65rem;
@@ -377,6 +423,27 @@
         padding: 0.09rem 0.1rem 0;
         line-height: 1.4;
       }
+    }
+  }
+  .wx-code-dialog {
+    .wx-code {
+      width: 5rem;
+      margin: auto;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  /deep/ .el-dialog {
+    background: none;
+    box-shadow: none;
+  }
+  /deep/ .el-dialog__wrapper {
+    .el-dialog__header {
+      padding: 0;
+    }
+    .el-dialog__body {
+      padding: 0;
     }
   }
 </style>
