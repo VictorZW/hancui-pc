@@ -3,7 +3,7 @@
     <div class="page-banner"></div>
     <div class="page-inner">
       <div class="brand-search">
-        <div class="Breadcrumb">当前位置：首页/企业资讯/资讯详情</div>
+        <div class="Breadcrumb">当前位置：首页/芳疗学院/芳疗图书馆</div>
       </div>
       <div class="detail-content">
         <div class="title">{{ newsDetail.title }}</div>
@@ -56,13 +56,13 @@
   import { newsDetailApi, newsListApi } from '@/apis/index'
 
   export default {
-    name: 'NewsDetailPage',
+    name: 'LibraryDetailPage',
     data() {
       return {
         newsDetail: {},
         pre_news: {},
         next_news: {},
-        typeId: '',
+        typeId: 4,
         newsList: []
       }
     },
@@ -95,8 +95,9 @@
       },
       // 上一页下一页跳转
       toTheDetail(id) {
+        console.log(id)
         this.$router.push({
-          name: 'NewsDetailPage',
+          name: 'LibraryDetailPage',
           params: {
             id: id
           }
@@ -104,7 +105,7 @@
       },
       getNewsList() {
         const params = {
-          type_id: this.typeId,
+          type_id: 4,
           page: 1,
           size: 3,
           keyword: ''

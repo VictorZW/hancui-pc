@@ -2,7 +2,17 @@
   <div class="LibraryPage">
     <div class="page-inner">
       <div class="brand-search">
-        <div class="Breadcrumb">当前位置：首页/企业资讯</div>
+        <div class="Breadcrumb">当前位置：首页/芳疗学院/芳疗图书馆</div>
+        <div class="search">
+          <el-input
+            placeholder="输入要搜索的内容"
+            prefix-icon="el-icon-search"
+            v-model="keyword"
+            clearable
+            @change="searchData"
+          >
+          </el-input>
+        </div>
       </div>
       <!--轮播-->
       <div class="slider-area">
@@ -12,7 +22,7 @@
             :key="item.id"
             :style="{ backgroundImage: 'url(' + item.thumb + ')' }"
           >
-            <div class="title">{{ item.title }}</div>
+            <div class="title" @click="toProDetailPage(item.id)">{{ item.title }}</div>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
@@ -58,6 +68,18 @@
         newsListApi(params).then(res => {
           this.libraryData = JSON.parse(JSON.stringify(res.result))
         })
+      },
+      searchData(keyword) {
+        this.keyword = keyword
+        this.getLibraryData()
+      },
+      toProDetailPage(id) {
+        this.$router.push({
+          name: 'LibraryDetailPage',
+          params: {
+            id: id
+          }
+        })
       }
     }
   }
@@ -99,8 +121,8 @@
               opacity: 0.9;
               width: 100%;
               height: 0.68rem;
-              line-height: 0.34rem;
-              padding: 0 0.15rem;
+              line-height: 1.8;
+              padding: 0.11rem 0.15rem;
               text-align: center;
               position: absolute;
               bottom: 0;

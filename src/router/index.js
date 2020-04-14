@@ -10,6 +10,7 @@ import TrainingPage from '@/pages/TrainingPage'
 import AromatherapistHomePage from '@/pages/AromatherapistHomePage'
 import PersonalPage from '@/pages/PersonalPage'
 import LibraryPage from '@/pages/LibraryPage'
+import LibraryDetailPage from '@/pages/LibraryDetailPage'
 
 Vue.use(Router)
 
@@ -105,6 +106,15 @@ export default new Router({
       meta: {
         hideHeader: false,
         hideFooter: true
+      }
+    },
+    {
+      path: '/LibraryDetailPage/:id',
+      name: 'LibraryDetailPage',
+      component: LibraryDetailPage,
+      meta: {
+        hideHeader: false,
+        hideFooter: false
       }
     }
   ]

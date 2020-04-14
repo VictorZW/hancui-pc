@@ -3,7 +3,17 @@
   <div class="AromatherapistHomePage">
     <div class="page-content-inner">
       <div class="brand-search">
-        <div class="Breadcrumb">当前位置：首页/企业资讯/实时资讯</div>
+        <div class="Breadcrumb">当前位置：首页/芳疗学院/芳疗师主页</div>
+        <div class="search">
+          <el-input
+            placeholder="输入要搜索的内容"
+            prefix-icon="el-icon-search"
+            v-model="keyword"
+            clearable
+            @change="searchData"
+          >
+          </el-input>
+        </div>
       </div>
       <div class="aroma-content-area">
         <div class="left">
@@ -61,7 +71,10 @@
             clickable: true
           }
         },
-        teacherList: []
+        teacherList: [],
+        page: 1,
+        size: 100,
+        keyword: ''
       }
     },
     mounted() {
@@ -77,10 +90,19 @@
         })
       },
       getTeacherList() {
-        teacherListApi().then(res => {
+        const params = {
+          page: this.page,
+          size: this.size,
+          keyword: this.keyword
+        }
+        teacherListApi(params).then(res => {
           console.log(res)
           this.teacherList = JSON.parse(JSON.stringify(res.result))
         })
+      },
+      searchData(keyword) {
+        this.keyword = keyword
+        this.getTeacherList()
       }
     }
   }

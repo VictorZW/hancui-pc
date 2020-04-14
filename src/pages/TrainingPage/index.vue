@@ -9,9 +9,13 @@
     <div class="pic7"></div>
     <div class="pic8"></div>
     <div class="pic9"></div>
-    <div class="pic10"></div>
+    <div class="pic10">
+      <div class="click-btn Customer_service">预约免费试听</div>
+    </div>
     <div class="pic11"></div>
-    <div class="pic12"></div>
+    <div class="pic12">
+      <div class="click-btn Customer_service">预约免费学习</div>
+    </div>
     <div class="pic13">
       <div class="title">成为CRA注册芳疗师的<span>四大理由</span></div>
       <div class="content">
@@ -93,6 +97,7 @@
     height: 7.06rem;
     background-image: url("~@IMG/pic10.png");
     background-size: cover;
+    position: relative;
   }
   .pic11 {
     width: 100%;
@@ -105,6 +110,7 @@
     height: 10.8rem;
     background-image: url("~@IMG/pic12.png");
     background-size: cover;
+    position: relative;
   }
   .pic13 {
     width: 100%;
@@ -155,7 +161,8 @@
         .banner {
           width: 5.67rem;
           height: 100%;
-          background-color: #15B175;
+          background-image: url("~@IMG/p3-banner.jpg");
+          background-size: 100% 100%;
         }
         .text {
           width: 3.5rem;
@@ -167,8 +174,26 @@
           font-weight: bold;
           padding-top: 1.01rem;
           line-height: 1.6;
+          opacity: 0.7;
         }
       }
     }
+  }
+  .click-btn {
+    position: absolute;
+    bottom: 0.99rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 3rem;
+    height: 0.7rem;
+    background: #FF7A1C;
+    font-size: 0.24rem;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 0.7rem;
+    box-shadow: 0 0.02rem 0.07rem 0 rgba(156, 65, 0, 0.42);
+    border-radius: 0.05rem;
+    cursor: pointer;
   }
 </style>
