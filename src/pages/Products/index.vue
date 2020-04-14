@@ -1,7 +1,7 @@
 <template>
   <div class="Products page-content">
     <div class="banner">
-      <swiper class="swiper swiper-banner">
+      <swiper class="swiper swiper-banner" :options="swiperOption1">
         <swiper-slide
           class="homepage-banner"
           v-for="item in BannerList"
@@ -72,6 +72,9 @@
     name: 'Products',
     data() {
       return {
+        swiperOption1: {
+          autoplay: true,
+        },
         proType: 1, // 产品类型1：护肤，2：精油，3：原料
         page: 1,
         size: 100,

@@ -2,7 +2,7 @@
   <div class="home-page">
     <div id="pureFullPage">
       <div class="page">
-        <swiper class="swiper page1-swiper" :options="swiperOption">
+        <swiper class="swiper page1-swiper" :options="swiperOption1">
           <swiper-slide
             class="homepage-banner"
             v-for="item in homePageBanner"
