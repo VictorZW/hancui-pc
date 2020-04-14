@@ -8,11 +8,17 @@
         <div class="pro-show">
           <!--侧边三个轮播图-->
           <div class="Stand-up-swiper">
+            <div class="img-click img-click-top" @click="clickPrev">
+              <img src="~@IMG/up.png" alt="">
+            </div>
             <div class="pro-img-smail"
-                 v-for="item in ProductDetail.imgs"
-                 :key="item"
+                 v-for="(item, index) in swipeImg"
+                 :key="index"
                  :style="{ backgroundImage: 'url(' + item + ')' }"
             ></div>
+            <div class="img-click" @click="clickNext">
+              <img src="~@IMG/down.png" alt="">
+            </div>
           </div>
           <!--大的产品图-->
           <div class="pro-img"
@@ -89,10 +95,15 @@
         },
         ProductDetail: {},
         ProductList: [],
-        proType: 1
+        proType: 1,
+        // 缩略图数组
+        swipeImg: ['', '', ''], // 侧边的三个图片区域
+        allImages: [], // 所有的图片
+        clickCount: 0
       }
     },
     mounted() {
+      this.clickCount = 0
       this.getProductDetail()
       this.getProductList()
     },
@@ -108,14 +119,52 @@
       }
     },
     methods: {
+      resetImg() {
+        // 所有的图片数组
+        const allImages = JSON.parse(JSON.stringify(this.allImages))
+        const firstPageImg = allImages.splice(0, this.swipeImg.length)
+        this.swipeImg = firstPageImg
+      },
+      clickPrev() {
+        console.log(this.clickCount)
+        if ((this.clickCount + this.swipeImg.length) >= this.allImages.length) {
+          console.log('没有下一张图片了')
+        } else {
+          this.clickCount += 1
+          const nextIndex = this.clickCount + this.swipeImg.length - 1 // 下一张图片的index
+          const allImages = JSON.parse(JSON.stringify(this.allImages)) // 全部的数据
+          const nextData = allImages[nextIndex] // 下一张图片
+          const swipeImg = JSON.parse(JSON.stringify(this.swipeImg))
+          swipeImg.shift()
+          swipeImg.push(nextData)
+          this.swipeImg = swipeImg
+        }
+      },
+      clickNext() {
+        console.log(this.clickCount)
+        if (this.clickCount === 0) {
+          console.log('没有上一张图片了')
+          return false
+        }
+        const prevIndex = this.clickCount - 1 // 上一张图片的index
+        console.log(prevIndex)
+        const allImages = JSON.parse(JSON.stringify(this.allImages)) // 全部的数据
+        const prevData = allImages[prevIndex] // 下一张图片
+        const swipeImg = JSON.parse(JSON.stringify(this.swipeImg))
+        swipeImg.pop()
+        swipeImg.unshift(prevData)
+        this.swipeImg = swipeImg
+        this.clickCount -= 1
+      },
       getProductDetail() {
         const params = {
           id: Number(this.$route.params.id)
         }
         productDetailApi(params).then(res => {
-          console.log(res)
           this.ProductDetail = JSON.parse(JSON.stringify(res.result))
           this.proType = Number(this.ProductDetail.type)
+          this.allImages = this.ProductDetail.imgs
+          this.resetImg()
         })
       },
       getProductList() {
@@ -146,17 +195,38 @@
           width: 1.5rem;
           height: 100%;
           margin-right: 0.16rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
           .pro-img-smail {
             width: 1.5rem;
             height: 1.5rem;
             margin-bottom: 0.16rem;
             background-size: 100% 100%;
+            border: 0.01rem solid #069163;
+            cursor: pointer;
+          }
+          .img-click {
+            width: 0.89rem;
+            height: 0.3rem;
+            background-color: #069062;
+            opacity: 0.2;
+            cursor: pointer;
+            text-align: center;
+            img {
+              height: 0.3rem;
+            }
+          }
+          .img-click-top {
+            margin-bottom: 0.16rem;
           }
         }
         .pro-img {
           width: 5.17rem;
           height: 100%;
           background-size: 100% 100%;
+          border: 0.01rem solid #069163;
+          border-radius: 0.05rem;
         }
         .pro-msg {
           width: 4.65rem;

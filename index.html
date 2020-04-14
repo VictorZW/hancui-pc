@@ -13,6 +13,21 @@
     <script src="./static/pureFullPage.min.js"></script>
   </body>
   <script>
+    window.onload = function () {
+      setFont();
+      window.addEventListener("resize", function () {
+        setFont();
+      })
+      function setFont() {
+        let designSize = 1920; // 设计图尺寸
+        let html = document.documentElement;
+        let wW = html.clientWidth; // 窗口宽度
+        let rem = wW * 100 / designSize;
+        document.documentElement.style.fontSize = rem + 'px';
+      }
+    }
+  </script>
+  <script>
     (function (w, d, e, x) {  w[e] = function () {
       w.cbk = w.cbk || []
       w.cbk.push(arguments);
@@ -27,20 +42,5 @@
     zc("config",{
       custom: true, //设置自定义生效 第二步
     })
-  </script>
-  <script>
-    window.onload = function () {
-      setFont();
-      window.addEventListener("resize", function () {
-        setFont();
-      })
-      function setFont() {
-        let designSize = 1920; // 设计图尺寸
-        let html = document.documentElement;
-        let wW = html.clientWidth; // 窗口宽度
-        let rem = wW * 100 / designSize;
-        document.documentElement.style.fontSize = rem + 'px';
-      }
-    }
   </script>
 </html>
