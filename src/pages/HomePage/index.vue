@@ -2,15 +2,17 @@
   <div class="home-page">
     <div id="pureFullPage">
       <div class="page">
-        <swiper class="swiper page1-swiper">
+        <swiper class="swiper page1-swiper" :options="swiperOption">
           <swiper-slide
             class="homepage-banner"
             v-for="item in homePageBanner"
             :key="item.id"
           >
-            <img :src="item.img_url"
-                 :alt="item.title"
-            >
+            <a :href="item.url" target="_blank">
+              <img :src="item.img_url"
+                   :alt="item.title"
+              >
+            </a>
           </swiper-slide>
         </swiper>
       </div>
@@ -31,7 +33,11 @@
               <div class="title">{{ item.en_title }}</div>
               <div class="detail">{{ item.instruction }}</div>
               <div class="read-more">
-                <span>查看更多</span>
+                <router-link
+                  :to="{ name: 'Products', params: { type: item.type }}"
+                >
+                  <span>查看更多</span>
+                </router-link>
               </div>
             </div>
           </div>
@@ -68,7 +74,9 @@
         <div class="right-area">
           <div class="right-box">
             <div class="flpx" v-if="page3Index === 1">
-              <div class="click-btn"></div>
+              <router-link to="/TrainingPage">
+                <div class="click-btn"></div>
+              </router-link>
             </div>
             <div class="page3-slide" v-if="page3Index === 2">
               <swiper class="swiper" :options="swiperOption">
@@ -77,6 +85,7 @@
                   v-for="item in teacherList"
                   :key="item.id"
                   :style="{ backgroundImage: 'url(' + item.avatar + ')' }"
+                  @click.native="toPersonalPage(item.id)"
                 >
                   <div class="teacher-msg">
                     <div class="line1">
@@ -155,12 +164,16 @@
                   <el-card>
                     <div class="title">{{ item.title }}</div>
                     <div class="read-more">
-                      <span>查看详情 ></span>
+                      <span @click="toNewsDetailPage(item.id)">查看详情 ></span>
                     </div>
                   </el-card>
                 </el-timeline-item>
                 <el-timeline-item>
-                  <span class="to-read-more">更多</span>
+                  <router-link
+                    :to="{ name: 'NewsListPage', params: { type: page4Index }}"
+                  >
+                    <span class="to-read-more">更多</span>
+                  </router-link>
                 </el-timeline-item>
               </el-timeline>
             </div>
@@ -186,15 +199,13 @@
           <div class="content">
             <div class="content-1">
               <div class="icon-area">
-                <div class="icon hxjs"></div>
+                <div class="icon qyjs"></div>
               </div>
               <div class="title">企业介绍</div>
               <div class="line">
                 <span></span>
               </div>
-              <div class="desc">
-                2018年汉萃与芳香芳疗产业协会合作成立检测研发中心，为芳香行业企业提供技术支持与服务；并与美国著名生物研究机构紧密合作，主营业务是天然植物健康产品、芳香疗法和护肤肽类终端产品的技术研发与销售、健康咨询服务。关联公司山东汉肽生物医药有限公司，目前拥有3000平方米的研发基地和10000余平方米的生产基地，并与山东大学合作，成立“山东大学汉肽生物技术研究院”，致力于研发针对糖尿病、肿瘤、心血管疾病、耐药菌感染等重大疾病的药物，并研发了30种美容肽原料、发酵生产胶原蛋白等工艺，推出了多款活性肽产品。
-              </div>
+              <div class="desc">2018年汉萃与芳香芳疗产业协会合作成立检测研发中心，为芳香行业企业提供技术支持与服务；并与美国著名生物研究机构紧密合作，主营业务是天然植物健康产品、芳香疗法和护肤肽类终端产品的技术研发与销售、健康咨询服务。关联公司山东汉肽生物医药有限公司，目前拥有3000平方米的研发基地和10000余平方米的生产基地，并与山东大学合作，成立“山东大学汉肽生物技术研究院”，致力于研发针对糖尿病、肿瘤、心血管疾病、耐药菌感染等重大疾病的药物，并研发了30种美容肽原料、发酵生产胶原蛋白等工艺，推出了多款活性肽产品。</div>
             </div>
             <div class="content-1">
               <div class="icon-area">
@@ -212,26 +223,26 @@
           <div class="content">
             <div class="content-1">
               <div class="icon-area">
-                <div class="icon hxjs"></div>
+                <div class="icon qywh"></div>
               </div>
-              <div class="title">企业介绍</div>
+              <div class="title">企业文化</div>
               <div class="line">
                 <span></span>
               </div>
               <div class="desc">
-                2018年汉萃与芳香芳疗产业协会合作成立检测研发中心，为芳香行业企业提供技术支持与服务；并与美国著名生物研究机构紧密合作，主营业务是天然植物健康产品、芳香疗法和护肤肽类终端产品的技术研发与销售、健康咨询服务。关联公司山东汉肽生物医药有限公司，目前拥有3000平方米的研发基地和10000余平方米的生产基地，并与山东大学合作，成立“山东大学汉肽生物技术研究院”，致力于研发针对糖尿病、肿瘤、心血管疾病、耐药菌感染等重大疾病的药物，并研发了30种美容肽原料、发酵生产胶原蛋白等工艺，推出了多款活性肽产品。
+                “汉萃”始终坚持天然原料，严格遵循品质规格；依托高端技术型人才和研发团队，致力于打造顶尖的精油和肽产品，以“卓越品质、专业素养”为理念，倡导提高人类健康水平、服务大众、造福大众，是“汉萃”终身的追求与使命。
               </div>
             </div>
             <div class="content-1">
               <div class="icon-area">
-                <div class="icon hxjs"></div>
+                <div class="icon jyfw"></div>
               </div>
-              <div class="title">核心技术</div>
+              <div class="title">经营范围</div>
               <div class="line">
                 <span></span>
               </div>
               <div class="desc">
-                汉肽生物和山东大学淄博生物医药研究院合作，成立“山东大学汉肽生物技术研究院”，培养了一支高素质研发管理团队，并开展新药筛查和抗衰药物研发。已拥有20多个一线肽药物的成熟生产工艺，齐考诺肽和利那洛肽即将申报临床申请，并开发了30种美容肽原料、发酵生产胶原蛋白等生产工艺。从全球筛选采购进口200余种单方精油原料，为国内食品、药品、日化用品企业提供优质的芳香原料，并研发6大系列40余种无添加任何化学成分的复方功效精油，为芳疗产业提供产品及技术支持。已申请精油相关发明专利9项、肽相关发明专利7项，并拥有3套关于精油和肽原料研发的软件系统。
+                “汉萃”旗下目前拥有“芊栢荟”等品牌，主要以精油及活性肽为基础所研发的美容护肤、亚健康调理、芳香疗法等系列衍生产品。并成立了中华注册芳疗师协会，设立国际芳疗师培训基地，在植物萃取应用方向开展课程，为研发成果产业化提供更扎实的理论支撑，形成芳疗研究、培训、就业的智慧芳疗生态圈。
               </div>
             </div>
           </div>
@@ -298,6 +309,9 @@
     name: 'HomePage',
     data() {
       return {
+        swiperOption1: {
+          autoplay: true,
+        },
         swiperOption: {
           slidesPerView: 'auto',
           autoplay: true,
@@ -408,6 +422,23 @@
             })
           }
         })
+      },
+      toPersonalPage(id) {
+        console.log(id)
+        this.$router.push({
+          name: 'PersonalPage',
+          params: {
+            id: id
+          }
+        })
+      },
+      toNewsDetailPage(id) {
+        this.$router.push({
+          name: 'NewsDetailPage',
+          params: {
+            id: id
+          }
+        })
       }
     }
   }
@@ -488,7 +519,7 @@
             font-size: 0.14rem;
             color: #FEFEFE;
             padding: 0.22rem 0.7rem 0;
-            line-height: 0.2rem;
+            line-height: 1.3;
           }
           .read-more {
             text-align: center;
@@ -798,10 +829,28 @@
             padding-right: 0.55rem;
             .icon-area {
               padding-bottom: 0.16rem;
+              .qyjs {
+                width: 0.43rem;
+                height: 0.43rem;
+                background-image: url("~@IMG/qyjs.png");
+                background-size: 100% 100%;
+              }
               .hxjs {
                 width: 0.44rem;
                 height: 0.46rem;
                 background-image: url("~@IMG/hxjs.png");
+                background-size: 100% 100%;
+              }
+              .qywh {
+                width: 0.38rem;
+                height: 0.42rem;
+                background-image: url("~@IMG/qywh.png");
+                background-size: 100% 100%;
+              }
+              .jyfw {
+                width: 0.45rem;
+                height: 0.44rem;
+                background-image: url("~@IMG/jyfw.png");
                 background-size: 100% 100%;
               }
             }
@@ -819,7 +868,7 @@
             .desc {
               font-size: 0.14rem;
               color: #004033;
-              line-height: 1.6;
+              line-height: 1.3;
             }
           }
         }
@@ -845,6 +894,7 @@
             font-size: 0.14rem;
             color: #004033;
             padding-bottom: 1.01rem;
+            line-height: 1.4;
           }
           .line {
             font-size: 0.18rem;

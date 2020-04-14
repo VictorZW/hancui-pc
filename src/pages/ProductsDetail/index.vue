@@ -32,7 +32,7 @@
             <div class="title">{{ ProductDetail.title }}/<span class="English">Rose Hydrosol</span></div>
             <div class="desc">{{ ProductDetail.sub_title }}</div>
             <div class="price">
-              <span class="size">500mL</span>
+              <span class="size">{{ ProductDetail.sku }}</span>
               <span class="num">￥{{ ProductDetail.origin_price }}</span>
             </div>
             <div class="to-buy-btn" @click="centerDialogVisible = true">购买产品</div>
@@ -73,6 +73,7 @@
         >
           <div class="pro-image"
                :style="{ backgroundImage: 'url(' + item.logo + ')' }"
+               @click="toProDetailPage(item.id)"
           ></div>
           <div class="title">{{ item.title }}</div>
           <div class="sub_title">{{ item.sub_title }}</div>
@@ -131,6 +132,16 @@
       this.clickCount = 0
       this.getProductDetail()
       this.getProductList()
+    },
+    watch: {
+      $route: {
+        handler: function(){
+          this.clickCount = 0
+          this.getProductDetail()
+          this.getProductList()
+        },
+        deep: true
+      }
     },
     computed: {
       brandName() {
@@ -211,6 +222,15 @@
         }
         productListApi(params).then(res => {
           this.ProductList = JSON.parse(JSON.stringify(res.result))
+        })
+      },
+      toProDetailPage(id) {
+        console.log(id)
+        this.$router.push({
+          name: 'ProductsDetail',
+          params: {
+            id: id
+          }
         })
       }
     }
