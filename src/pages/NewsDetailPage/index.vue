@@ -34,13 +34,15 @@
           <div class="news-card"
                v-for="item in newsList"
                :key="item.id"
+               @click="toTheDetail(item.id)"
           >
             <div class="time">
               <span class="date">{{ getDate(item.publish_at) }}</span><span class="year">/{{ getYear(item.publish_at) }}</span>
             </div>
             <div class="title">{{ item.title }}</div>
             <div class="instruction">{{ item.instruction }}</div>
-            <div class="read-more" @click="toTheDetail(item.id)">
+            <div class="line-do"></div>
+            <div class="read-more">
               <span>查看详情</span>
               <span> > </span>
             </div>
@@ -182,6 +184,7 @@
         background-color: #F8F8F8;
         box-shadow: 0 0 0.21rem 0 rgba(0, 64, 51, 0.15);
         padding: 0.31rem 0.33rem 0;
+        cursor: pointer;
         .time {
           .date {
             font-size: 0.28rem;
@@ -202,9 +205,18 @@
           font-size: 0.14rem;
           color: #666666;
           padding-top: 0.31rem;
-          padding-bottom: 0.21rem;
-          border-bottom: 0.01rem dotted #666666;
-          line-height: 1.4;
+          line-height: 0.24rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box; //作为弹性伸缩盒子模型显示。
+          -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+          -webkit-line-clamp: 3; //显示的行
+          height: 1.03rem;
+        }
+        .line-do {
+          width: 100%;
+          border-top: 0.01rem dotted #666666;
+          margin-top: 0.21rem;
         }
         .read-more {
           padding-top: 0.31rem;

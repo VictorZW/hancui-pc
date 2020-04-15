@@ -114,7 +114,7 @@
     .description {
       font-size: 0.16rem;
       color: #004033;
-      line-height: 1.4;
+      line-height: 1.7;
       padding-bottom: 0.3rem;
     }
     .about-company {
@@ -137,7 +137,7 @@
         .desc {
           font-size: 0.16rem;
           color: #004033;
-          line-height: 1.4;
+          line-height: 1.7;
           padding-top: 0.21rem;
         }
       }

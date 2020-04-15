@@ -268,6 +268,9 @@
             opacity: 0.2;
             cursor: pointer;
             text-align: center;
+            &:hover {
+              background-color: #333333;
+            }
             img {
               height: 0.3rem;
             }

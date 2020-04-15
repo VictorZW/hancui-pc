@@ -36,6 +36,7 @@
         <div class="news-card"
              v-for="item in newsList"
              :key="id"
+             @click="toNewsDetailPage(item.id)"
         >
           <div class="text-area">
             <div class="time">
@@ -44,7 +45,7 @@
             <div class="title">{{ item.title }}</div>
             <div class="body">{{ item.instruction }}</div>
             <div class="read-more">
-              <span @click="toNewsDetailPage(item.id)">查看详情</span>
+              <span>查看详情</span>
             </div>
           </div>
           <div class="img-area"
@@ -145,6 +146,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 0.18rem 0 0.28rem;
+      cursor: pointer;
       .text-area {
         width: 8.47rem;
         height: 100%;

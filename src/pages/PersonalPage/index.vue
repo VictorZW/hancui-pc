@@ -2,7 +2,7 @@
   <div class="PersonalPage">
     <div class="page-inner">
       <div class="brand-search">
-        <div class="Breadcrumb">当前位置：首页/企业资讯</div>
+        <div class="Breadcrumb">当前位置：首页/芳疗学院/芳疗师主页</div>
       </div>
       <div class="PersonalPage-content">
         <div class="avatar"
