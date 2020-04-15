@@ -466,4 +466,7 @@
       padding: 0;
     }
   }
+  /deep/ .el-icon-circle-close {
+    color: #FFFFFF;
+  }
 </style>

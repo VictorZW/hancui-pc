@@ -8,76 +8,98 @@
             :class="[pageName === 'HomePage' ? 'menu-btn-active' : '']"
           >首页</span>
         </router-link>
-        <el-dropdown placement="bottom-start">
-          <span
-            class="el-dropdown-link menu-btn"
-            :class="[pageName === 'Products' ? 'menu-btn-active' : '']"
-          >产品服务</span>
-          <el-dropdown-menu slot="dropdown">
-            <router-link
-              :to="{ name: 'Products', params: { type: 1 }}"
-            >
-              <el-dropdown-item>护肤类</el-dropdown-item>
-            </router-link>
-            <router-link
-              :to="{ name: 'Products', params: { type: 2 }}"
-            >
-              <el-dropdown-item>精油类</el-dropdown-item>
-            </router-link>
-            <router-link
-              :to="{ name: 'Products', params: { type: 3 }}"
-            >
-              <el-dropdown-item>原料类</el-dropdown-item>
-            </router-link>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <el-dropdown placement="bottom-start">
-          <span
-            class="el-dropdown-link menu-btn"
-            :class="[pageName === 'flSchool' ? 'menu-btn-active' : '']"
-          >芳疗学院</span>
-          <el-dropdown-menu slot="dropdown">
-            <router-link to="/TrainingPage">
-              <el-dropdown-item>芳疗培训</el-dropdown-item>
-            </router-link>
-            <router-link to="/AromatherapistHomePage">
-              <el-dropdown-item>芳疗师主页</el-dropdown-item>
-            </router-link>
-            <router-link to="/LibraryPage">
-              <el-dropdown-item>芳疗图书馆</el-dropdown-item>
-            </router-link>
-          </el-dropdown-menu>
-        </el-dropdown>
+        <div class="drop-down-comp">
+          <div class="menu-btn"
+                :class="[pageName === 'Products' ? 'menu-btn-active' : '']"
+          >产品服务</div>
+          <div class="drop-down-list">
+            <div class="drop-down-li">
+              <router-link
+                :to="{ name: 'Products', params: { type: 1 }}"
+              >
+                <span>护肤类</span>
+              </router-link>
+            </div>
+            <div class="drop-down-li">
+              <router-link
+                :to="{ name: 'Products', params: { type: 2 }}"
+              >
+                <span>精油类</span>
+              </router-link>
+            </div>
+            <div class="drop-down-li">
+              <router-link
+                :to="{ name: 'Products', params: { type: 3 }}"
+              >
+                <span>原料类</span>
+              </router-link>
+            </div>
+          </div>
+        </div>
+        <div class="drop-down-comp">
+          <div class="menu-btn"
+               :class="[pageName === 'flSchool' ? 'menu-btn-active' : '']"
+          >芳疗学院</div>
+          <div class="drop-down-list">
+            <div class="drop-down-li">
+              <router-link to="/TrainingPage">
+                <span>芳疗培训</span>
+              </router-link>
+            </div>
+            <div class="drop-down-li">
+              <router-link to="/AromatherapistHomePage">
+                <span>芳疗师主页</span>
+              </router-link>
+            </div>
+            <div class="drop-down-li">
+              <router-link to="/LibraryPage">
+                <span>芳疗图书馆</span>
+              </router-link>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="logo"></div>
+      <router-link to="/">
+        <div class="logo"></div>
+      </router-link>
       <div class="right">
-        <el-dropdown placement="bottom-start">
-          <span
-            class="el-dropdown-link menu-btn"
-            :class="[pageName === 'NewsListPage' ? 'menu-btn-active' : '']"
-          >企业资讯</span>
-          <el-dropdown-menu slot="dropdown">
-            <router-link
-              :to="{ name: 'NewsListPage', params: { type: 1 }}"
-            >
-              <el-dropdown-item>实时资讯</el-dropdown-item>
-            </router-link>
-            <router-link
-              :to="{ name: 'NewsListPage', params: { type: 2 }}"
-            >
-              <el-dropdown-item>芳疗资讯</el-dropdown-item>
-            </router-link>
-            <router-link
-              :to="{ name: 'NewsListPage', params: { type: 3 }}"
-            >
-              <el-dropdown-item>科技资讯</el-dropdown-item>
-            </router-link>
-          </el-dropdown-menu>
-        </el-dropdown>
+        <div class="drop-down-comp">
+          <div class="menu-btn"
+               :class="[pageName === 'NewsListPage' ? 'menu-btn-active' : '']"
+          >企业资讯</div>
+          <div class="drop-down-list">
+            <div class="drop-down-li">
+              <router-link
+                :to="{ name: 'NewsListPage', params: { type: 1 }}"
+              >
+                <span>实时资讯</span>
+              </router-link>
+            </div>
+            <div class="drop-down-li">
+              <router-link
+                :to="{ name: 'NewsListPage', params: { type: 2 }}"
+              >
+                <span>芳疗资讯</span>
+              </router-link>
+            </div>
+            <div class="drop-down-li">
+              <router-link
+                :to="{ name: 'NewsListPage', params: { type: 3 }}"
+              >
+                <span>科技资讯</span>
+              </router-link>
+            </div>
+          </div>
+        </div>
         <router-link to="/AboutUS">
           <span class="menu-btn"
                 :class="[pageName === 'AboutUS' ? 'menu-btn-active' : '']"
           >关于我们</span>
+        </router-link>
+        <router-link to="/ContactUs">
+          <span class="menu-btn"
+                :class="[pageName === 'ContactUs' ? 'menu-btn-active' : '']"
+          >联系我们</span>
         </router-link>
       </div>
     </div>
@@ -127,6 +149,7 @@
     left: 0;
     right: 0;
     z-index: 100;
+    opacity: 0.8;
     .header-inner {
       min-width: 1200px;
       height: 100%;

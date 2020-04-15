@@ -11,6 +11,7 @@ import AromatherapistHomePage from '@/pages/AromatherapistHomePage'
 import PersonalPage from '@/pages/PersonalPage'
 import LibraryPage from '@/pages/LibraryPage'
 import LibraryDetailPage from '@/pages/LibraryDetailPage'
+import ContactUs from '@/pages/ContactUs'
 
 Vue.use(Router)
 
@@ -115,6 +116,15 @@ export default new Router({
       meta: {
         hideHeader: false,
         hideFooter: false
+      }
+    },
+    {
+      path: '/ContactUs',
+      name: 'ContactUs',
+      component: ContactUs,
+      meta: {
+        hideHeader: false,
+        hideFooter: true
       }
     }
   ]

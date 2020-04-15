@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <div id="pureFullPage">
+    <div id="pureFullPage" ref="pureFullPage">
       <div class="page">
         <swiper class="swiper page1-swiper" :options="swiperOption1">
           <swiper-slide
@@ -161,10 +161,10 @@
                   :key="item.id"
                   :timestamp="item.publish_at"
                 >
-                  <el-card>
+                  <el-card @click.native="toNewsDetailPage(item.id)">
                     <div class="title">{{ item.title }}</div>
                     <div class="read-more">
-                      <span @click="toNewsDetailPage(item.id)">查看详情 ></span>
+                      <span>查看详情 ></span>
                     </div>
                   </el-card>
                 </el-timeline-item>
@@ -747,6 +747,11 @@
               .el-card {
                 background: none;
                 border-radius: 0.15rem;
+                cursor: pointer;
+                &:hover {
+                  transform: scale(1.02, 1.02);
+                  transition: transform .2s;
+                }
                 .el-card__body {
                   padding: 0.21rem 0.28rem;
                   .title, .read-more{
@@ -756,9 +761,6 @@
                   }
                   .read-more {
                     text-align: right;
-                    span {
-                      cursor: pointer;
-                    }
                   }
                 }
               }
