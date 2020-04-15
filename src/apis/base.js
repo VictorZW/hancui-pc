@@ -4,4 +4,4 @@
  * @desc:
  **/
 export const BaseUrl =
-  process.env.NODE_ENV === 'development' ? 'http://112.124.15.195' : 'http://112.124.15.195'
+  process.env.NODE_ENV === 'development' ? 'http://112.124.15.195' : 'http://api.website.hancuinature.com'
