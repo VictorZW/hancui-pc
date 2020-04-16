@@ -10,7 +10,7 @@
         <div class="block block1 Customer_service"></div>
         <div class="block block2"></div>
         <div class="block block3"></div>
-        <div class="block block4" @click="backToTop"></div>
+        <div class="block block4" id="backToTop" @click="backToTop"></div>
         <div class="code_img">
           <img src="~@IMG/code_img.png" alt="">
         </div>
@@ -41,11 +41,9 @@
     },
     methods: {
       backToTop() {
-        console.log('1111')
-        console.log(this.$refs)
-        this.$nextTick(() => {
-          document.getElementById('pureFullPage').style.top = '0'
-        })
+        // this.$nextTick(() => {
+        //   document.getElementById('pureFullPage').style.top = '0'
+        // })
         document.body.scrollTop = document.documentElement.scrollTop = 0
       }
     }
