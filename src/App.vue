@@ -39,6 +39,12 @@
         return !this.$route.meta.hideFooter
       }
     },
+    watch:{
+      '$route': function() {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+      }
+    },
     methods: {
       backToTop() {
         // this.$nextTick(() => {
@@ -52,6 +58,9 @@
 
 <style lang="scss">
   @import 'assets/styles/app.scss';
+  #app {
+    min-width: 12rem;
+  }
   .po-right {
     position: fixed;
     bottom: 1.55rem;

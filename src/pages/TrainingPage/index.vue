@@ -1,13 +1,17 @@
 <template>
   <div class="TrainingPage page-content">
-    <div class="pic1"></div>
+    <div class="pic1">
+      <div class="click-btn-page1 Customer_service"></div>
+    </div>
     <div class="pic2"></div>
     <div class="pic3"></div>
     <div class="pic4"></div>
     <div class="pic5"></div>
     <div class="pic6"></div>
     <div class="pic7"></div>
-    <div class="pic8"></div>
+    <div class="pic8">
+      <div class="click-btn Customer_service">预约免费试听</div>
+    </div>
     <div class="pic9"></div>
     <div class="pic10">
       <div class="click-btn Customer_service">预约免费试听</div>
@@ -40,9 +44,22 @@
 <style lang="scss" scoped>
   .pic1 {
     width: 100%;
-    height: 10.8rem;
-    background-image: url("~@IMG/pic1.png");
+    height: 11.74rem;
+    background-image: url("~@IMG/flpx.png");
     background-size: cover;
+    position: relative;
+    .click-btn-page1 {
+      width: 3rem;
+      height: 0.7rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: 0.55rem;
+      background-image: url("~@IMG/page1Btn.png");
+      background-size: 100% 100%;
+      cursor: pointer;
+    }
   }
   .pic2 {
     width: 100%;
@@ -85,6 +102,7 @@
     height: 8.82rem;
     background-image: url("~@IMG/pic8.png");
     background-size: cover;
+    position: relative;
   }
   .pic9 {
     width: 100%;

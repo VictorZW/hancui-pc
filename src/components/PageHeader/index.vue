@@ -161,7 +161,7 @@
     z-index: 100;
     opacity: 0.8;
     .header-inner {
-      min-width: 1200px;
+      min-width: 12rem;
       height: 100%;
       margin: auto;
       display: flex;

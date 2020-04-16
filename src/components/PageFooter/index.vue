@@ -43,18 +43,21 @@
         font-size: 0.18rem;
         color: #FFFFFF;
         padding-top: 0.67rem;
+        font-weight: bold;
       }
       .com-disc {
         font-size: 0.14rem;
         color: #FFFFFF;
         margin-top: 0.21rem;
         margin-bottom: 0.71rem;
+        font-weight: 300;
       }
       .text-line {
         color: #FFFFFF;
         padding-bottom: 0.56rem;
         span {
           font-size: 0.18rem;
+          font-weight: 400;
         }
       }
       .code-area {

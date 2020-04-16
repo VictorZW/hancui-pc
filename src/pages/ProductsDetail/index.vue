@@ -70,10 +70,10 @@
           class="pro-area"
           v-for="item in ProductList"
           :key="item.id"
+          @click.native="toProDetailPage(item.id)"
         >
           <div class="pro-image"
                :style="{ backgroundImage: 'url(' + item.logo + ')' }"
-               @click="toProDetailPage(item.id)"
           ></div>
           <div class="title">{{ item.title }}</div>
           <div class="sub_title">{{ item.sub_title }}</div>
@@ -235,7 +235,6 @@
         })
       },
       toProDetailPage(id) {
-        console.log(id)
         this.$router.push({
           name: 'ProductsDetail',
           params: {

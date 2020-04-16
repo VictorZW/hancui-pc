@@ -35,7 +35,7 @@
       <div class="list-ul">
         <div class="news-card"
              v-for="item in newsList"
-             :key="id"
+             :key="item.id"
              @click="toNewsDetailPage(item.id)"
         >
           <div class="text-area">
