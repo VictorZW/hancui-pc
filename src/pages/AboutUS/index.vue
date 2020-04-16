@@ -66,7 +66,8 @@
       return {
         swiperOption: {
           slidesPerView: 'auto',
-          autoplay: true
+          autoplay: true,
+          loop: true
         },
         // 公司简介
         instruction: {},
