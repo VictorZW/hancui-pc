@@ -127,7 +127,9 @@
         centerDialogVisible: false
       }
     },
-    components: { ElImageViewer },
+    components: {
+      ElImageViewer
+    },
     mounted() {
       this.clickCount = 0
       this.getProductDetail()
@@ -142,6 +144,13 @@
         },
         deep: true
       }
+    },
+    updated() {
+      this.$nextTick(() => {
+        document.getElementsByClassName('el-image-viewer__mask')[0] && document.getElementsByClassName('el-image-viewer__mask')[0].addEventListener('click', () => {
+          this.closeViewer()
+        })
+      })
     },
     computed: {
       brandName() {
