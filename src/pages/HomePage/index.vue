@@ -325,8 +325,8 @@
             clickable: true
           },
           navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+            nextEl: '.swiper-button-next-new',
+            prevEl: '.swiper-button-prev-new'
           }
         },
         homePageBanner: [],
