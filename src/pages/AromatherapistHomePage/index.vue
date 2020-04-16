@@ -155,7 +155,6 @@
           margin-top: 0.4rem;
           .swiper {
             .slide-card {
-              width: 2.33rem !important;
               height: 2.82rem !important;
               background-size: 100% 100%;
               position: relative;
