@@ -293,6 +293,7 @@
             </div>
           </div>
         </div>
+        <div class="beian">津ICP备19011178号</div>
       </div>
     </div>
     <div id="upDownIcon"></div>
@@ -465,11 +466,12 @@
       background-image: url("~@IMG/upDownIcon.png");
       background-size: cover;
       position: fixed;
-      bottom: 0.3rem;
+      bottom: 0.6rem;
       left: 0;
       right: 0;
       margin: auto;
       z-index: 1000;
+      cursor: pointer;
     }
 
     .page-first {
@@ -706,7 +708,7 @@
       .content-inner {
         width: 100%;
         height: 100%;
-        padding: 1.43rem 1.09rem 1.49rem;
+        padding: 2.3rem 1.09rem 1.49rem;
         display: flex;
         .left-area {
           width: 2.97rem;
@@ -901,8 +903,17 @@
       }
     }
     .page6 {
-      padding-bottom: 0.6rem;
+      flex-direction: column;
+      .beian {
+        height: 0.6rem;
+        border-bottom: 0;
+        text-align: center;
+        line-height: 0.6rem;
+        font-size: 0.16rem;
+        color: #FFFFFF;
+      }
       .about-us {
+        flex: 1;
         width: 100%;
         background-color: #FFFFFF;
         .about-us-inner {

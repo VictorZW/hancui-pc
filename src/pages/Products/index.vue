@@ -74,6 +74,7 @@
       return {
         swiperOption1: {
           autoplay: true,
+          loop: true
         },
         proType: 1, // 产品类型1：护肤，2：精油，3：原料
         page: 1,
@@ -153,7 +154,7 @@
   .Products {
     .banner {
       width: 100%;
-      height: 7rem;
+      height: 4.5rem;
       .swiper-banner {
         width: 100%;
         height: 100%;

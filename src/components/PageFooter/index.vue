@@ -23,6 +23,7 @@
         <div class="text">扫一扫关注公司公众号</div>
       </div>
     </div>
+    <div class="beian">津ICP备19011178号</div>
   </div>
 </template>
 
@@ -35,6 +36,15 @@
 <style lang="scss" scoped>
   .page-footer {
     background: #069163;
+    .beian {
+      width: 100%;
+      height: 0.6rem;
+      color: #FFFFFF;
+      font-size: 0.16rem;
+      text-align: center;
+      line-height: 0.6rem;
+      background-color: #004033;
+    }
     .footer-content {
       width: 12rem;
       margin: auto;
