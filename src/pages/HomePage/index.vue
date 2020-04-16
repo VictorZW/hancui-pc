@@ -293,6 +293,7 @@
         </div>
       </div>
     </div>
+    <div id="upDownIcon"></div>
   </div>
 </template>
 
@@ -342,6 +343,7 @@
         delay: 1000,
         isShowNav: true
       })
+      console.log(PureFullPage)
       this.getHomepageBanner()
       this.getProductCate()
       this.getNewsList()
@@ -456,6 +458,20 @@
     .page {
       display: flex;
     }
+
+    #upDownIcon {
+      width: 0.24rem;
+      height: 0.26rem;
+      background-image: url("~@IMG/upDownIcon.png");
+      background-size: cover;
+      position: fixed;
+      bottom: 0.3rem;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1000;
+    }
+
     .page-first {
       @include background-cover-center();
     }
