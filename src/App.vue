@@ -81,6 +81,9 @@
     }
     .block2 {
       background-image: url("~@IMG/r_icon2.png");
+      &:hover {
+        background-image: url("~@IMG/r_icon2_2.png");
+      }
       &:hover~.tel {
         display: block;
       }
@@ -96,6 +99,9 @@
     }
     .block4 {
       background-image: url("~@IMG/r_icon4.png");
+      &:hover {
+        background-image: url("~@IMG/r_icon4_2.png");
+      }
     }
     .code_img {
       position: absolute;
@@ -113,6 +119,7 @@
       top: 0.73rem;
       height: 0.7rem;
       display: none;
+      background: none;
       img {
         height: 100%;
       }
