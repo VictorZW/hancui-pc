@@ -45,7 +45,9 @@
             <div class="title">{{ item.title }}</div>
             <div class="body">{{ item.instruction }}</div>
             <div class="read-more">
-              <span>查看详情</span>
+              <span>
+                <img class="read-more-img" src="~@IMG/read-more.png" alt="">
+              </span>
             </div>
           </div>
           <div class="img-area"
@@ -143,6 +145,8 @@
 
 <style lang="scss" scoped>
   .page-banner {
+    width: 100%;
+    height: 4.5rem;
     background-image: url("~@IMG/news-list-banner.png");
     background-size: cover;
   }
@@ -206,6 +210,9 @@
         height: 1.8rem;
         background-size: 100% 100%;
       }
+    }
+    .read-more-img {
+      width: 0.65rem;
     }
   }
 </style>

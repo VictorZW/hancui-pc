@@ -293,7 +293,11 @@
             </div>
           </div>
         </div>
-        <div class="beian">津ICP备19011178号</div>
+        <div class="beian">
+          <div class="bei-an-area">
+            <img src="~@IMG/beian.png" class="beian-icon"><span>津ICP备19011178号</span>
+          </div>
+        </div>
       </div>
     </div>
     <div id="upDownIcon"></div>
@@ -342,7 +346,7 @@
       }
     },
     mounted() {
-      // 创建全屏滚动实例，传入动画回调函数，并初始化
+      // 创建全屏滚动实例，并初始化
       new PureFullPage({
         delay: 1000,
         isShowNav: true
@@ -914,6 +918,11 @@
         line-height: 0.6rem;
         font-size: 0.16rem;
         color: #FFFFFF;
+        .beian-icon {
+          width: 0.22rem;
+          vertical-align: middle;
+          margin-right: 0.05rem;
+        }
       }
       .about-us {
         flex: 1;
@@ -931,7 +940,7 @@
             padding-bottom: 0.21rem;
           }
           .desc {
-            font-size: 0.14rem;
+            font-size: 0.16rem;
             color: #004033;
             padding-bottom: 0.6rem;
             line-height: 1.4;
@@ -966,7 +975,7 @@
           }
           .send-message {
             width: 5rem;
-            height: 3rem;
+            height: 3.5rem;
             background-color: #069163;
             position: absolute;
             top: 3.8rem;
@@ -996,7 +1005,7 @@
               padding-right: 0.2rem;
               /deep/ .el-input {
                 width: 100%;
-                height: 0.4rem;
+                height: 0.3rem;
                 margin-bottom: 0.3rem;
               }
               .submit-btn-area {

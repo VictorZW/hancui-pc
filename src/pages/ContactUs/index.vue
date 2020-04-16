@@ -107,7 +107,7 @@
           padding-bottom: 0.21rem;
         }
         .desc {
-          font-size: 0.14rem;
+          font-size: 0.16rem;
           color: #004033;
           padding-bottom: 1.01rem;
           line-height: 1.4;

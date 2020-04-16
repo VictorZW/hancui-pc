@@ -137,6 +137,7 @@
             padding-top: 0.19rem;
             padding-bottom: 0.19rem;
             background-color: rgb(242, 242, 242);
+            height: 2.52rem;
             .padding-l {
               padding-left: 0.9rem;
               .name-job {
@@ -185,6 +186,9 @@
                 padding: 0.1rem 0.1rem 0.1rem 0;
                 display: inline-block;
               }
+            }
+            .text {
+              padding-top: 0.1rem;
             }
           }
         }

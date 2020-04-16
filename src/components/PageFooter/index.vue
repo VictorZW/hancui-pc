@@ -23,7 +23,11 @@
         <div class="text">扫一扫关注公司公众号</div>
       </div>
     </div>
-    <div class="beian">津ICP备19011178号</div>
+    <div class="beian">
+      <div class="bei-an-area">
+        <img src="~@IMG/beian.png" class="beian-icon"><span>津ICP备19011178号</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -44,6 +48,11 @@
       text-align: center;
       line-height: 0.6rem;
       background-color: #004033;
+      .beian-icon {
+        width: 0.22rem;
+        vertical-align: middle;
+        margin-right: 0.05rem;
+      }
     }
     .footer-content {
       width: 12rem;
@@ -56,7 +65,7 @@
         font-weight: bold;
       }
       .com-disc {
-        font-size: 0.14rem;
+        font-size: 0.16rem;
         color: #FFFFFF;
         margin-top: 0.21rem;
         margin-bottom: 0.71rem;
