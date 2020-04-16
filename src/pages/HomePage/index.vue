@@ -153,29 +153,31 @@
             </div>
           </div>
           <div class="right-area">
-            <div class="block">
-              <el-timeline>
-                <el-timeline-item
-                  placement="top"
-                  v-for="item in newsListData"
-                  :key="item.id"
-                  :timestamp="item.publish_at"
-                >
-                  <el-card @click.native="toNewsDetailPage(item.id)">
-                    <div class="title">{{ item.title }}</div>
-                    <div class="read-more">
-                      <span>查看详情 ></span>
-                    </div>
-                  </el-card>
-                </el-timeline-item>
-                <el-timeline-item>
-                  <router-link
-                    :to="{ name: 'NewsListPage', params: { type: page4Index }}"
+            <div class="block-1">
+              <div class="block">
+                <el-timeline>
+                  <el-timeline-item
+                    placement="top"
+                    v-for="item in newsListData"
+                    :key="item.id"
+                    :timestamp="item.publish_at"
                   >
-                    <span class="to-read-more">更多</span>
-                  </router-link>
-                </el-timeline-item>
-              </el-timeline>
+                    <el-card @click.native="toNewsDetailPage(item.id)">
+                      <div class="title">{{ item.title }}</div>
+                      <div class="read-more">
+                        <span>查看详情 ></span>
+                      </div>
+                    </el-card>
+                  </el-timeline-item>
+                  <el-timeline-item>
+                    <router-link
+                      :to="{ name: 'NewsListPage', params: { type: page4Index }}"
+                    >
+                      <span class="to-read-more">更多</span>
+                    </router-link>
+                  </el-timeline-item>
+                </el-timeline>
+              </div>
             </div>
           </div>
         </div>
@@ -533,7 +535,7 @@
             font-size: 0.14rem;
             color: #FEFEFE;
             padding: 0.22rem 0.7rem 0;
-            line-height: 1.3;
+            line-height: 1.5;
           }
           .read-more {
             text-align: center;
@@ -745,6 +747,14 @@
         }
         .right-area {
           flex: 1;
+          padding-top: 0.15rem;
+          .block-1 {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
           /deep/ .block {
             .el-timeline-item__timestamp {
               font-size: 0.15rem;
@@ -752,7 +762,7 @@
             }
             .el-timeline-item__content {
               width: 10.09rem;
-              margin-bottom: 0.4rem;
+              margin-bottom: 0.2rem;
               .to-read-more {
                 font-size: 0.15rem;
                 color: #FFFFFF;
@@ -794,8 +804,8 @@
         background-color: #069163;
         opacity: 0.8;
         padding-top: 2.66rem;
-        padding-left: 3.66rem;
-        padding-right: 1.62rem;
+        padding-left: 2.66rem;
+        padding-right: 2.62rem;
         .text-content {
           .title1 {
             font-size: 0.72rem;
@@ -828,15 +838,15 @@
         height: 100%;
       }
       .po-text-area {
-        width: 10.19rem;
-        height: 8rem;
+        width: 11.19rem;
+        height: 7rem;
         position: absolute;
         right: 1.01rem;
-        top: 1.75rem;
+        top: 1.5rem;
         background-image: url("~@IMG/flo.png");
         background-size: 100% 100%;
-        padding: 1.03rem 0 0 0.58rem;
         box-sizing: border-box;
+        padding: 0.58rem 0 0.58rem 0.58rem;
         overflow: hidden;
         .content {
           display: flex;
@@ -885,7 +895,7 @@
             .desc {
               font-size: 0.14rem;
               color: #004033;
-              line-height: 1.3;
+              line-height: 1.6;
             }
           }
         }
@@ -910,13 +920,13 @@
           .desc {
             font-size: 0.14rem;
             color: #004033;
-            padding-bottom: 1.01rem;
+            padding-bottom: 0.6rem;
             line-height: 1.4;
           }
           .line {
             font-size: 0.18rem;
             color: #004033;
-            padding-bottom: 0.56rem;
+            padding-bottom: 0.5rem;
           }
           .qr-code {
             display: flex;
@@ -946,7 +956,7 @@
             height: 4.05rem;
             background-color: #069163;
             position: absolute;
-            top: 4.68rem;
+            top: 3.8rem;
             right: 0;
             display: flex;
             .left {
