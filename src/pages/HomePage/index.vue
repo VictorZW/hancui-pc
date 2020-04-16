@@ -962,8 +962,8 @@
             padding-top: 0.28rem;
           }
           .send-message {
-            width: 7rem;
-            height: 4.05rem;
+            width: 5rem;
+            height: 3rem;
             background-color: #069163;
             position: absolute;
             top: 3.8rem;
@@ -972,25 +972,25 @@
             .left {
               width: 2.75rem;
               height: 100%;
-              padding-top: 0.5rem;
-              padding-left: 0.5rem;
+              padding-top: 0.2rem;
+              padding-left: 0.2rem;
+              padding-right: 0.2rem;
               .title {
                 font-size: 0.18rem;
                 color: #FFFFFF;
                 padding-bottom: 0.4rem;
               }
               .desc {
-                font-size: 0.18rem;
+                font-size: 0.14rem;
                 color: #FFFFFF;
-                width: 1.47rem;
                 line-height: 1.6;
               }
             }
             .right {
               flex: 1;
               height: 100%;
-              padding-top: 0.6rem;
-              padding-right: 0.5rem;
+              padding-top: 0.2rem;
+              padding-right: 0.2rem;
               /deep/ .el-input {
                 width: 100%;
                 height: 0.4rem;

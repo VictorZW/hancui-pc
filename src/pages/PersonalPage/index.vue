@@ -105,19 +105,20 @@
         color: #FFFFFF;
       }
       .PersonalPage-content {
-        margin-top: 0.65rem;
+        margin-top: 0.25rem;
         width: 100%;
-        height: 7.05rem;
+        min-height: 6.5rem;
         background-color: #FFFFFF;
         position: relative;
-        padding: 0.19rem 0.59rem;
+        padding: 0 0.59rem 0.19rem 0;
         .avatar {
           width: 2.25rem;
           height: 2.72rem;
           position: absolute;
-          top: -0.66rem;
+          top: -0.2rem;
           left: -1.52rem;
           background-size: 100% 100%;
+          border-radius: 0.05rem;
         }
         .text {
           font-size: 0.16rem;
@@ -133,8 +134,11 @@
           display: flex;
           .left {
             width: 3.67rem;
+            padding-top: 0.19rem;
+            padding-bottom: 0.19rem;
+            background-color: rgb(242, 242, 242);
             .padding-l {
-              padding-left: 0.32rem;
+              padding-left: 0.9rem;
               .name-job {
                 line-height: 1.5;
                 .name {
@@ -155,6 +159,8 @@
           }
           .right {
             flex: 1;
+            padding-top: 0.19rem;
+            padding-left: 0.1rem;
             .title {
               .title-name {
                 font-size: 0.18rem;
@@ -167,7 +173,8 @@
           }
         }
         .other-msg {
-          padding-top: 0.3rem;
+          padding-top: 0.15rem;
+          padding-left: 0.59rem;
           .block {
             padding-top: 0.1rem;
             .title {

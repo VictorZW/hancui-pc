@@ -34,6 +34,7 @@
               v-for="item in teacherList"
               :key="item.id"
               :style="{ backgroundImage: 'url(' + item.avatar + ')' }"
+              @click.native="toPersonalPage(item.id)"
             >
               <div class="user-msg">
                 <div class="line1">
@@ -42,7 +43,7 @@
                 </div>
                 <div class="line2">{{ item.skill }}</div>
                 <div class="line3">
-                  <span class="toPersonalPage" @click="toPersonalPage(item.id)">查看更多 ></span>
+                  <span class="toPersonalPage">查看更多 ></span>
                 </div>
               </div>
             </swiper-slide>
@@ -158,6 +159,7 @@
               height: 3.53rem !important;
               background-size: 100% 100%;
               position: relative;
+              cursor: pointer;
               &:hover > .user-msg {
                 display: block;
               }
