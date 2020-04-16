@@ -112,8 +112,7 @@
           keyword: ''
         }
         newsListApi(params).then(res => {
-          console.log(res)
-          this.newsList = JSON.parse(JSON.stringify(res.result))
+          this.newsList = JSON.parse(JSON.stringify(res.result.list))
         })
       }
     }

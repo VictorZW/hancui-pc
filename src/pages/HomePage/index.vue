@@ -376,7 +376,7 @@
           keyword: this.keyword
         }
         newsListApi(params).then(res => {
-          this.libraryData = JSON.parse(JSON.stringify(res.result))
+          this.libraryData = JSON.parse(JSON.stringify(res.result.list))
         })
       },
       getNewsList() {
@@ -387,7 +387,7 @@
           keyword: ''
         }
         newsListApi(params).then(res => {
-          this.newsListData = JSON.parse(JSON.stringify(res.result))
+          this.newsListData = JSON.parse(JSON.stringify(res.result.list))
         })
       },
       choosePage3Index(index) {

@@ -66,7 +66,7 @@
           keyword: this.keyword
         }
         newsListApi(params).then(res => {
-          this.libraryData = JSON.parse(JSON.stringify(res.result))
+          this.libraryData = JSON.parse(JSON.stringify(res.result.list))
         })
       },
       searchData(keyword) {

@@ -231,7 +231,7 @@
           keyword: ''
         }
         productListApi(params).then(res => {
-          this.ProductList = JSON.parse(JSON.stringify(res.result))
+          this.ProductList = JSON.parse(JSON.stringify(res.result.list))
         })
       },
       toProDetailPage(id) {
