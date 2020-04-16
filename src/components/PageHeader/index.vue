@@ -9,9 +9,13 @@
           >首页</span>
         </router-link>
         <div class="drop-down-comp">
-          <div class="menu-btn"
-                :class="[pageName === 'Products' ? 'menu-btn-active' : '']"
-          >产品服务</div>
+          <router-link
+            :to="{ name: 'Products', params: { type: 1 }}"
+          >
+            <div class="menu-btn"
+                 :class="[pageName === 'Products' ? 'menu-btn-active' : '']"
+            >产品服务</div>
+          </router-link>
           <div class="drop-down-list">
             <div class="drop-down-li">
               <router-link
@@ -37,9 +41,11 @@
           </div>
         </div>
         <div class="drop-down-comp">
-          <div class="menu-btn"
-               :class="[pageName === 'flSchool' ? 'menu-btn-active' : '']"
-          >芳疗学院</div>
+          <router-link to="/TrainingPage">
+            <div class="menu-btn"
+                 :class="[pageName === 'flSchool' ? 'menu-btn-active' : '']"
+            >芳疗学院</div>
+          </router-link>
           <div class="drop-down-list">
             <div class="drop-down-li">
               <router-link to="/TrainingPage">
@@ -64,9 +70,13 @@
       </router-link>
       <div class="right">
         <div class="drop-down-comp">
-          <div class="menu-btn"
-               :class="[pageName === 'NewsListPage' ? 'menu-btn-active' : '']"
-          >企业资讯</div>
+          <router-link
+            :to="{ name: 'NewsListPage', params: { type: 1 }}"
+          >
+            <div class="menu-btn"
+                 :class="[pageName === 'NewsListPage' ? 'menu-btn-active' : '']"
+            >企业资讯</div>
+          </router-link>
           <div class="drop-down-list">
             <div class="drop-down-li">
               <router-link
