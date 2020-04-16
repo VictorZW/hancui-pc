@@ -747,7 +747,6 @@
         }
         .right-area {
           flex: 1;
-          padding-top: 0.15rem;
           .block-1 {
             width: 100%;
             height: 100%;
@@ -762,7 +761,7 @@
             }
             .el-timeline-item__content {
               width: 10.09rem;
-              margin-bottom: 0.2rem;
+              margin-bottom: 0.1rem;
               .to-read-more {
                 font-size: 0.15rem;
                 color: #FFFFFF;
