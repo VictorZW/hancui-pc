@@ -154,7 +154,6 @@
           width: 7.57rem;
           margin-top: 0.4rem;
           .swiper {
-            height: 6.04rem;
             .slide-card {
               width: 2.33rem !important;
               height: 2.82rem !important;

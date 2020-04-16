@@ -319,6 +319,7 @@
         swiperOption: {
           slidesPerView: 'auto',
           autoplay: true,
+          loop: true,
           pagination: {
             el: '.swiper-pagination',
             clickable: true
@@ -683,6 +684,7 @@
               margin: auto;
               z-index: 100;
               left: -0.47rem;
+              cursor: pointer;
             }
             .swiper-button-next-new {
               width: 0.97rem;
@@ -696,6 +698,7 @@
               margin: auto;
               z-index: 100;
               right: 0.15rem;
+              cursor: pointer;
             }
           }
         }
