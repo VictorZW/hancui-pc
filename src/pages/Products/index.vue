@@ -58,6 +58,11 @@
           </div>
         </div>
       </div>
+      <el-pagination
+        @current-change="handleCurrentChange"
+        layout="prev, pager, next"
+        :total="total">
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -78,10 +83,11 @@
         },
         proType: 1, // 产品类型1：护肤，2：精油，3：原料
         page: 1,
-        size: 100,
+        size: 6,
         keyword: '',
         ProductList: [],
-        BannerList: []
+        BannerList: [],
+        total: 0
       }
     },
     mounted() {
@@ -110,6 +116,10 @@
       }
     },
     methods: {
+      handleCurrentChange(val) {
+        this.page = val
+        this.getProductList()
+      },
       toProDetailPage(id) {
         this.$router.push({
           name: 'ProductsDetail',
@@ -133,7 +143,8 @@
           keyword: this.keyword
         }
         productListApi(params).then(res => {
-          this.ProductList = JSON.parse(JSON.stringify(res.result))
+          this.total = res.result.total
+          this.ProductList = JSON.parse(JSON.stringify(res.result.list))
         })
       },
       searchData(keyword) {

@@ -53,6 +53,11 @@
           ></div>
         </div>
       </div>
+      <el-pagination
+        @current-change="handleCurrentChange"
+        layout="prev, pager, next"
+        :total="total">
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -66,9 +71,10 @@
       return {
         typeId: 1,
         page: 1,
-        size: 100,
+        size: 6,
         keyword: '',
-        newsList: []
+        newsList: [],
+        total: 0
       }
     },
     computed: {
@@ -96,6 +102,10 @@
       this.getNewsList()
     },
     methods: {
+      handleCurrentChange(val) {
+        this.page = val
+        this.getProductList()
+      },
       changeType(type) {
         this.$router.push({
           name: 'NewsListPage',
@@ -119,7 +129,8 @@
           keyword: this.keyword
         }
         newsListApi(params).then(res => {
-          this.newsList = JSON.parse(JSON.stringify(res.result))
+          this.total = res.result.total
+          this.newsList = JSON.parse(JSON.stringify(res.result.list))
         })
       },
       searchData(keyword) {
