@@ -981,6 +981,8 @@
             top: 3.8rem;
             right: 0;
             display: flex;
+            border-radius: 0.05rem;
+            opacity: 0.8;
             .left {
               width: 2.75rem;
               height: 100%;

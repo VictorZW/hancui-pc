@@ -72,8 +72,8 @@
       position: relative;
     }
     .block {
-      width: 0.7rem;
-      height: 0.7rem;
+      width: 0.55rem;
+      height: 0.55rem;
       margin-bottom: 0.02rem;
       background-size: cover;
       cursor: pointer;
@@ -112,8 +112,8 @@
     }
     .code_img {
       position: absolute;
-      right: 0.73rem;
-      top: 1.44rem;
+      right: 0.58rem;
+      top: 1.12rem;
       height: 2rem;
       display: none;
       img {
@@ -122,9 +122,9 @@
     }
     .tel {
       position: absolute;
-      right: 0.73rem;
-      top: 0.73rem;
-      height: 0.7rem;
+      right: 0.57rem;
+      top: 0.57rem;
+      height: 0.55rem;
       display: none;
       background: none;
       img {
