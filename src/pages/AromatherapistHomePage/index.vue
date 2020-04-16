@@ -47,7 +47,7 @@
                 </div>
               </div>
             </swiper-slide>
-            <div class="swiper-pagination" slot="pagination"></div>
+            <!--<div class="swiper-pagination" slot="pagination"></div>-->
           </swiper>
         </div>
       </div>
@@ -65,7 +65,7 @@
         swiperOption: {
           slidesPerView: 3,
           slidesPerColumn: 2,
-          spaceBetween : 46,
+          spaceBetween : 30,
           slidesPerColumnFill : 'row',
           pagination: {
             el: '.swiper-pagination',
@@ -125,7 +125,7 @@
         }
       }
       .aroma-content-area {
-        padding: 0 2rem;
+        padding: 0 3rem 0 3rem;
         display: flex;
         justify-content: space-between;
         .left {
@@ -151,12 +151,13 @@
           }
         }
         .right {
-          width: 9.68rem;
+          width: 7.57rem;
+          margin-top: 0.4rem;
           .swiper {
-            height: 8.2rem;
+            height: 6.04rem;
             .slide-card {
-              width: 2.92rem !important;
-              height: 3.53rem !important;
+              width: 2.33rem !important;
+              height: 2.82rem !important;
               background-size: 100% 100%;
               position: relative;
               cursor: pointer;
