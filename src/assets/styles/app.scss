@@ -122,7 +122,7 @@ body {
   position: relative;
   display: inline-block;
   font-size: 0;
-  &:hover > .menu-btn {
+  &:hover > a > .menu-btn {
     color: #004033 !important;
     background-color: #FFFFFF;
     border-radius: 0.03rem;

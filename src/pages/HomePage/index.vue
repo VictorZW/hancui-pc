@@ -343,7 +343,6 @@
         delay: 1000,
         isShowNav: true
       })
-      console.log(PureFullPage)
       this.getHomepageBanner()
       this.getProductCate()
       this.getNewsList()
@@ -385,7 +384,6 @@
           keyword: ''
         }
         newsListApi(params).then(res => {
-          console.log(res)
           this.newsListData = JSON.parse(JSON.stringify(res.result))
         })
       },

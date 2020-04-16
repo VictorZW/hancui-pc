@@ -113,7 +113,8 @@
       return {
         swiperOption: {
           slidesPerView: 'auto',
-          autoplay: true
+          autoplay: true,
+          loop: true
         },
         ProductDetail: {},
         ProductList: [],
@@ -269,6 +270,10 @@
             background-size: 100% 100%;
             border: 0.01rem solid #069163;
             cursor: pointer;
+            &:hover {
+              transform: scale(1.11, 1.11);
+              transition: transform .2s;
+            }
           }
           .img-click {
             width: 0.89rem;
