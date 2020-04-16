@@ -49,21 +49,21 @@
             <div class="click-area">
               <div class="click-line"
                    :class="[(page3Index === 1) ? 'click-line-active' : '']"
-                   @click="choosePage3Index(1)"
+                   @mouseover="choosePage3Index(1)"
               >
                 <span class="line"></span>
                 <span class="text">芳疗培训</span>
               </div>
               <div class="click-line"
                    :class="[(page3Index === 2) ? 'click-line-active' : '']"
-                   @click="choosePage3Index(2)"
+                   @mouseover="choosePage3Index(2)"
               >
                 <span class="line"></span>
                 <span class="text">芳疗师主页</span>
               </div>
               <div class="click-line"
                    :class="[(page3Index === 3) ? 'click-line-active' : '']"
-                   @click="choosePage3Index(3)"
+                   @mouseover="choosePage3Index(3)"
               >
                 <span class="line"></span>
                 <span class="text">芳疗图书馆</span>
@@ -130,21 +130,21 @@
               <div class="click-area">
                 <div class="click-line"
                      :class="[(page4Index === 1) ? 'click-line-active' : '']"
-                     @click="choosePage4Index(1)"
+                     @mouseover="choosePage4Index(1)"
                 >
                   <span class="line"></span>
                   <span class="text">实时资讯</span>
                 </div>
                 <div class="click-line"
                      :class="[(page4Index === 2) ? 'click-line-active' : '']"
-                     @click="choosePage4Index(2)"
+                     @mouseover="choosePage4Index(2)"
                 >
                   <span class="line"></span>
                   <span class="text">芳疗资讯</span>
                 </div>
                 <div class="click-line"
                      :class="[(page4Index === 3) ? 'click-line-active' : '']"
-                     @click="choosePage4Index(3)"
+                     @mouseover="choosePage4Index(3)"
                 >
                   <span class="line"></span>
                   <span class="text">科技资讯</span>
@@ -754,7 +754,7 @@
             }
             .el-timeline-item__content {
               width: 10.09rem;
-              margin-bottom: 0.78rem;
+              margin-bottom: 0.4rem;
               .to-read-more {
                 font-size: 0.15rem;
                 color: #FFFFFF;
@@ -839,6 +839,7 @@
         background-size: 100% 100%;
         padding: 1.03rem 0 0 0.58rem;
         box-sizing: border-box;
+        overflow: hidden;
         .content {
           display: flex;
           padding-bottom: 0.4rem;
