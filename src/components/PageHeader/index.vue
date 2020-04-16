@@ -136,11 +136,19 @@
       this.getPageName()
     },
     methods: {
+      // ProductsDetail
       getPageName() {
+        console.log(this.$route.name)
         if (this.$route.name === 'AromatherapistHomePage' ||
           this.$route.name === 'TrainingPage' ||
-          this.$route.name === 'LibraryPage') {
+          this.$route.name === 'LibraryPage' ||
+          this.$route.name === 'PersonalPage'
+        ) {
           this.pageName = 'flSchool'
+        } else if (this.$route.name === 'ProductsDetail' || this.$route.name === 'Products') {
+          this.pageName = 'Products'
+        } else if (this.$route.name === 'NewsDetailPage') {
+          this.pageName = 'NewsListPage'
         } else {
           this.pageName = this.$route.name
         }
