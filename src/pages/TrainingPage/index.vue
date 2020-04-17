@@ -1,7 +1,9 @@
 <template>
   <div class="TrainingPage page-content">
     <div class="pic1">
-      <div class="click-btn-page1 Customer_service"></div>
+      <a href="https://hancui.sobot.com/chat/pc/v2/index.html?sysnum=4facc019323444a58732af25a1511448" target="_blank">
+        <div class="click-btn-page1 Customer_service"></div>
+      </a>
     </div>
     <div class="pic2"></div>
     <div class="pic3"></div>
@@ -10,15 +12,21 @@
     <div class="pic6"></div>
     <div class="pic7"></div>
     <div class="pic8">
-      <div class="click-btn Customer_service">预约免费试听</div>
+      <a href="https://hancui.sobot.com/chat/pc/v2/index.html?sysnum=4facc019323444a58732af25a1511448" target="_blank">
+        <div class="click-btn Customer_service">预约免费试听</div>
+      </a>
     </div>
     <div class="pic9"></div>
     <div class="pic10">
-      <div class="click-btn Customer_service">预约免费试听</div>
+      <a href="https://hancui.sobot.com/chat/pc/v2/index.html?sysnum=4facc019323444a58732af25a1511448" target="_blank">
+        <div class="click-btn Customer_service">预约免费试听</div>
+      </a>
     </div>
     <div class="pic11"></div>
     <div class="pic12">
-      <div class="click-btn Customer_service">预约免费学习</div>
+      <a href="https://hancui.sobot.com/chat/pc/v2/index.html?sysnum=4facc019323444a58732af25a1511448" target="_blank">
+        <div class="click-btn Customer_service">预约免费学习</div>
+      </a>
     </div>
     <div class="pic13">
       <div class="title">成为CRA注册芳疗师的<span>四大理由</span></div>
@@ -40,6 +48,12 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    name: 'TrainingPage'
+  }
+</script>
 
 <style lang="scss" scoped>
   .pic1 {

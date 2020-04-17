@@ -7,7 +7,9 @@
     />
     <div class="po-right">
       <div class="po-ra">
-        <div class="block block1 Customer_service"></div>
+        <a href="https://hancui.sobot.com/chat/pc/v2/index.html?sysnum=4facc019323444a58732af25a1511448" target="_blank">
+          <div class="block block1 Customer_service"></div>
+        </a>
         <div class="block block2"></div>
         <div class="block block3"></div>
         <div class="block block4" id="backToTop" @click="backToTop"></div>
