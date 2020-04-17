@@ -15,7 +15,7 @@
           ></div>
           <div class="text-area">
             <div class="title">{{ instruction.company_name }}</div>
-            <div class="desc">{{ instruction.content }}</div>
+            <p class="desc">{{ instruction.content }}</p>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
       <div class="about-area">
         <div class="about-title">企业文化</div>
         <div class="title-english">ENTERPRISE CULTURE</div>
-        <div class="description">{{ culture.content }}</div>
+        <p class="description">{{ culture.content }}</p>
         <div class="swiper-area">
           <swiper class="swiper" :options="swiperOption">
             <swiper-slide class="prize"
@@ -42,7 +42,7 @@
       <div class="about-area">
         <div class="about-title">核心技术</div>
         <div class="title-english">CORE TECHNOLOGY</div>
-        <div class="description">{{ teach.content }}</div>
+        <p class="description">{{ teach.content }}</p>
         <div class="swiper-area">
           <swiper class="swiper" :options="swiperOption">
             <swiper-slide class="prize"
@@ -117,6 +117,14 @@
       color: #004033;
       line-height: 1.7;
       padding-bottom: 0.3rem;
+      text-align: justify;
+      span:after {
+        content:'';
+        width: 100%;
+        display: inline-block;
+        overflow: hidden;
+        height: 0;
+      }
     }
     .about-company {
       display: flex;
@@ -140,6 +148,14 @@
           color: #004033;
           line-height: 1.7;
           padding-top: 0.21rem;
+          text-align: justify;
+          span:after {
+            content:'';
+            width: 100%;
+            display: inline-block;
+            overflow: hidden;
+            height: 0;
+          }
         }
       }
     }
