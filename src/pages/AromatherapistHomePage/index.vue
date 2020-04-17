@@ -28,6 +28,16 @@
             这里是芳疗师专属的芳香学院，我们致力于传播科学护肤的芳疗价值与文化，分享健康生活的香氛乐趣，把身处天南海北的专业芳疗师带到每个人的身边，做您专属的芳香健康专家，共同成长为灵魂有香气的美丽女性。 </div>
         </div>
         <div class="right">
+          <div class="to-icon to-left">
+            <div class="icon-area" slot="button-prev">
+              <img src="~@IMG/to-left.png" alt="">
+            </div>
+          </div>
+          <div class="to-icon to-right">
+            <div class="icon-area" slot="button-next">
+              <img src="~@IMG/to-right.png" alt="">
+            </div>
+          </div>
           <swiper class="swiper" :options="swiperOption">
             <swiper-slide
               class="slide-card"
@@ -48,6 +58,8 @@
               </div>
             </swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
+            <!--<div class="swiper-button-prev" ></div>-->
+            <!--<div class="swiper-button-next" ></div>-->
           </swiper>
         </div>
       </div>
@@ -70,6 +82,10 @@
           pagination: {
             el: '.swiper-pagination',
             clickable: true
+          },
+          navigation: {
+            nextEl: '.to-right',
+            prevEl: '.to-left'
           }
         },
         teacherList: [],
@@ -153,6 +169,35 @@
         .right {
           width: 7.57rem;
           margin-top: 0.4rem;
+          position: relative;
+          .to-icon {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:focus {
+              outline: none;
+            }
+            .icon-area {
+              cursor: pointer;
+              img {
+                width: 0.66rem;
+                height: 0.66rem;
+              }
+            }
+          }
+          .to-right {
+            left: -0.8rem;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
+          .to-left {
+            right: -0.8rem;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
           .swiper {
             .slide-card {
               height: 2.82rem !important;

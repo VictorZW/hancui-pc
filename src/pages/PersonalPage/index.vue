@@ -16,7 +16,7 @@
               </div>
               <div class="text">第一职业：{{ TeacherDetail.first_job }}</div>
               <div class="text">第二职业：{{ TeacherDetail.second_job }}</div>
-              <div class="text">爱好：{{ TeacherDetail.fav }}</div>
+              <div class="text hobby">爱好：{{ TeacherDetail.fav }}</div>
               <div class="text">联系方式：{{ TeacherDetail.mobile }}</div>
               <div class="tips">有什么问题记得私信我呦！</div>
             </div>
@@ -125,6 +125,13 @@
           color: #333333;
           line-height: 1.8;
         }
+        .hobby {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box; // 作为弹性伸缩盒子模型显示。
+          -webkit-box-orient: vertical; // 设置伸缩盒子的子元素排列方式--从上到下垂直排列
+          -webkit-line-clamp: 2; // 显示的行
+        }
         .dotted {
           width: 100%;
           border-bottom: 1px dotted #666666;
@@ -170,6 +177,9 @@
                 padding: 0.1rem 0.1rem 0.1rem 0;
                 display: inline-block;
               }
+            }
+            .text {
+              padding-top: 0.1rem;
             }
           }
         }

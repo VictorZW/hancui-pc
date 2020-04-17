@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <div id="pureFullPage" ref="pureFullPage">
+    <div id="pureFullPage">
       <div class="page">
         <swiper class="swiper page1-swiper" :options="swiperOption1">
           <swiper-slide
@@ -24,22 +24,22 @@
         >
           <div class="cover-model">
             <!--产品文字说明-->
-            <div class="pro-msg">
-              <div class="pro-icon-area">
-                <div class="pro-icon"
-                     :style="{ backgroundImage: 'url(' + item.icon_url + ')' }"></div>
-              </div>
-              <div class="title">{{ item.title }}</div>
-              <div class="title">{{ item.en_title }}</div>
-              <div class="detail">{{ item.instruction }}</div>
-              <div class="read-more">
-                <router-link
-                  :to="{ name: 'Products', params: { type: item.type }}"
-                >
+            <router-link
+              :to="{ name: 'Products', params: { type: item.type }}"
+            >
+              <div class="pro-msg">
+                <div class="pro-icon-area">
+                  <div class="pro-icon"
+                       :style="{ backgroundImage: 'url(' + item.icon_url + ')' }"></div>
+                </div>
+                <div class="title">{{ item.title }}</div>
+                <div class="title">{{ item.en_title }}</div>
+                <div class="detail">{{ item.instruction }}</div>
+                <div class="read-more">
                   <span>查看更多</span>
-                </router-link>
+                </div>
               </div>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -85,15 +85,18 @@
                   v-for="item in teacherList"
                   :key="item.id"
                   :style="{ backgroundImage: 'url(' + item.avatar + ')' }"
-                  @click.native="toPersonalPage(item.id)"
                 >
-                  <div class="teacher-msg">
-                    <div class="line1">
-                      <span class="name">{{ item.name }}</span>
-                      <span class="job">{{ item.title }}</span>
+                  <router-link
+                    :to="{ name: 'PersonalPage', params: { id: item.id }}"
+                  >
+                    <div class="teacher-msg">
+                      <div class="line1">
+                        <span class="name">{{ item.name }}</span>
+                        <span class="job">{{ item.title }}</span>
+                      </div>
+                      <div class="line2">{{ item.skill }}</div>
                     </div>
-                    <div class="line2">{{ item.skill }}</div>
-                  </div>
+                  </router-link>
                 </swiper-slide>
                 <!--<div class="swiper-pagination" slot="pagination"></div>-->
                 <div class="swiper-button-prev-new" slot="button-prev"></div>
@@ -108,11 +111,15 @@
                   :key="item.id"
                   :style="{ backgroundImage: 'url(' + item.thumb + ')' }"
                 >
-                  <div class="teacher-msg">
-                    <div class="line1">
-                      <span class="job">{{ item.title }}</span>
+                  <router-link
+                    :to="{ name: 'LibraryDetailPage', params: { id: item.id }}"
+                  >
+                    <div class="teacher-msg">
+                      <div class="line1">
+                        <span class="job">{{ item.title }}</span>
+                      </div>
                     </div>
-                  </div>
+                  </router-link>
                 </swiper-slide>
                 <!--<div class="swiper-pagination" slot="pagination"></div>-->
                 <div class="swiper-button-prev-new" slot="button-prev"></div>
@@ -323,14 +330,13 @@
         swiperOption: {
           slidesPerView: 'auto',
           autoplay: true,
-          loop: true,
           pagination: {
             el: '.swiper-pagination',
             clickable: true
           },
           navigation: {
-            nextEl: '.swiper-button-next-new',
-            prevEl: '.swiper-button-prev-new'
+            nextEl: '.swiper-button-prev-new',
+            prevEl: '.swiper-button-next-new'
           }
         },
         homePageBanner: [],
@@ -509,7 +515,7 @@
             background: none;
             transition: all 1s linear;
           }
-          &:hover > .pro-msg{
+          &:hover > a > .pro-msg{
             background-color: rgba(6, 145, 99, 0.9);
           }
         }
@@ -520,6 +526,7 @@
           z-index: 20;
           margin: auto;
           border-radius: 50%;
+          cursor: pointer;
           .pro-icon-area {
             display: flex;
             justify-content: center;
@@ -645,6 +652,11 @@
               &:hover {
                 transform: scale(1.1, 1.1);
                 transition: transform .2s;
+              }
+              a {
+                width: 100%;
+                height: 100%;
+                display: block;
               }
               .teacher-msg {
                 padding: 0.13rem 0.21rem;
@@ -1008,10 +1020,18 @@
               /deep/ .el-input {
                 width: 100%;
                 height: 0.3rem;
-                margin-bottom: 0.3rem;
+                margin-bottom: 0.1rem;
+                input {
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                }
               }
               .submit-btn-area {
                 padding-top: 0.29rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 .submit-btn {
                   width: 0.9rem;
                   height: 0.4rem;
@@ -1022,6 +1042,7 @@
                   font-size: 0.18rem;
                   color: #33A27D;
                   cursor: pointer;
+                  border-radius: 0.05rem;
                 }
               }
             }

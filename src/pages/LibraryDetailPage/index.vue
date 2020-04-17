@@ -112,7 +112,7 @@
         }
         newsListApi(params).then(res => {
           console.log(res)
-          this.newsList = JSON.parse(JSON.stringify(res.result))
+          this.newsList = JSON.parse(JSON.stringify(res.result.list))
         })
       }
     }
@@ -123,6 +123,8 @@
   .page-banner {
     background-image: url("~@IMG/news-list-banner.png");
     background-size: cover;
+    width: 100%;
+    height: 4.5rem;
   }
   .detail-content {
     width: 10.8rem;

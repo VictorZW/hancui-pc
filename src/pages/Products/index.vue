@@ -133,7 +133,6 @@
           name: 'Products',
           params: { type: type }
         })
-        this.getProductList()
       },
       getProductList() {
         const params = {
@@ -144,7 +143,7 @@
         }
         productListApi(params).then(res => {
           this.total = res.result.total
-          this.ProductList = JSON.parse(JSON.stringify(res.result.list))
+          this.ProductList = res.result.list
         })
       },
       searchData(keyword) {
@@ -154,7 +153,7 @@
       getBanner() {
         // homePageBanner
         BannerApi({ type: 2 }).then(res => {
-          this.BannerList = JSON.parse(JSON.stringify(res.result))
+          this.BannerList = res.result
         })
       }
     }

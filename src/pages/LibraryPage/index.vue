@@ -22,7 +22,11 @@
             :key="item.id"
             :style="{ backgroundImage: 'url(' + item.thumb + ')' }"
           >
-            <div class="title" @click="toProDetailPage(item.id)">{{ item.title }}</div>
+            <router-link
+              :to="{ name: 'LibraryDetailPage', params: { id: item.id }}"
+            >
+              <div class="title">{{ item.title }}</div>
+            </router-link>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
@@ -72,14 +76,6 @@
       searchData(keyword) {
         this.keyword = keyword
         this.getLibraryData()
-      },
-      toProDetailPage(id) {
-        this.$router.push({
-          name: 'LibraryDetailPage',
-          params: {
-            id: id
-          }
-        })
       }
     }
   }
@@ -115,6 +111,11 @@
             &:hover {
               transform: scale(1.1, 1.1);
               transition: transform .2s;
+            }
+            a {
+              width: 100%;
+              height: 100%;
+              display: inline-block;
             }
             .title {
               background-color: #2ED199;
