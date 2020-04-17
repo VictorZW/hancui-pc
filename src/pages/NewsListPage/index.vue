@@ -58,7 +58,9 @@
       <el-pagination
         @current-change="handleCurrentChange"
         layout="prev, pager, next"
-        :total="total">
+        :total="total"
+        :page-size="6"
+      >
       </el-pagination>
     </div>
   </div>
@@ -109,7 +111,8 @@
       getYear,
       handleCurrentChange(val) {
         this.page = val
-        this.getProductList()
+        this.getNewsList()
+        document.body.scrollTop = document.documentElement.scrollTop = 0
       },
       changeType(type) {
         this.$router.push({
@@ -148,8 +151,6 @@
 
 <style lang="scss" scoped>
   .page-banner {
-    width: 100%;
-    height: 4.5rem;
     background-image: url("~@IMG/news-list-banner.png");
     background-size: cover;
   }
@@ -163,7 +164,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 0.18rem 0 0.28rem;
+      padding: 0.2rem 0.18rem 0.18rem 0.18rem;
       cursor: pointer;
       &:hover {
         transform: scale(1.02, 1.02);
@@ -172,8 +173,11 @@
       .text-area {
         width: 8.47rem;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         .time {
-          padding-top: 0.32rem;
+          padding-top: 0.12rem;
           .month {
             font-size: 0.28rem;
             color: #999999;
@@ -203,7 +207,6 @@
           overflow: hidden;
         }
         .read-more {
-          padding-top: 0.28rem;
           span {
             display: inline-block;
             font-size: 0.14rem;

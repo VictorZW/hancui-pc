@@ -1,5 +1,5 @@
 <template>
-  <div class="page-content Products-Detail">
+  <div class="page-content Products-Detail page-padding-top">
     <div class="page-inner">
       <div class="Breadcrumb">
         当前位置：<span>首页</span>/<span>产品中心</span>/<span>{{ brandName }}</span>

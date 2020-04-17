@@ -1,6 +1,6 @@
 <template>
   <div class="Products page-content">
-    <div class="banner">
+    <div class="banner page-banner">
       <swiper class="swiper swiper-banner" :options="swiperOption1">
         <swiper-slide
           class="homepage-banner"
@@ -61,7 +61,9 @@
       <el-pagination
         @current-change="handleCurrentChange"
         layout="prev, pager, next"
-        :total="total">
+        :total="total"
+        :page-size="6"
+      >
       </el-pagination>
     </div>
   </div>
@@ -119,6 +121,7 @@
       handleCurrentChange(val) {
         this.page = val
         this.getProductList()
+        document.body.scrollTop = document.documentElement.scrollTop = 0
       },
       toProDetailPage(id) {
         this.$router.push({
@@ -163,8 +166,6 @@
 <style lang="scss" scoped>
   .Products {
     .banner {
-      width: 100%;
-      height: 4.5rem;
       .swiper-banner {
         width: 100%;
         height: 100%;

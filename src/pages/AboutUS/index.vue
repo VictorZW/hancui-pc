@@ -97,8 +97,6 @@
   .page-banner {
     background-image: url("~@IMG/about-banner.png");
     background-size: cover;
-    width: 100%;
-    height: 4.5rem;
   }
   .about-area {
     padding-top: 0.6rem;
