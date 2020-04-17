@@ -25,7 +25,9 @@
     </div>
     <div class="beian">
       <div class="bei-an-area">
-        <img src="~@IMG/beian.png" class="beian-icon"><span>津ICP备19011178号</span>
+        <span>Copyright © 2020汉萃（天津)有限公司 保留所有权利</span>
+        <img src="~@IMG/beian.png" class="beian-icon">
+        <span>津ICP备19011178号</span>
       </div>
     </div>
   </div>
@@ -42,11 +44,11 @@
     background: #069163;
     .beian {
       width: 100%;
-      height: 0.6rem;
+      height: 0.4rem;
       color: #FFFFFF;
-      font-size: 0.16rem;
+      font-size: 0.14rem;
       text-align: center;
-      line-height: 0.6rem;
+      line-height: 0.4rem;
       background-color: #004033;
       .beian-icon {
         width: 0.22rem;

@@ -160,7 +160,7 @@
 <style lang="scss" scoped>
   .page-header {
     width: 100%;
-    height: 0.94rem;
+    height: 0.55rem;
     background-color: #069163;
     position: fixed;
     top: 0;
@@ -176,13 +176,14 @@
       align-items: center;
       justify-content: space-between;
       .logo {
-        width: 0.71rem;
-        height: 0.72rem;
-        background-size: cover;
-        background-image: url("~@IMG/LOGO.png");
+        width: 0.45rem;
+        height: 0.45rem;
+        background-size: 100% 100%;
+        background-image: url("~@IMG/header-logo.png");
         opacity: 1;
         margin-left: 0.9rem;
         margin-right: 0.9rem;
+        font-size: 0;
       }
       .left, .right {
         flex: 1;
@@ -195,7 +196,7 @@
       }
       .menu-btn {
         display: inline-block;
-        font-size: 0.18rem;
+        font-size: 0.16rem;
         color: #FFFFFF;
         padding: 0.05rem 0.15rem;
         margin: 0 0.11rem;
