@@ -659,6 +659,7 @@
                 display: block;
               }
               .teacher-msg {
+                height: 1rem;
                 padding: 0.13rem 0.21rem;
                 background-color: #069163;
                 position: absolute;
@@ -683,7 +684,7 @@
                   color: #FFFFFF;
                 }
               }
-              &:hover > .teacher-msg {
+              &:hover > a > .teacher-msg {
                 display: block;
               }
             }

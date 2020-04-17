@@ -30,12 +30,12 @@
         <div class="right">
           <div class="to-icon to-left">
             <div class="icon-area" slot="button-prev">
-              <img src="~@IMG/to-left.png" alt="">
+              <div class="img-icon icon-left"></div>
             </div>
           </div>
           <div class="to-icon to-right">
             <div class="icon-area" slot="button-next">
-              <img src="~@IMG/to-right.png" alt="">
+              <div class="img-icon icon-right"></div>
             </div>
           </div>
           <swiper class="swiper" :options="swiperOption">
@@ -48,8 +48,8 @@
             >
               <div class="user-msg">
                 <div class="line1">
-                  <span class="name">{{ item.name }}</span>
-                  <span class="job">/{{ item.title }}</span>
+                  <div class="name">{{ item.name }}</div>
+                  <div class="job">/{{ item.title }}</div>
                 </div>
                 <div class="line2">{{ item.skill }}</div>
                 <div class="line3">
@@ -180,9 +180,25 @@
             }
             .icon-area {
               cursor: pointer;
-              img {
+              .img-icon {
                 width: 0.66rem;
                 height: 0.66rem;
+              }
+              .icon-left {
+                background-size: cover;
+                background-image: url("~@IMG/right-active.png");
+              }
+              .icon-right {
+                background-size: cover;
+                background-image: url("~@IMG/left-active.png");
+              }
+              &:hover > .icon-left {
+                background-size: cover;
+                background-image: url("~@IMG/to-left.png");
+              }
+              &:hover > .icon-right {
+                background-size: cover;
+                background-image: url("~@IMG/to-right.png");
               }
             }
           }
@@ -205,26 +221,38 @@
               position: relative;
               cursor: pointer;
               &:hover > .user-msg {
-                display: block;
+                opacity: 0.9;
               }
               .user-msg {
                 width: 100%;
                 height: 1rem;
                 background-color: #069163;
-                opacity: 0.9;
                 position: absolute;
                 bottom: 0;
-                padding: 0.13rem 0.23rem;
+                padding: 0.13rem 0.13rem;
                 line-height: 1.4;
-                display: none;
+                opacity: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 .line1 {
+                  display: flex;
+                  align-items: flex-end;
                   .name {
                     font-size: 0.18rem;
                     color: #FFFDFD;
+                    max-width: 50%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                   }
                   .job {
                     font-size: 0.12rem;
                     color: #FFFDFD;
+                    max-width: 50%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                   }
                 }
                 .line2 {
