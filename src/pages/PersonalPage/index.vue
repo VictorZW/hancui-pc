@@ -180,6 +180,8 @@
             }
             .text {
               padding-top: 0.1rem;
+              white-space: pre-wrap;
+              word-wrap: break-word;
             }
           }
         }
@@ -199,6 +201,8 @@
             }
             .text {
               padding-top: 0.1rem;
+              white-space: pre-wrap;
+              word-wrap: break-word;
             }
           }
         }
