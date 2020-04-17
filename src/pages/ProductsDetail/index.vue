@@ -45,11 +45,11 @@
       <div class="use-text">
         <div class="block">
           <div class="title">使用范围</div>
-          <div class="desc text-align-justify">{{ ProductDetail.apply_scope }}</div>
+          <div class="desc">{{ ProductDetail.apply_scope }}</div>
         </div>
         <div class="block">
           <div class="title">核心成分</div>
-          <div class="desc text-align-justify">{{ ProductDetail.nuclear }}</div>
+          <div class="desc">{{ ProductDetail.nuclear }}</div>
         </div>
         <div class="block">
           <div class="title">使用方法</div>
