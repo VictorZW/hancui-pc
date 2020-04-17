@@ -11,7 +11,7 @@
         <div class="title-english">ABOUT HANCUI</div>
         <div class="about-company">
           <div class="img-area"
-               :style="{ backgroundImage: 'url(' + instruction.imgs[0] + ')' }"
+               :style="{ backgroundImage: 'url(' + companyBackgroundImage + ')' }"
           ></div>
           <div class="text-area">
             <div class="title">{{ instruction.company_name }}</div>
@@ -74,7 +74,8 @@
         // 企业文化
         culture: {},
         // 核心技术
-        teach: {}
+        teach: {},
+        companyBackgroundImage: ''
       }
     },
     mounted() {
@@ -87,6 +88,7 @@
           this.instruction = JSON.parse(JSON.stringify(res.result.instruction))
           this.culture = JSON.parse(JSON.stringify(res.result.culture))
           this.teach = JSON.parse(JSON.stringify(res.result.teach))
+          this.companyBackgroundImage = res.result.instruction.imgs[0]
         })
       }
     }

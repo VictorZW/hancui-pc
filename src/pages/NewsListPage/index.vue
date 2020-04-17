@@ -151,7 +151,7 @@
 
 <style lang="scss" scoped>
   .page-banner {
-    background-image: url("~@IMG/news-list-banner.png");
+    background-image: url("~@IMG/news-list-banner.jpg");
     background-size: cover;
   }
   .list-ul {

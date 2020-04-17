@@ -70,13 +70,16 @@
           class="pro-area"
           v-for="item in ProductList"
           :key="item.id"
-          @click.native="toProDetailPage(item.id)"
         >
-          <div class="pro-image"
-               :style="{ backgroundImage: 'url(' + item.logo + ')' }"
-          ></div>
-          <div class="title">{{ item.title }}</div>
-          <div class="sub_title">{{ item.sub_title }}</div>
+          <router-link
+            :to="{ name: 'ProductsDetail', params: { id: item.id }}"
+          >
+            <div class="pro-image"
+                 :style="{ backgroundImage: 'url(' + item.logo + ')' }"
+            ></div>
+            <div class="title">{{ item.title }}</div>
+            <div class="sub_title">{{ item.sub_title }}</div>
+          </router-link>
         </swiper-slide>
       </swiper>
     </div>
@@ -232,14 +235,6 @@
         }
         productListApi(params).then(res => {
           this.ProductList = JSON.parse(JSON.stringify(res.result.list))
-        })
-      },
-      toProDetailPage(id) {
-        this.$router.push({
-          name: 'ProductsDetail',
-          params: {
-            id: id
-          }
         })
       }
     }
@@ -445,6 +440,7 @@
         width: 2.2rem;
         height: 2.2rem;
         background-size: 100% 100%;
+        margin: auto;
       }
       .title {
         text-align: center;
