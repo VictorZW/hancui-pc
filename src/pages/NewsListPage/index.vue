@@ -40,7 +40,7 @@
         >
           <div class="text-area">
             <div class="time">
-              <span class="month">03-16</span><span class="year">/2020</span>
+              <span class="month">{{ getDate(item.publish_at) }}</span><span class="year">/{{ getYear(item.publish_at) }}</span>
             </div>
             <div class="title">{{ item.title }}</div>
             <div class="body">{{ item.instruction }}</div>
@@ -65,6 +65,7 @@
 </template>
 
 <script>
+  import { getYear, getDate } from '@/utils'
   import { newsListApi } from '@/apis/index'
 
   export default {
@@ -104,6 +105,8 @@
       this.getNewsList()
     },
     methods: {
+      getDate,
+      getYear,
       handleCurrentChange(val) {
         this.page = val
         this.getProductList()

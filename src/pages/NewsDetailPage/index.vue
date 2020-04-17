@@ -184,6 +184,10 @@
         box-shadow: 0 0 0.21rem 0 rgba(0, 64, 51, 0.15);
         padding: 0.31rem 0.33rem 0;
         cursor: pointer;
+        &:hover {
+          transform: scale(1.1, 1.1);
+          transition: transform .2s;
+        }
         .time {
           .date {
             font-size: 0.28rem;
