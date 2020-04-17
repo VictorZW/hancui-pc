@@ -165,6 +165,10 @@
       justify-content: space-between;
       padding: 0 0.18rem 0 0.28rem;
       cursor: pointer;
+      &:hover {
+        transform: scale(1.02, 1.02);
+        transition: transform .2s;
+      }
       .text-area {
         width: 8.47rem;
         height: 100%;

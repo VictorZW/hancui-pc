@@ -185,7 +185,7 @@
         padding: 0.31rem 0.33rem 0;
         cursor: pointer;
         &:hover {
-          transform: scale(1.1, 1.1);
+          transform: scale(1.02, 1.02);
           transition: transform .2s;
         }
         .time {
