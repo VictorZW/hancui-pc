@@ -31,21 +31,28 @@
           <div class="title">相关资料</div>
         </div>
         <div class="news-list">
-          <div class="news-card"
-               v-for="item in newsList"
-               :key="item.id"
-               @click="toTheDetail(item.id)"
-          >
-            <div class="time">
-              <span class="date">{{ getDate(item.publish_at) }}</span><span class="year">/{{ getYear(item.publish_at) }}</span>
-            </div>
-            <div class="title">{{ item.title }}</div>
-            <div class="instruction">{{ item.instruction }}</div>
-            <div class="read-more">
-              <span>查看详情</span>
-              <span> > </span>
-            </div>
-          </div>
+          <swiper class="swiper" :options="swiperOption">
+            <swiper-slide
+              class="news-card"
+              v-for="item in newsList"
+              :key="item.id"
+            >
+              <router-link
+                :to="{ name: 'LibraryDetailPage', params: { id: item.id }}"
+              >
+                <div class="time">
+                  <span class="date">{{ getDate(item.publish_at) }}</span><span class="year">/{{ getYear(item.publish_at) }}</span>
+                </div>
+                <div class="title">{{ item.title }}</div>
+                <div class="instruction">{{ item.instruction }}</div>
+                <div class="line-do"></div>
+                <div class="read-more">
+                  <span>查看详情</span>
+                  <span> > </span>
+                </div>
+              </router-link>
+            </swiper-slide>
+          </swiper>
         </div>
       </div>
     </div>
@@ -60,6 +67,12 @@
     name: 'LibraryDetailPage',
     data() {
       return {
+        swiperOption: {
+          slidesPerView: 3,
+          spaceBetween : 30,
+          autoplay: 3000,
+          autoplayDisableOnInteraction : false
+        },
         newsDetail: {},
         pre_news: {},
         next_news: {},
@@ -108,7 +121,7 @@
         const params = {
           type_id: 4,
           page: 1,
-          size: 3,
+          size: 100,
           keyword: ''
         }
         newsListApi(params).then(res => {
@@ -181,11 +194,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      .swiper-container {
+        padding: 0.15rem 0;
+      }
       .news-card {
         width: 3.8rem;
+        height: 2.6rem;
         background-color: #F8F8F8;
         box-shadow: 0 0 0.21rem 0 rgba(0, 64, 51, 0.15);
-        padding: 0.31rem 0.33rem 0;
+        padding: 0.31rem 0.33rem 0.27rem;
         cursor: pointer;
         &:hover {
           transform: scale(1.02, 1.02);
@@ -206,21 +223,32 @@
           color: #333333;
           padding-top: 0.23rem;
           line-height: 1.4;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
         .instruction {
           font-size: 0.14rem;
           color: #666666;
-          padding-top: 0.31rem;
-          padding-bottom: 0.21rem;
-          border-bottom: 0.01rem dotted #666666;
-          line-height: 1.4;
+          margin-top: 0.31rem;
+          line-height: 0.2rem;
+          height: 0.38rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+        .line-do {
+          width: 100%;
+          border-top: 0.01rem dotted #666666;
+          margin-top: 0.21rem;
+          margin-bottom: 0.31rem;
         }
         .read-more {
-          padding-top: 0.31rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding-bottom: 0.27rem;
           font-size: 0.14rem;
           color: #666666;
           cursor: pointer;
