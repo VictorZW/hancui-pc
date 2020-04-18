@@ -138,7 +138,6 @@
     methods: {
       // ProductsDetail
       getPageName() {
-        console.log(this.$route.name)
         if (this.$route.name === 'AromatherapistHomePage' ||
           this.$route.name === 'TrainingPage' ||
           this.$route.name === 'LibraryPage' ||

@@ -20,7 +20,6 @@ axios.interceptors.response.use(res => {
     }
   },
   err => {
-    console.log('err1', err);
     Message({
       message: '服务器无响应，请重试！',
       showClose: true,

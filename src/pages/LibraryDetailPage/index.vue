@@ -100,7 +100,6 @@
           id: Number(this.$route.params.id)
         }
         newsDetailApi(params).then(res => {
-          console.log(res)
           this.newsDetail = JSON.parse(JSON.stringify(res.result.news))
           this.pre_news = JSON.parse(JSON.stringify(res.result.pre_news))
           this.next_news = JSON.parse(JSON.stringify(res.result.next_news))
@@ -109,7 +108,6 @@
       },
       // 上一页下一页跳转
       toTheDetail(id) {
-        console.log(id)
         this.$router.push({
           name: 'LibraryDetailPage',
           params: {
@@ -125,7 +123,6 @@
           keyword: ''
         }
         newsListApi(params).then(res => {
-          console.log(res)
           this.newsList = JSON.parse(JSON.stringify(res.result.list))
         })
       }

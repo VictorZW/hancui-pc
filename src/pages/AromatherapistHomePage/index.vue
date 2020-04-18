@@ -106,7 +106,6 @@
           keyword: this.keyword
         }
         teacherListApi(params).then(res => {
-          console.log(res)
           this.teacherList = JSON.parse(JSON.stringify(res.result))
         })
       },

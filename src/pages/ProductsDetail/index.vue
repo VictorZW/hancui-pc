@@ -176,9 +176,8 @@
         this.swipeImg = firstPageImg
       },
       clickPrev() {
-        console.log(this.clickCount)
         if ((this.clickCount + this.swipeImg.length) >= this.allImages.length) {
-          console.log('没有下一张图片了')
+          // console.log('没有下一张图片了')
         } else {
           this.clickCount += 1
           const nextIndex = this.clickCount + this.swipeImg.length - 1 // 下一张图片的index
@@ -191,13 +190,10 @@
         }
       },
       clickNext() {
-        console.log(this.clickCount)
         if (this.clickCount === 0) {
-          console.log('没有上一张图片了')
           return false
         }
         const prevIndex = this.clickCount - 1 // 上一张图片的index
-        console.log(prevIndex)
         const allImages = JSON.parse(JSON.stringify(this.allImages)) // 全部的数据
         const prevData = allImages[prevIndex] // 下一张图片
         const swipeImg = JSON.parse(JSON.stringify(this.swipeImg))

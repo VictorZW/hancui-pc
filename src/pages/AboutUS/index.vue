@@ -87,7 +87,6 @@
     methods: {
       getCompanyAbout() {
         companyAboutApi().then(res => {
-          console.log(res)
           this.instruction = JSON.parse(JSON.stringify(res.result.instruction))
           this.culture = JSON.parse(JSON.stringify(res.result.culture))
           this.teach = JSON.parse(JSON.stringify(res.result.teach))

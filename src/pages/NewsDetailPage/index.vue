@@ -100,7 +100,6 @@
           id: Number(this.$route.params.id)
         }
         newsDetailApi(params).then(res => {
-          console.log(res)
           this.newsDetail = JSON.parse(JSON.stringify(res.result.news))
           this.pre_news = JSON.parse(JSON.stringify(res.result.pre_news))
           this.next_news = JSON.parse(JSON.stringify(res.result.next_news))

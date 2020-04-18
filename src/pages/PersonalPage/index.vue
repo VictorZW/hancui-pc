@@ -85,7 +85,6 @@
           id: Number(this.$route.params.id)
         }
         teacherDetailApi(params).then(res => {
-          console.log(res)
           this.TeacherDetail = JSON.parse(JSON.stringify(res.result))
         })
       }
