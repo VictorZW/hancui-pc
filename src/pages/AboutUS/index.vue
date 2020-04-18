@@ -26,7 +26,7 @@
         <div class="about-title">企业文化</div>
         <div class="title-english">ENTERPRISE CULTURE</div>
         <p class="description">{{ culture.content }}</p>
-        <div class="swiper-area">
+        <div class="swiper-area" v-if="cultureImgs && cultureImgs.length > 0">
           <swiper class="swiper" :options="swiperOption">
             <swiper-slide class="prize"
                           v-for="item in culture.imgs"
@@ -43,7 +43,7 @@
         <div class="about-title">核心技术</div>
         <div class="title-english">CORE TECHNOLOGY</div>
         <p class="description">{{ teach.content }}</p>
-        <div class="swiper-area">
+        <div class="swiper-area" v-if="teachImgs && teachImgs.length > 0">
           <swiper class="swiper" :options="swiperOption">
             <swiper-slide class="prize"
                           v-for="item in teach.imgs"
@@ -66,7 +66,8 @@
       return {
         swiperOption: {
           slidesPerView: 'auto',
-          autoplay: true,
+          autoplayDisableOnInteraction : false,
+          autoplay: 3000,
           loop: true
         },
         // 公司简介
@@ -75,7 +76,9 @@
         culture: {},
         // 核心技术
         teach: {},
-        companyBackgroundImage: ''
+        companyBackgroundImage: '',
+        teachImgs: [],
+        cultureImgs: []
       }
     },
     mounted() {
@@ -89,6 +92,8 @@
           this.culture = JSON.parse(JSON.stringify(res.result.culture))
           this.teach = JSON.parse(JSON.stringify(res.result.teach))
           this.companyBackgroundImage = res.result.instruction.imgs[0]
+          this.teachImgs = res.result.teach.imgs
+          this.cultureImgs = res.result.culture.imgs
         })
       }
     }

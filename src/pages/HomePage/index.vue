@@ -327,19 +327,14 @@
     data() {
       return {
         swiperOption1: {
-          autoplay: true,
+          autoplay: 3000,
         },
         swiperOption: {
           slidesPerView: 'auto',
-          autoplay: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          navigation: {
-            nextEl: '.swiper-button-prev-new',
-            prevEl: '.swiper-button-next-new'
-          }
+          autoplay: 3000,
+          autoplayDisableOnInteraction : false,
+          prevButton: '.swiper-button-prev-new',
+          nextButton: '.swiper-button-next-new'
         },
         homePageBanner: [],
         productCate: [],

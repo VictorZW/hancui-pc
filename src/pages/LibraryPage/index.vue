@@ -16,6 +16,16 @@
       </div>
       <!--轮播-->
       <div class="slider-area">
+        <div class="to-icon to-left">
+          <div class="icon-area" slot="button-prev">
+            <div class="img-icon icon-left"></div>
+          </div>
+        </div>
+        <div class="to-icon to-right">
+          <div class="icon-area" slot="button-next">
+            <div class="img-icon icon-right"></div>
+          </div>
+        </div>
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide
             v-for="item in libraryData"
@@ -28,8 +38,8 @@
               <div class="title">{{ item.title }}</div>
             </router-link>
           </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </div>
@@ -45,12 +55,11 @@
         swiperOption: {
           slidesPerView: 3,
           slidesPerColumn: 2,
-          spaceBetween: 53,
+          spaceBetween: 30,
           slidesPerColumnFill : 'row',
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          }
+          prevButton: '.to-right',
+          nextButton: '.to-left',
+          pagination : '.swiper-pagination'
         },
         page: 1,
         size: 100,
@@ -88,18 +97,37 @@
     height: 100vh;
     background-image: url("~@IMG/te-banner.png");
     background-size: cover;
+    .swiper-pagination {
+      left: 0;
+      right: 0;
+      padding-top: 0.15rem;
+      /deep/ .swiper-pagination-bullet {
+        width: 0.1rem;
+        height: 0.04rem;
+        background-color: #FFFFFF;
+        border-radius: 0.03rem;
+        display: inline-block;
+        margin: 0 0.05rem;
+      }
+      /deep/ .swiper-pagination-bullet-active {
+        width: 0.15rem;
+        height: 0.06rem;
+        background-color: #FFFFFF;
+      }
+    }
     .page-inner {
       padding-top: 0.94rem;
       .Breadcrumb {
         color: #FFFFFF;
       }
       .brand-search {
-        margin-bottom: 0.76rem;
+        margin-bottom: 0.56rem;
       }
       .slider-area {
         width: 11.73rem;
         height: 6.65rem;
         margin: auto;
+        position: relative;
         .swiper {
           width: 100%;
           height: 100%;
@@ -108,10 +136,10 @@
             background-size: 100% 100%;
             position: relative;
             cursor: pointer;
-            &:hover {
-              transform: scale(1.1, 1.1);
-              transition: transform .2s;
-            }
+            /*&:hover {*/
+              /*transform: scale(1.1, 1.1);*/
+              /*transition: transform .2s;*/
+            /*}*/
             a {
               width: 100%;
               height: 100%;
@@ -132,6 +160,50 @@
           }
         }
       }
+    }
+    .to-icon {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:focus {
+        outline: none;
+      }
+      .icon-area {
+        cursor: pointer;
+        .img-icon {
+          width: 0.66rem;
+          height: 0.66rem;
+        }
+        .icon-left {
+          background-size: cover;
+          background-image: url("~@IMG/right-active.png");
+        }
+        .icon-right {
+          background-size: cover;
+          background-image: url("~@IMG/left-active.png");
+        }
+        &:hover > .icon-left {
+          background-size: cover;
+          background-image: url("~@IMG/to-left.png");
+        }
+        &:hover > .icon-right {
+          background-size: cover;
+          background-image: url("~@IMG/to-right.png");
+        }
+      }
+    }
+    .to-right {
+      left: -0.8rem;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    .to-left {
+      right: -0.8rem;
+      top: 0;
+      bottom: 0;
+      margin: auto;
     }
   }
 </style>

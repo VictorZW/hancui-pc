@@ -101,6 +101,7 @@
       $route: {
         handler: function(){
           this.proType = Number(this.$route.params.type)
+          this.page = 1
           this.getProductList()
         },
         deep: true

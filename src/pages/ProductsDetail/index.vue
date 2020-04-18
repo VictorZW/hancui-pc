@@ -64,7 +64,7 @@
       <!--分割线条-->
       <div class="page-line"></div>
     </div>
-    <div class="pro-swiper-area">
+    <div class="pro-swiper-area" v-if="ProductList && ProductList.length > 0">
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide
           class="pro-area"
@@ -116,7 +116,8 @@
       return {
         swiperOption: {
           slidesPerView: 'auto',
-          autoplay: true,
+          autoplay: 3000,
+          autoplayDisableOnInteraction : false,
           loop: true
         },
         ProductDetail: {},

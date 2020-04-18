@@ -57,10 +57,8 @@
                 </div>
               </div>
             </swiper-slide>
-            <div class="swiper-pagination" slot="pagination"></div>
-            <!--<div class="swiper-button-prev" ></div>-->
-            <!--<div class="swiper-button-next" ></div>-->
           </swiper>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
@@ -79,14 +77,9 @@
           slidesPerColumn: 2,
           spaceBetween : 30,
           slidesPerColumnFill : 'row',
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          navigation: {
-            nextEl: '.to-right',
-            prevEl: '.to-left'
-          }
+          prevButton: '.to-right',
+          nextButton: '.to-left',
+          pagination : '.swiper-pagination'
         },
         teacherList: [],
         page: 1,
@@ -126,6 +119,24 @@
 </script>
 
 <style lang="scss" scoped>
+  .swiper-pagination {
+    left: 0;
+    right: 0;
+    padding-top: 0.15rem;
+    /deep/ .swiper-pagination-bullet {
+      width: 0.1rem;
+      height: 0.04rem;
+      background-color: #FFFFFF;
+      border-radius: 0.03rem;
+      display: inline-block;
+      margin: 0 0.05rem;
+    }
+    /deep/ .swiper-pagination-bullet-active {
+      width: 0.15rem;
+      height: 0.06rem;
+      background-color: #FFFFFF;
+    }
+  }
   .AromatherapistHomePage {
     width: 100%;
     height: 100vh;
@@ -272,17 +283,6 @@
                 }
               }
             }
-          }
-          /deep/ .swiper-pagination-bullet {
-            width: 0.1rem;
-            height: 0.04rem;
-            background-color: #FFFFFF;
-            border-radius: 0.03rem;
-          }
-          /deep/ .swiper-pagination-bullet-active {
-            width: 0.15rem;
-            height: 0.06rem;
-            background-color: #FFFFFF;
           }
         }
       }

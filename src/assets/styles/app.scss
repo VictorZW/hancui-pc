@@ -162,11 +162,6 @@ body {
   }
 }
 
-.el-pagination {
-  text-align: center;
-  margin-bottom: 0.1rem;
-}
-
 .text-align-justify {
   text-align: justify;
   span:after {
@@ -175,5 +170,18 @@ body {
     display: inline-block;
     overflow: hidden;
     height: 0;
+  }
+}
+
+.el-pagination {
+  text-align: center;
+  margin-bottom: 0.18rem;
+  .el-icon {
+    font-size: 0.18rem !important;
+  }
+  .el-pager {
+    .number {
+      font-size: 0.18rem !important;
+    }
   }
 }

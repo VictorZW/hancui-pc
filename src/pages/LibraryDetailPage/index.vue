@@ -28,19 +28,20 @@
       <!--最下面的三个-->
       <div class="Related-news">
         <div class="title-line">
-          <div class="title">相关新闻</div>
+          <div class="title">相关资料</div>
         </div>
         <div class="news-list">
           <div class="news-card"
                v-for="item in newsList"
                :key="item.id"
+               @click="toTheDetail(item.id)"
           >
             <div class="time">
               <span class="date">{{ getDate(item.publish_at) }}</span><span class="year">/{{ getYear(item.publish_at) }}</span>
             </div>
             <div class="title">{{ item.title }}</div>
             <div class="instruction">{{ item.instruction }}</div>
-            <div class="read-more" @click="toTheDetail(item.id)">
+            <div class="read-more">
               <span>查看详情</span>
               <span> > </span>
             </div>
@@ -121,7 +122,7 @@
 
 <style lang="scss" scoped>
   .page-banner {
-    background-image: url("~@IMG/news-list-banner.jpg");
+    background-image: url("~@IMG/lbpage.jpg");
     background-size: cover;
     width: 100%;
     height: 4.5rem;
@@ -185,6 +186,11 @@
         background-color: #F8F8F8;
         box-shadow: 0 0 0.21rem 0 rgba(0, 64, 51, 0.15);
         padding: 0.31rem 0.33rem 0;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.02, 1.02);
+          transition: transform .2s;
+        }
         .time {
           .date {
             font-size: 0.28rem;
