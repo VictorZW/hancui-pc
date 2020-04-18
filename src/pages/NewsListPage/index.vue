@@ -97,6 +97,7 @@
       $route: {
         handler: function(){
           this.typeId = Number(this.$route.params.type)
+          this.page = 1
           this.getNewsList()
         },
         deep: true
@@ -119,7 +120,6 @@
           name: 'NewsListPage',
           params: { type: type }
         })
-        this.getNewsList()
       },
       toNewsDetailPage(id) {
         this.$router.push({
@@ -138,7 +138,7 @@
         }
         newsListApi(params).then(res => {
           this.total = res.result.total
-          this.newsList = JSON.parse(JSON.stringify(res.result.list))
+          this.newsList = res.result.list
         })
       },
       searchData(keyword) {
