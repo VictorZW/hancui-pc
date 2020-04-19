@@ -349,16 +349,14 @@
       }
     },
     mounted() {
-      this.getHomepageBanner()
-      this.getProductCate()
-      this.getNewsList()
-    },
-    updated() {
       // 创建全屏滚动实例，并初始化
       new PureFullPage({
         delay: 1000,
         isShowNav: true
       })
+      this.getHomepageBanner()
+      this.getProductCate()
+      this.getNewsList()
     },
     methods: {
       getHomepageBanner() {
