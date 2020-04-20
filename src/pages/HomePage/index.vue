@@ -1048,11 +1048,11 @@
     }
   }
   .page3-slide-libraryData {
-    height: 2.6rem !important;
+    height: 3.6rem !important;
   }
   .library-area {
-    width: 3.56rem;
-    height: 2.6rem;
+    width: 4.56rem;
+    height: 3.6rem;
     margin-right: 0.25rem;
     position: relative;
     cursor: pointer;

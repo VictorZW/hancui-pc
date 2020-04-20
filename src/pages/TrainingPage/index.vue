@@ -32,16 +32,48 @@
       <div class="title">成为CRA注册芳疗师的<span>四大理由</span></div>
       <div class="content">
         <div class="left">
-          <div class="line">不失业金饭碗</div>
-          <div class="line">炙手可热朝阳产业</div>
-          <div class="line">成为中医学及芳疗大师</div>
-          <div class="line">学芳疗，懂生活</div>
+          <div class="line"
+               :class="[Number(whichTab) === 1 ? 'line-active' : '']"
+               @mouseover="chooseTab(1)">不失业金饭碗</div>
+          <div class="line"
+               :class="[Number(whichTab) === 2 ? 'line-active' : '']"
+               @mouseover="chooseTab(2)">炙手可热朝阳产业</div>
+          <div class="line"
+               :class="[Number(whichTab) === 3 ? 'line-active' : '']"
+               @mouseover="chooseTab(3)">成为中医学及芳疗大师</div>
+          <div class="line"
+               :class="[Number(whichTab) === 4 ? 'line-active' : '']"
+               @mouseover="chooseTab(4)">学芳疗，懂生活</div>
         </div>
-        <div class="right">
-          <div class="banner"></div>
+        <div class="right" v-if="Number(whichTab) === 1">
+          <div class="banner banner1"></div>
+          <div class="text">
+            多选就业岗位:<br/>
+            芳疗保健师<br/>
+            SPA水疗师<br/>
+            美容师<br/>
+            健康管理师<br/>
+            ......
+          </div>
+        </div>
+        <div class="right" v-if="Number(whichTab) === 2">
+          <div class="banner banner2"></div>
           <div class="text">
             大健康产业，以成为<br/>
             未来的就业风口
+          </div>
+        </div>
+        <div class="right" v-if="Number(whichTab) === 3">
+          <div class="banner banner3"></div>
+          <div class="text">
+            通过系统的学习你将成为掌握中医学基础理论与西方精油技术运用的<span>稀缺人才</span>，为深入研究奠定良好的基础
+          </div>
+        </div>
+        <div class="right" v-if="Number(whichTab) === 4">
+          <div class="banner banner4"></div>
+          <div class="text">
+            呵护家人健康，修身养性<br/>
+            提升生活品味
           </div>
         </div>
       </div>
@@ -51,7 +83,17 @@
 
 <script>
   export default {
-    name: 'TrainingPage'
+    name: 'TrainingPage',
+    data() {
+      return {
+        whichTab: 1
+      }
+    },
+    methods: {
+      chooseTab(index) {
+        this.whichTab = index
+      }
+    }
   }
 </script>
 
@@ -183,9 +225,9 @@
           border-left: 0.01rem solid rgba(0, 0, 0, 1);
           border-right: 0.01rem solid rgba(0, 0, 0, 1);
           border-bottom: 0.01rem solid rgba(0, 0, 0, 1);
-          &:hover {
-            background-color: #FF7A1C;
-          }
+        }
+        .line-active {
+          background-color: #FF7A1C;
         }
       }
       .right {
@@ -193,7 +235,21 @@
         .banner {
           width: 5.67rem;
           height: 100%;
+        }
+        .banner1 {
           background-image: url("~@IMG/p3-banner.jpg");
+          background-size: 100% 100%;
+        }
+        .banner2 {
+          background-image: url("~@IMG/p3-banner2.jpeg");
+          background-size: 100% 100%;
+        }
+        .banner3 {
+          background-image: url("~@IMG/p3-banner3.jpeg");
+          background-size: 100% 100%;
+        }
+        .banner4 {
+          background-image: url("~@IMG/p3-banner4.jpeg");
           background-size: 100% 100%;
         }
         .text {
@@ -204,9 +260,12 @@
           color: #333333;
           background-color: #FFFFFF;
           font-weight: bold;
-          padding-top: 1.01rem;
+          padding: 1.01rem 0.46rem 0;
           line-height: 1.6;
           opacity: 0.7;
+          span {
+            color: #15B175;
+          }
         }
       }
     }
