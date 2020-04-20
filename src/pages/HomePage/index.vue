@@ -304,7 +304,9 @@
           <div class="bei-an-area">
             <span>Copyright © 2020汉萃（天津)有限公司 保留所有权利</span>
             <img src="~@IMG/beian.png" class="beian-icon">
-            <span>津ICP备19011178号</span>
+            <a href="http://www.beian.miit.gov.cn/" target="_blank">
+              <span>津ICP备19011178号</span>
+            </a>
           </div>
         </div>
       </div>
