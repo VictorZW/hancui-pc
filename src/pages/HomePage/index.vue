@@ -1062,6 +1062,11 @@
     position: relative;
     cursor: pointer;
     background-size: 100% 100%;
+    a {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
     .library-msg {
       width: 100%;
       height: 0.68rem;
@@ -1075,6 +1080,7 @@
       background-color: #069163;
       opacity: 0.9;
       line-height: 0.68rem;
+      padding: 0 0.15rem;
     }
   }
 </style>
