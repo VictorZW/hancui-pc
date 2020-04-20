@@ -677,6 +677,11 @@
                 .line2 {
                   font-size: 0.16rem;
                   color: #FFFFFF;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
                 }
               }
               &:hover > a > .teacher-msg {
