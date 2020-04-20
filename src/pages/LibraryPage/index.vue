@@ -156,6 +156,9 @@
               position: absolute;
               bottom: 0;
               color: #FFFFFF;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
             }
           }
         }

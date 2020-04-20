@@ -103,10 +103,10 @@
                 <div class="swiper-button-next-new" slot="button-next"></div>
               </swiper>
             </div>
-            <div class="page3-slide" v-if="page3Index === 3">
+            <div class="page3-slide page3-slide-libraryData" v-if="page3Index === 3">
               <swiper class="swiper" :options="swiperOption">
                 <swiper-slide
-                  class="pro-area"
+                  class="library-area"
                   v-for="item in libraryData"
                   :key="item.id"
                   :style="{ backgroundImage: 'url(' + item.thumb + ')' }"
@@ -114,7 +114,7 @@
                   <router-link
                     :to="{ name: 'LibraryDetailPage', params: { id: item.id }}"
                   >
-                    <div class="teacher-msg">
+                    <div class="library-msg">
                       <div class="line1">
                         <span class="job">{{ item.title }}</span>
                       </div>
@@ -1045,6 +1045,31 @@
           }
         }
       }
+    }
+  }
+  .page3-slide-libraryData {
+    height: 2.6rem !important;
+  }
+  .library-area {
+    width: 3.56rem;
+    height: 2.6rem;
+    margin-right: 0.25rem;
+    position: relative;
+    cursor: pointer;
+    background-size: 100% 100%;
+    .library-msg {
+      width: 100%;
+      height: 0.68rem;
+      font-size: 0.16rem;
+      color: #FFFFFF;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      position: absolute;
+      bottom: 0;
+      background-color: #069163;
+      opacity: 0.9;
+      line-height: 0.68rem;
     }
   }
 </style>

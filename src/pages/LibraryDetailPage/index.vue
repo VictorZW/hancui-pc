@@ -88,6 +88,7 @@
       $route: {
         handler: function() {
           this.getNewsDetail()
+          this.getNewsList()
         },
         deep: true
       }
