@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Meta from 'vue-meta'
 /**
  * 重写路由的push方法
  */
@@ -22,6 +23,7 @@ import LibraryDetailPage from '@/pages/LibraryDetailPage'
 import ContactUs from '@/pages/ContactUs'
 
 Vue.use(Router)
+Vue.use(Meta)
 
 export default new Router({
   mode: 'history',

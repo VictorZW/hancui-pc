@@ -77,7 +77,17 @@
         pre_news: {},
         next_news: {},
         typeId: '',
-        newsList: []
+        newsList: [],
+        keyword: '',
+        description: ''
+      }
+    },
+    metaInfo () {
+      return {
+        meta: [
+          { vmid: 'description', name: 'description', content: this.description },
+          { vmid: 'keyword', name: 'keyword', content: this.keyword }
+        ]
       }
     },
     mounted() {
@@ -104,6 +114,8 @@
           this.pre_news = JSON.parse(JSON.stringify(res.result.pre_news))
           this.next_news = JSON.parse(JSON.stringify(res.result.next_news))
           this.typeId = this.newsDetail.type
+          this.keyword = res.result.news.keyword
+          this.description = res.result.news.description
         })
       },
       // 上一页下一页跳转

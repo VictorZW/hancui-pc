@@ -129,7 +129,17 @@
         clickCount: 0,
         bigImg: '',
         showViewer: false,
-        centerDialogVisible: false
+        centerDialogVisible: false,
+        keyword: '',
+        description: ''
+      }
+    },
+    metaInfo () {
+      return {
+        meta: [
+          { vmid: 'description', name: 'description', content: this.description },
+          { vmid: 'keyword', name: 'keyword', content: this.keyword }
+        ]
       }
     },
     components: {
@@ -211,6 +221,8 @@
           this.proType = Number(this.ProductDetail.type)
           this.allImages = this.ProductDetail.imgs
           this.bigImg = this.ProductDetail.logo
+          this.keyword = res.result.keyword
+          this.description = res.result.description
           this.resetImg()
         })
       },
