@@ -86,7 +86,7 @@
       return {
         meta: [
           { vmid: 'description', name: 'description', content: this.description },
-          { vmid: 'keyword', name: 'keyword', content: this.keyword }
+          { vmid: 'keywords', name: 'keywords', content: this.keyword }
         ]
       }
     },
