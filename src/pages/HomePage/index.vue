@@ -877,10 +877,12 @@
         background-size: 100% 100%;
         box-sizing: border-box;
         padding: 0.58rem 0 0.58rem 0.58rem;
-        overflow: hidden;
         .content {
           display: flex;
+          height: 50%;
+          padding-top: 0.1rem;
           padding-bottom: 0.4rem;
+          overflow: hidden;
           .content-1 {
             width: 50%;
             padding-right: 0.55rem;
